@@ -77,74 +77,23 @@ A **free, subscription-free** clone of [boot.dev](https://boot.dev) for learning
 
 ## 🚀 Quick Start
 
-### 1. Clone the repository
+Choose your setup:
+
+| Guide | Best for |
+|-------|----------|
+| **[🐳 Docker Install](DOCKER_INSTALL.md)** | Run with Docker — no Go/PostgreSQL/Node needed |
+| **[💻 Local Install](LOCAL_INSTALL.md)** | Run directly on your machine — no Docker needed |
+
+**Minimal start (after setup):**
 
 ```bash
-git clone https://github.com/yourusername/boot.dev-clone.git
-cd boot.dev-clone
-```
+# Terminal 1: Backend
+cd backend && DATABASE_URL="postgres://postgres@localhost:5432/bootdev_clone?sslmode=disable" ./server
 
-### 2. Set up PostgreSQL (choose one)
+# Terminal 2: Frontend
+cd frontend && npm install && npm run dev
 
-**Option A: Docker (recommended)**
-
-```bash
-docker run -d \
-  --name bootdev-clone-db \
-  -p 5433:5432 \
-  -e POSTGRES_DB=bootdev_clone \
-  -e POSTGRES_USER=bootdev \
-  -e POSTGRES_PASSWORD=bootdev \
-  postgres:16-alpine
-```
-
-**Option B: Local PostgreSQL**
-
-```bash
-# Create the database
-createdb -p 5432 bootdev_clone
-```
-
-### 3. Seed the database
-
-```bash
-cd scripts
-npm install
-DB_HOST=localhost DB_PORT=5433 DB_NAME=bootdev_clone DB_USER=bootdev DB_PASS=bootdev node seed-db.js
-```
-
-### 4. Start the Go API server
-
-```bash
-cd backend
-DATABASE_URL="postgres://bootdev:bootdev@localhost:5433/bootdev_clone?sslmode=disable" go run main.go pty_manager.go
-```
-
-Or use the pre-compiled binary:
-```bash
-cd backend
-DATABASE_URL="postgres://bootdev:bootdev@localhost:5433/bootdev_clone?sslmode=disable" ./server
-```
-
-The API starts on **http://localhost:8080**.
-
-### 5. Start the Next.js frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-The frontend starts on **http://localhost:3000**.
-
-### 6. All at once with Docker Compose
-
-```bash
-docker compose up -d
-# PostgreSQL on :5433, API on :8080
-# Then start frontend separately:
-cd frontend && npm run dev
+# → http://localhost:3000
 ```
 
 ---

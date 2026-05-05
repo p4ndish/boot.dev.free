@@ -9,6 +9,6 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=builder /app/server .
-COPY ../data /data
+# Data directory is mounted as a volume at runtime (see docker-compose.yml)
 EXPOSE 8080
 CMD ["./server"]
