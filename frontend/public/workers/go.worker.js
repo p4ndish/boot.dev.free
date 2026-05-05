@@ -5,8 +5,8 @@
 let goWasmInstance = null;
 let ready = false;
 
-// The Go "wasm_exec.js" glue code is loaded from CDN
-importScripts("https://cdn.jsdelivr.net/npm/golang-wasm-exec@latest/wasm_exec.js");
+// Go WASM glue code — shipped with Go distribution, served locally
+importScripts("wasm_exec.js");
 
 self.onmessage = async (event) => {
   const { type, code } = event.data;
