@@ -1,20 +1,21 @@
 // public/workers/go.worker.js
 // Go WASM execution in a Web Worker
-// Requires: Go compilation endpoint to return WASM binary
+// The API URL is passed from the main thread for correct routing
 
 let goWasmInstance = null;
-let ready = false;
+let apiBase = "http://localhost:8080";
 
 // Go WASM glue code — shipped with Go distribution, served locally
 importScripts("wasm_exec.js");
 
 self.onmessage = async (event) => {
-  const { type, code } = event.data;
+  const { type, code, apiUrl } = event.data;
+  if (apiUrl) apiBase = apiUrl;
 
   if (type === "run") {
-    // Step 1: Send code to compilation endpoint
     try {
-      const compileResp = await fetch("/api/v1/compile/go", {
+      // Compile Go to WASM via the backend
+      const compileResp = await fetch(`${apiBase}/api/v1/compile/go`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ source: code }),
@@ -29,32 +30,21 @@ self.onmessage = async (event) => {
 
       const wasmBytes = await compileResp.arrayBuffer();
 
-      // Step 2: Execute WASM
+      // Execute WASM
       const go = new self.Go();
-
-      // Capture stdout/stderr
-      let stdoutBuffer = "";
-      go.importObject.gojs = {
-        "syscall/js.finalizeRef": () => {},
-      };
-
-      const stdoutWrite = (data) => {
-        const text = new TextDecoder().decode(data);
-        stdoutBuffer += text;
-        self.postMessage({ type: "stdout", text });
-      };
+      go.importObject.gojs = { "syscall/js.finalizeRef": () => {} };
 
       try {
         const { instance } = await WebAssembly.instantiate(wasmBytes, go.importObject);
         goWasmInstance = instance;
 
-        // Set up IO
         const fs = go.importObject["syscall/js"]?.fs || {};
         if (fs.writeSync) {
           const origWrite = fs.writeSync.bind(fs);
           fs.writeSync = (fd, buf) => {
             if (fd === 1 || fd === 2) {
-              stdoutWrite(buf);
+              const text = new TextDecoder().decode(buf);
+              self.postMessage({ type: "stdout", text });
               return buf.length;
             }
             return origWrite(fd, buf);

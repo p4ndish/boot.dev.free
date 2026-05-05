@@ -77,6 +77,9 @@ export function useCodeExecution() {
     const startTime = performance.now();
     const worker = getWorker(language);
 
+    // API URL for Go compilation — same host, backend port
+    const apiUrl = `${window.location.protocol}//${window.location.hostname}:8080`;
+
     return new Promise((resolve) => {
       const doneHandler = (event: MessageEvent) => {
         if (event.data.type === "done") {
@@ -92,7 +95,7 @@ export function useCodeExecution() {
       };
 
       worker.addEventListener("message", doneHandler);
-      worker.postMessage({ type: "run", code, files });
+      worker.postMessage({ type: "run", code, files, apiUrl });
     });
   }, [getWorker]);
 
