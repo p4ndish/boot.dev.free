@@ -1,0 +1,389 @@
+[
+  {
+    "uuid": "f9a25dfb-3e00-4727-ac78-36de82315355",
+    "slug": "learn-code-python",
+    "title": "Learn to Code in Python",
+    "lessonCount": 179,
+    "hours": 30,
+    "type": "Course",
+    "chapters": 14
+  },
+  {
+    "uuid": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "slug": "learn-linux",
+    "title": "Learn Linux",
+    "lessonCount": 66,
+    "hours": 10,
+    "type": "Course",
+    "chapters": 6
+  },
+  {
+    "uuid": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "slug": "build-bookbot-python",
+    "title": "Build a Bookbot in Python",
+    "lessonCount": 12,
+    "hours": 6,
+    "type": "Guided Project",
+    "chapters": 3
+  },
+  {
+    "uuid": "933d6dd0-b21a-488e-8ece-469bbef28652",
+    "slug": "learn-git",
+    "title": "Learn Git",
+    "lessonCount": 75,
+    "hours": 8,
+    "type": "Course",
+    "chapters": 11
+  },
+  {
+    "uuid": "f9a48bbc-d1ff-4388-bf0c-23c6e3c60ae0",
+    "slug": "learn-object-oriented-programming-python",
+    "title": "Learn Object Oriented Programming in Python",
+    "lessonCount": 61,
+    "hours": 18,
+    "type": "Course",
+    "chapters": 6
+  },
+  {
+    "uuid": "b9d8cc18-455b-4531-b9ca-e134c7dba3df",
+    "slug": "build-asteroids-python",
+    "title": "Build Asteroids using Python and Pygame",
+    "lessonCount": 19,
+    "hours": 6,
+    "type": "Guided Project",
+    "chapters": 4
+  },
+  {
+    "uuid": "b1459f0c-21eb-41e5-b7f3-562ef69d344c",
+    "slug": "learn-functional-programming-python",
+    "title": "Learn Functional Programming in Python",
+    "lessonCount": 88,
+    "hours": 22,
+    "type": "Course",
+    "chapters": 9
+  },
+  {
+    "uuid": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "slug": "build-ai-agent-python",
+    "title": "Build an AI Agent in Python",
+    "lessonCount": 19,
+    "hours": 12,
+    "type": "Guided Project",
+    "chapters": 4
+  },
+  {
+    "uuid": "7bbb53ed-2106-4f6b-b885-e7645c2ff9d8",
+    "slug": "learn-data-structures-and-algorithms-python",
+    "title": "Learn Data Structures and Algorithms in Python",
+    "lessonCount": 175,
+    "hours": 32,
+    "type": "Course",
+    "chapters": 16
+  },
+  {
+    "uuid": "d38e78e9-ae52-458e-8494-ec7ecbdab14f",
+    "slug": "build-static-site-generator-python",
+    "title": "Build a Static Site Generator in Python",
+    "lessonCount": 28,
+    "hours": 30,
+    "type": "Guided Project",
+    "chapters": 5
+  },
+  {
+    "uuid": "8926592f-99b6-4398-a02f-f52e20677f64",
+    "slug": "learn-memory-management-c",
+    "title": "Learn Memory Management in C",
+    "lessonCount": 102,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 11
+  },
+  {
+    "uuid": "273215af-23f0-4461-a5d8-617c7f19127c",
+    "slug": "build-personal-project-1",
+    "title": "First Personal Project",
+    "lessonCount": 4,
+    "hours": 20,
+    "type": "Portfolio Project",
+    "chapters": 1
+  },
+  {
+    "uuid": "3b39d0f6-f944-4f1b-832d-a1daba32eda4",
+    "slug": "learn-golang",
+    "title": "Learn Go",
+    "lessonCount": 189,
+    "hours": 20,
+    "type": "Course",
+    "chapters": 17
+  },
+  {
+    "uuid": "323f2bff-0ba4-4ae9-b617-33bc5b2b7d79",
+    "slug": "learn-http-clients-golang",
+    "title": "Learn HTTP Clients in Go",
+    "lessonCount": 83,
+    "hours": 14,
+    "type": "Course",
+    "chapters": 10
+  },
+  {
+    "uuid": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "slug": "build-pokedex-cli-golang",
+    "title": "Build a Pokedex in Go",
+    "lessonCount": 12,
+    "hours": 24,
+    "type": "Guided Project",
+    "chapters": 3
+  },
+  {
+    "uuid": "bc0dc34b-025a-4d97-b7a0-382aa21533aa",
+    "slug": "learn-sql",
+    "title": "Learn SQL",
+    "lessonCount": 126,
+    "hours": 30,
+    "type": "Course",
+    "chapters": 11
+  },
+  {
+    "uuid": "3a8d6b13-c064-424d-bd09-5e09ceaddfea",
+    "slug": "build-blog-aggregator-golang",
+    "title": "Build a Blog Aggregator in Go",
+    "lessonCount": 18,
+    "hours": 24,
+    "type": "Guided Project",
+    "chapters": 5
+  },
+  {
+    "uuid": "81b7293c-60aa-40c7-a158-7c87428f6031",
+    "slug": "learn-http-servers-golang",
+    "title": "Learn HTTP Servers in Go",
+    "lessonCount": 69,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 9
+  },
+  {
+    "uuid": "189c4b36-0a42-4211-ae03-7938550c5b57",
+    "slug": "learn-file-servers-s3-cloudfront-golang",
+    "title": "Learn File Servers and CDNs with S3 and CloudFront",
+    "lessonCount": 45,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 8
+  },
+  {
+    "uuid": "2d740eb6-3234-419e-9a23-08ec9e9889b7",
+    "slug": "learn-docker",
+    "title": "Learn Docker",
+    "lessonCount": 43,
+    "hours": 18,
+    "type": "Course",
+    "chapters": 8
+  },
+  {
+    "uuid": "93174165-cfaf-4201-a5b6-7da1864c9792",
+    "slug": "learn-pub-sub-rabbitmq-golang",
+    "title": "Learn Pub/Sub in RabbitMQ and Golang",
+    "lessonCount": 49,
+    "hours": 32,
+    "type": "Course",
+    "chapters": 7
+  },
+  {
+    "uuid": "25a0e482-fd55-463c-80b6-4fbf789fcef5",
+    "slug": "build-capstone-project",
+    "title": "Capstone Project",
+    "lessonCount": 3,
+    "hours": 50,
+    "type": "Portfolio Project",
+    "chapters": 1
+  },
+  {
+    "uuid": "0617f271-09a6-4b1c-ab59-d0ec22f53153",
+    "slug": "learn-job-search",
+    "title": "Learn How to Find a Programming Job",
+    "lessonCount": 52,
+    "hours": 12,
+    "type": "Course",
+    "chapters": 9
+  },
+  {
+    "uuid": "038a9949-71e5-4eee-9a0f-baf877389a2f",
+    "slug": "learn-retrieval-augmented-generation",
+    "title": "Learn Retrieval Augmented Generation",
+    "lessonCount": 75,
+    "hours": 40,
+    "type": "Course",
+    "chapters": 12
+  },
+  {
+    "uuid": "6e3b98ed-44ea-437e-aae2-581a03bb318b",
+    "slug": "learn-http-protocol-golang",
+    "title": "Learn the HTTP Protocol in Go",
+    "lessonCount": 43,
+    "hours": 16,
+    "type": "Course",
+    "chapters": 9
+  },
+  {
+    "uuid": "bfc68e84-1d2d-461e-a8cd-ce94182d8731",
+    "slug": "learn-git-2",
+    "title": "Learn Git 2",
+    "lessonCount": 73,
+    "hours": 12,
+    "type": "Course",
+    "chapters": 11
+  },
+  {
+    "uuid": "6e6236f7-6f6b-45e3-859a-5fd0084754aa",
+    "slug": "learn-kubernetes",
+    "title": "Learn Kubernetes",
+    "lessonCount": 66,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 10
+  },
+  {
+    "uuid": "1d057329-0a4a-486f-a8cc-2fccada6b307",
+    "slug": "learn-ci-cd-github-docker-golang",
+    "title": "Learn CI/CD with GitHub Actions, Docker and Go",
+    "lessonCount": 40,
+    "hours": 20,
+    "type": "Course",
+    "chapters": 8
+  },
+  {
+    "uuid": "6321ddbf-49eb-4748-9737-6bc12e8bb705",
+    "slug": "learn-cryptography-golang",
+    "title": "Learn Cryptography in Go",
+    "lessonCount": 127,
+    "hours": 16,
+    "type": "Course",
+    "chapters": 14
+  },
+  {
+    "uuid": "aaad49fb-0dc5-43c6-992c-96d3f83ee663",
+    "slug": "learn-data-structures-and-algorithms-python-2",
+    "title": "Learn Data Structures and Algorithms 2 in Python",
+    "lessonCount": 77,
+    "hours": 22,
+    "type": "Course",
+    "chapters": 7
+  },
+  {
+    "uuid": "2af5c197-21eb-48b4-bd90-b0d59adb311e",
+    "slug": "learn-javascript",
+    "title": "Learn JavaScript",
+    "lessonCount": 122,
+    "hours": 25,
+    "type": "Course",
+    "chapters": 15
+  },
+  {
+    "uuid": "95d9af8c-aabb-4c13-b68a-d4b05c4ec959",
+    "slug": "learn-typescript",
+    "title": "Learn TypeScript",
+    "lessonCount": 105,
+    "hours": 20,
+    "type": "Course",
+    "chapters": 15
+  },
+  {
+    "uuid": "5d804c54-887a-4c1c-b8c7-b6436f3a132e",
+    "slug": "learn-http-clients-typescript",
+    "title": "Learn HTTP Clients in TypeScript",
+    "lessonCount": 81,
+    "hours": 14,
+    "type": "Course",
+    "chapters": 10
+  },
+  {
+    "uuid": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "slug": "build-pokedex-cli-typescript",
+    "title": "Build a Pokedex in TypeScript",
+    "lessonCount": 13,
+    "hours": 24,
+    "type": "Guided Project",
+    "chapters": 3
+  },
+  {
+    "uuid": "90a18541-cdac-4b0c-a60f-7794fdbc9886",
+    "slug": "build-blog-aggregator-typescript",
+    "title": "Build a Blog Aggregator in Typescript",
+    "lessonCount": 19,
+    "hours": 24,
+    "type": "Guided Project",
+    "chapters": 5
+  },
+  {
+    "uuid": "ff177b31-d95b-4617-a6d3-db9007569db6",
+    "slug": "learn-http-servers-typescript",
+    "title": "Learn HTTP Servers in TypeScript",
+    "lessonCount": 68,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 10
+  },
+  {
+    "uuid": "99abfd40-9396-4a81-9a97-c0f503408f14",
+    "slug": "learn-file-servers-s3-cloudfront-typescript",
+    "title": "Learn File Servers and CDNs with S3 and CloudFront",
+    "lessonCount": 45,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 8
+  },
+  {
+    "uuid": "c32fd8e7-1090-42d7-8319-3cf356f321a9",
+    "slug": "learn-pub-sub-rabbitmq-typescript",
+    "title": "Learn Pub/Sub in RabbitMQ and TypeScript",
+    "lessonCount": 49,
+    "hours": 32,
+    "type": "Course",
+    "chapters": 7
+  },
+  {
+    "uuid": "e4639893-eb78-438e-ab34-0d230a1c23c4",
+    "slug": "learn-ci-cd-github-docker-typescript",
+    "title": "Learn CI/CD with GitHub Actions, Docker and TypeScript",
+    "lessonCount": 39,
+    "hours": 20,
+    "type": "Course",
+    "chapters": 8
+  },
+  {
+    "uuid": "59fbb2aa-7d67-4e88-bac8-42f49798a9f5",
+    "slug": "build-web-scraper-typescript",
+    "title": "Build a Web Scraper in TypeScript",
+    "lessonCount": 14,
+    "hours": 6,
+    "type": "Guided Project",
+    "chapters": 4
+  },
+  {
+    "uuid": "2b266bb4-2262-49c0-b6d1-75cd8c5e8be8",
+    "slug": "build-maze-solver-python",
+    "title": "Build a Maze Solver in Python",
+    "lessonCount": 13,
+    "hours": 10,
+    "type": "Guided Project",
+    "chapters": 4
+  },
+  {
+    "uuid": "a70429b1-0d3f-4b1d-8b5a-f43c2ab5a157",
+    "slug": "learn-logging-observability-golang",
+    "title": "Learn Logging and Observability in Go",
+    "lessonCount": 73,
+    "hours": 16,
+    "type": "Course",
+    "chapters": 12
+  },
+  {
+    "uuid": "3e050063-c904-40ee-9ace-192ae26c6df4",
+    "slug": "learn-aws",
+    "title": "Learn AWS",
+    "lessonCount": 93,
+    "hours": 24,
+    "type": "Course",
+    "chapters": 11
+  }
+]

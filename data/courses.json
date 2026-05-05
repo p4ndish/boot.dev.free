@@ -1,0 +1,677 @@
+[
+  {
+    "slug": "learn-code-python",
+    "name": "Learn Coding Basics",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/learn-code-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 1
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 1
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 1
+      }
+    ]
+  },
+  {
+    "slug": "learn-linux",
+    "name": "Learn Linux",
+    "languages": [
+      "Bash/Zsh"
+    ],
+    "url": "https://www.boot.dev/courses/learn-linux",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 2
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 2
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 2
+      }
+    ]
+  },
+  {
+    "slug": "build-bookbot-python",
+    "name": "Build a Bookbot",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/build-bookbot-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 3
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 3
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 3
+      }
+    ]
+  },
+  {
+    "slug": "learn-git",
+    "name": "Learn Git",
+    "languages": [
+      "Git"
+    ],
+    "url": "https://www.boot.dev/courses/learn-git",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 4
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 4
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 4
+      }
+    ]
+  },
+  {
+    "slug": "learn-object-oriented-programming-python",
+    "name": "Learn Object Oriented Programming",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/learn-object-oriented-programming-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 5
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 5
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 6
+      }
+    ]
+  },
+  {
+    "slug": "build-asteroids-python",
+    "name": "Build an Asteroids Game",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/build-asteroids-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 6
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 6
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 7
+      }
+    ]
+  },
+  {
+    "slug": "learn-functional-programming-python",
+    "name": "Learn Functional Programming",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/learn-functional-programming-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 7
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 7
+      }
+    ]
+  },
+  {
+    "slug": "build-ai-agent-python",
+    "name": "Build an AI Agent",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/build-ai-agent-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 8
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 8
+      }
+    ]
+  },
+  {
+    "slug": "learn-data-structures-and-algorithms-python",
+    "name": "Learn Data Structures and Algorithms",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/learn-data-structures-and-algorithms-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 9
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 9
+      }
+    ]
+  },
+  {
+    "slug": "build-static-site-generator-python",
+    "name": "Build a Static Site Generator",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://www.boot.dev/courses/build-static-site-generator-python",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 10
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 10
+      }
+    ]
+  },
+  {
+    "slug": "learn-memory-management-c",
+    "name": "Learn Memory Management",
+    "languages": [
+      "C"
+    ],
+    "url": "https://www.boot.dev/courses/learn-memory-management-c",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 11
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 11
+      }
+    ]
+  },
+  {
+    "slug": "build-personal-project-1",
+    "name": "Personal Project 1",
+    "languages": [
+      "any"
+    ],
+    "url": "https://www.boot.dev/courses/build-personal-project-1",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 12
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 12
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 8
+      }
+    ]
+  },
+  {
+    "slug": "learn-golang",
+    "name": "Learn Golang",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/learn-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 13
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 9
+      }
+    ]
+  },
+  {
+    "slug": "learn-http-clients-golang",
+    "name": "Learn HTTP Clients",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/learn-http-clients-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 14
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 12
+      }
+    ]
+  },
+  {
+    "slug": "build-pokedex-cli-golang",
+    "name": "Build a Pokedex",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/build-pokedex-cli-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 15
+      }
+    ]
+  },
+  {
+    "slug": "learn-sql",
+    "name": "Learn SQL",
+    "languages": [
+      "SQL"
+    ],
+    "url": "https://www.boot.dev/courses/learn-sql",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 16
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 17
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 13
+      }
+    ]
+  },
+  {
+    "slug": "build-blog-aggregator-golang",
+    "name": "Build a Blog Aggregator",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/build-blog-aggregator-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 17
+      }
+    ]
+  },
+  {
+    "slug": "learn-http-servers-golang",
+    "name": "Learn HTTP Servers",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/learn-http-servers-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 18
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 14
+      }
+    ]
+  },
+  {
+    "slug": "learn-file-servers-s3-cloudfront-golang",
+    "name": "Learn File Storage and CDNs",
+    "languages": [
+      "Go + S3 + CloudFront"
+    ],
+    "url": "https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-golang",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 19
+      }
+    ]
+  },
+  {
+    "slug": "learn-docker",
+    "name": "Learn Docker",
+    "languages": [
+      "Docker"
+    ],
+    "url": "https://www.boot.dev/courses/learn-docker",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 20
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 21
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 17
+      }
+    ]
+  },
+  {
+    "slug": "learn-pub-sub-rabbitmq",
+    "name": "Learn Pub/Sub Architecture",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://www.boot.dev/courses/learn-pub-sub-rabbitmq",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 23
+      }
+    ]
+  },
+  {
+    "slug": "build-capstone-project",
+    "name": "Capstone Project",
+    "languages": [
+      "any"
+    ],
+    "url": "https://www.boot.dev/courses/build-capstone-project",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 26
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 27
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 25
+      }
+    ]
+  },
+  {
+    "slug": "learn-job-search",
+    "name": "Learn to Find a Job",
+    "languages": [
+      "Job Search"
+    ],
+    "url": "https://www.boot.dev/courses/learn-job-search",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & Go",
+        "step": 27
+      },
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 28
+      },
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 26
+      }
+    ]
+  },
+  {
+    "slug": "learn-javascript",
+    "name": "Learn JavaScript",
+    "languages": [
+      "JavaScript"
+    ],
+    "url": "https://www.boot.dev/courses/learn-javascript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 13
+      }
+    ]
+  },
+  {
+    "slug": "learn-typescript",
+    "name": "Learn TypeScript",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/learn-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 14
+      }
+    ]
+  },
+  {
+    "slug": "learn-http-clients-typescript",
+    "name": "Learn HTTP Clients",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/learn-http-clients-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 15
+      }
+    ]
+  },
+  {
+    "slug": "build-pokedex-cli-typescript",
+    "name": "Build a Pokedex",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/build-pokedex-cli-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 16
+      }
+    ]
+  },
+  {
+    "slug": "build-blog-aggregator-typescript",
+    "name": "Build a Blog Aggregator",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/build-blog-aggregator-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 18
+      }
+    ]
+  },
+  {
+    "slug": "learn-http-servers-typescript",
+    "name": "Learn HTTP Servers",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/learn-http-servers-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 19
+      }
+    ]
+  },
+  {
+    "slug": "learn-file-servers-s3-cloudfront-typescript",
+    "name": "Learn File Storage and CDNs",
+    "languages": [
+      "TypeScript + S3 + CloudFront"
+    ],
+    "url": "https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 20
+      }
+    ]
+  },
+  {
+    "slug": "learn-pub-sub-rabbitmq-typescript",
+    "name": "Learn Pub/Sub Architecture",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://www.boot.dev/courses/learn-pub-sub-rabbitmq-typescript",
+    "paths": [
+      {
+        "path_name": "Backend Developer Career Path",
+        "variant": "Python & TypeScript",
+        "step": 24
+      }
+    ]
+  },
+  {
+    "slug": "learn-logging-observability-golang",
+    "name": "Learn Logging and Telemetry",
+    "languages": [
+      "Go, Grafana, Prometheus"
+    ],
+    "url": "https://www.boot.dev/courses/learn-logging-observability-golang",
+    "paths": [
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 18
+      }
+    ]
+  },
+  {
+    "slug": "learn-ci-cd-github-docker",
+    "name": "Learn CI/CD",
+    "languages": [
+      "Docker + GitHub Actions + Go"
+    ],
+    "url": "https://www.boot.dev/courses/learn-ci-cd-github-docker",
+    "paths": [
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 19
+      }
+    ]
+  },
+  {
+    "slug": "learn-aws",
+    "name": "Learn Cloud Infrastructure",
+    "languages": [
+      "AWS"
+    ],
+    "url": "https://www.boot.dev/courses/learn-aws",
+    "paths": [
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 20
+      }
+    ]
+  },
+  {
+    "slug": "learn-kubernetes",
+    "name": "Learn Kubernetes",
+    "languages": [
+      "Kubernetes"
+    ],
+    "url": "https://www.boot.dev/courses/learn-kubernetes",
+    "paths": [
+      {
+        "path_name": "DevOps Career Path",
+        "variant": "Python & Go",
+        "step": 22
+      }
+    ]
+  }
+]

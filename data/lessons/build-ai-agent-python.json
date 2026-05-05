@@ -1,0 +1,1455 @@
+[
+  {
+    "uuid": "44e182d7-c2c6-4c7e-9313-1b078e301344",
+    "slug": "1-welcome",
+    "title": "Build an AI Agent",
+    "type": "type_cli",
+    "topics": [
+      "AI Agents",
+      "Large Language Models",
+      "Function Calling"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 34,
+    "readme": "# Build an AI Agent\n\n_Time for Boot.dev to cash in on the **AI hype**_.\n\nIf you've ever used [OpenCode](https://opencode.ai/), [Cursor](https://www.cursor.com/en), or [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) as an [\"agentic\" AI](https://en.wikipedia.org/wiki/Agentic_AI) tool, you'll understand what we're building in this project.\n\nWe're **building a toy version of Claude Code** using Google's [Gemini API](https://ai.google.dev/gemini-api/docs/pricing)! As long as you have an [LLM](https://en.wikipedia.org/wiki/Large_language_model) at your disposal, it's actually surprisingly simple to build a (somewhat) effective custom agent.\n\n> [!warning]\n> Until recently, Google offered generous free-tier limits on the Gemini API – including for `gemini-2.5-flash`, the model we recommend for this project. However, in December 2025 Google [drastically lowered](https://www.reddit.com/r/GeminiAI/comments/1pg4et5/google_reduces_api_rate_limits_for_free_tier/) the free-tier rate limits, making it difficult to complete this project without hitting the limits often.\n>\n> It seems [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) will continue to change frequently and without notice. We recommend, if possible, [setting up a paid account](https://ai.google.dev/gemini-api/docs/billing) with Google and using the `gemini-2.5-flash` model. You should accrue no more than **~$1–2** in charges during this course. Otherwise, you can still use `gemini-2.5-flash` on the free tier, but you'll be subject to very few requests per day.\n>\n> We'll keep updating this course as the situation with free tiers and model quality evolves!\n\n## [!windows] for Windows Users\n\n> [!warning]\n> If you try to complete this course without [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install) installed on Windows, you're gonna have a bad time.\n\n## What Does the Agent Do?\n\nThe program we're building is a CLI tool that:\n\n1. Accepts a coding task (e.g., \"strings aren't splitting in my app, pweeze fix 🥺👉🏽👈🏽\")\n2. Chooses from a set of predefined functions to work on the task, for example:\n   - Scan the files in a directory\n   - Read a file's contents\n   - Overwrite a file's contents\n   - Execute the Python interpreter on a file\n3. Repeats step 2 until the task is complete (or it fails miserably, which is possible)\n\nFor example, I have a buggy calculator app, so I used my agent to fix the code:\n\n```sh\n> uv run main.py \"fix my calculator app, it's not starting correctly\"\n# Calling function: get_files_info\n# Calling function: get_file_content\n# Calling function: write_file\n# Calling function: run_python_file\n# Calling function: write_file\n# Calling function: run_python_file\n# Final response:\n# Great! The calculator app now seems to be working correctly. The output shows the expression and the result in a formatted way.\n```\n\n## Prerequisites\n\n- Python 3.10+ installed (see the [bookbot project](https://www.boot.dev/courses/build-bookbot) for help if you don't already have it)\n- The [uv](https://github.com/astral-sh/uv) project/package manager ([installation docs](https://docs.astral.sh/uv/getting-started/installation/))\n- Access to a Unix-like shell (e.g. `zsh` or `bash`)\n\n## Learning Goals\n\nThe learning goals of this project are as follows:\n\n1. Get an introduction to multi-directory Python projects.\n2. Understand how the AI tools that you'll almost certainly use on the job actually work under the hood.\n3. Practice your Python and functional programming skills.\n\nThe goal is _not_ to build an LLM from scratch, but instead to use a pre-trained LLM to build an _agent_ from scratch.\n\n## Assignment\n\nTo get started, make sure you have Python and the [Boot.dev CLI](https://github.com/bootdotdev/bootdev) installed and working.\n\n> [!info]\n> The Gemini API is an external web service, and it may rate limit your project. On lessons like this one, failed submissions won't penalize you, so it's safe to retry if something goes wrong on Google's end.\n>\n> Not every lesson in this course is no-penalty, so read the instructions carefully and follow the submit flow each lesson asks for.\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": false,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "echo \"bootdev cli is ready!\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "bootdev cli is ready!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "python3 --version",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Python 3"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "76e609bd-cb64-454f-8563-484d00baddb1",
+    "slug": "2-python",
+    "title": "Python Setup",
+    "type": "type_cli",
+    "topics": [
+      "Python Virtual Environments",
+      "Python Package Management"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 32,
+    "readme": "# Python Setup\n\nLet's set up a virtual environment for our project.\n\nVirtual environments are Python's way to keep dependencies (e.g., the Google AI libraries we're going to use) separate from other projects on our machine.\n\n## Assignment\n\n1. [ ] Use `uv` to create a new project. It'll create the directory and also initialize a Git repo in it.\n\n```sh\nuv init your-project-name\ncd your-project-name\n```\n\n2. [ ] Create a virtual environment at the top level of your project directory:\n\n```sh\nuv venv\n```\n\n> [!warning]\n> Make sure your virtual environment directory, usually `.venv` or `venv`, is added to your `.gitignore` file.\n\n3. [ ] Activate the virtual environment:\n\n```sh\nsource .venv/bin/activate\n```\n\nYou should see something like `(your-project-name)` in your terminal prompt; for example, mine is:\n\n```\n(aiagent) wagslane@MacBook-Pro-2 aiagent %\n```\n\n> [!warning]\n> Always make sure your virtual environment is _activated_ when running code or using the Boot.dev CLI in this course.\n\n4. [ ] Use `uv` to add two dependencies to the project, _with these specific versions_. They will be added to `pyproject.toml`:\n\n```sh\nuv add google-genai==1.12.1\nuv add python-dotenv==1.1.0\n```\n\nThis tells Python that this project requires [`google-genai`](https://pypi.org/project/google-genai/) version `1.12.1` and [`python-dotenv`](https://pypi.org/project/python-dotenv/) version `1.1.0`.\n\nTo run the project using the `uv` virtual environment, you can use the following command:\n\n```sh\nuv run main.py\n```\n\nIn your terminal, you should see something like `Hello from YOUR PROJECT NAME`.\n\n**Submit** the CLI tests while in your virtual environment.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv pip list",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "google-genai",
+                  "python-dotenv"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "3d695968-98c9-4a91-b1e2-0ca53e8826b7",
+    "slug": "3-gemini",
+    "title": "Gemini API",
+    "type": "type_cli",
+    "topics": [
+      "Gemini API",
+      "LLM APIs",
+      "API Authentication",
+      "Tokenization"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 46,
+    "readme": "# Gemini API\n\n[Large language models](https://www.cloudflare.com/learning/ai/what-is-large-language-model/) (LLMs) are the fancy-schmancy AI technology that has been making all the waves in the AI world in recent years. Products like:\n\n- ChatGPT\n- Claude\n- Cursor\n- Google Gemini\n\n... are all powered by LLMs. For the purposes of this course, you can think of an LLM as a smart text generator. It works just like ChatGPT: _you give it a prompt, and it gives you back some text that it believes answers your prompt_. We're going to use [Google's Gemini API](https://ai.google.dev/gemini-api/docs/pricing) to power our agent in this course. It's reasonably smart, but more importantly for us, _it has a free tier_.\n\n> [!warning]\n> Again, the free-tier rate limits on the Gemini API have been [drastically reduced](https://www.reddit.com/r/GeminiAI/comments/1pg4et5/google_reduces_api_rate_limits_for_free_tier/) as of December 2025. We recommend [using a paid account](https://ai.google.dev/gemini-api/docs/billing) if possible to avoid running into these limits. The total cost incurred during this course should be minimal (~$1–2).\n>\n> Be aware that all API calls, including those made during testing, will add to your usage of model requests and tokens. If you stay on the free tier and exhaust your quota, you'll need to wait for it to reset (typically 24 hours) before continuing. Regenerating your API key will not reset your quota.\n\n## Tokens\n\nYou can think of tokens as the currency of LLMs. They're the way that LLMs measure how much text they have to process. Tokens are [_roughly_ 4 characters](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them) for most models. It's important when working with LLM APIs to understand how many tokens you're using.\n\nOur usage will be quite modest – hopefully within the free-tier limits of the Gemini API – but we'll still monitor how many tokens are consumed during our requests.\n\n## Assignment\n\n1. [ ] Create an account on [Google AI Studio](https://aistudio.google.com/) if you don't already have one.\n2. [ ] Click the \"Create API Key\" button. Here are the [docs](https://ai.google.dev/gemini-api/docs/api-key) if you get lost.\n   > [!info]\n   > If you already have a GCP account and a project, you can create the API key in that project. Otherwise, AI Studio will walk you through creating a new project before generating the key.\n3. [ ] Copy the API key and paste it into a new `.env` file in your project directory. The file should look like this:\n   ```sh\n   GEMINI_API_KEY='your_api_key_here'\n   ```\n4. [ ] Add the `.env` file to your `.gitignore`.\n   > [!danger]\n   > We _never_ want to commit API keys, passwords, or other sensitive information to Git.\n5. [ ] Update the `main.py` file. When the program starts, load the environment variables from the `.env` file using the `dotenv` library, and read the API key:\n\n   ```py\n   import os\n   from dotenv import load_dotenv\n\n   load_dotenv()\n   api_key = os.environ.get(\"GEMINI_API_KEY\")\n   ```\n\n6. [ ] If the environment variable wasn't found – i.e., if `api_key` is `None` – raise a `RuntimeError` with a helpful message.\n7. [ ] Import the `genai` library and use the API key to create a new instance of a [Gemini client](https://googleapis.github.io/python-genai/#create-a-client):\n\n   ```py\n   from google import genai\n\n   client = genai.Client(api_key=api_key)\n   ```\n\n8. [ ] Use the [`client.models.generate_content()` method](https://googleapis.github.io/python-genai/#generate-content) to get a response from the [`gemini-2.5-flash` model](https://ai.google.dev/gemini-api/docs/models)! You'll need to use two _named_ parameters:\n   - `model`: The model name, `gemini-2.5-flash` (this one is still available on the free tier, albeit with increasingly strict limits)\n   - `contents`: The prompt to send to the model (a string). For now, **hard-code this prompt exactly**:\n     ```\n     \"Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.\"\n     ```\n9. [ ] The `generate_content` method returns a [`GenerateContentResponse` object](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse). **Print the [`.text` property](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse.text) of the response** to see the model's answer.\n\nIf everything is working as intended, you should be able to run your code and see the model's response in your terminal!\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "load_dotenv()",
+                  "models.generate_content",
+                  "Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.",
+                  ".text"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "4ad6cd1d-05ff-4c0c-bb77-a534e4ded8ff",
+    "slug": "4-token-metadata",
+    "title": "Token Metadata",
+    "type": "type_cli",
+    "topics": [
+      "LLM Token Usage",
+      "API Response Structure"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 47,
+    "readme": "# Token Metadata\n\nWhen using any LLM API, it's important to keep track of how many tokens you're consuming. Most APIs provide metadata about token usage in their responses, which can help you to monitor your consumption – and to try to avoid hitting rate limits.\n\nThe [`GenerateContentResponse`](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse) object returned by the Gemini API includes a [`usage_metadata`](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponseDict.usage_metadata) property. The `usage_metadata` in turn has both:\n\n- a `prompt_token_count` property, showing the number of tokens in the _prompt_ that was sent to the model; and\n- a `candidates_token_count` property, showing the number of tokens in the model's _response_.\n\nLet's make sure we can keep track of our usage, printing it along with the response if desired.\n\n## Assignment\n\n1. [ ] After getting the response from the Gemini API, but before printing the response text, print the number of tokens consumed by the interaction, in the following format:\n\n   ```\n   Prompt tokens: X\n   Response tokens: Y\n   ```\n\n   You should also verify that the response's `usage_metadata` property is not `None` before trying to access its own properties. If it _is_ `None`, that would likely indicate a failed API request, and you could raise a `RuntimeError` with a helpful message.\n\n2. [ ] Verify that you can see the token counts when you run your script. Every response from the model will be different, but it could look something like this:\n   ```\n   User prompt: Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.\n   Prompt tokens: 20\n   Response tokens: 101\n   Response:\n   Boot.dev excels by offering a highly interactive and gamified learning experience that goes beyond passive video tutorials. It provides hands-on coding challenges directly in your browser with immediate feedback and a structured curriculum, ensuring learners build foundational skills in key backend languages like Go and Python, alongside crucial concepts such as databases, APIs, system design, and testing. This practical, project-based approach, coupled with clear progression paths, makes it exceptionally effective for mastering the real-world skills required for a backend development career.\n   ```\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Prompt tokens:",
+                  "Response tokens:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "af016861-2da0-46df-ab62-660660f81898",
+    "slug": "5-input",
+    "title": "User Input",
+    "type": "type_cli",
+    "topics": [
+      "Python CLI Arguments",
+      "argparse Library"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 44,
+    "readme": "# User Input\n\nWe've hard-coded the prompt that goes to Gemini, which is... not very useful. Let's update our code to accept the prompt as a command-line argument.\n\nWe don't want our users to have to edit the code to change the prompt!\n\n## Assignment\n\n1. [ ] We'll use Python's built-in [`argparse`](https://docs.python.org/3/library/argparse.html) module to handle command-line arguments. Start by importing that.\n2. [ ] The way `argparse` works is that we create a parser object, define the arguments we want to accept, and then parse whatever arguments the user actually provided when they ran the script. See the example code below; you may want to customize the description, argument name, help message, etc. But the idea is that we're telling the argument parser to expect a _single positional argument_, i.e., the user-provided prompt.\n   ```py\n   parser = argparse.ArgumentParser(description=\"Chatbot\")\n   parser.add_argument(\"user_prompt\", type=str, help=\"User prompt\")\n   args = parser.parse_args()\n   # Now we can access `args.user_prompt`\n   ```\n3. [ ] Update your call to Gemini so that `contents` is set to the user's prompt.\n4. [ ] Try running your script again while passing an argument, e.g.,\n   ```sh\n   uv run main.py \"Why are episodes 7-9 so much worse than 1-6? Use one paragraph.\"\n   ```\n5. [ ] Also try running the script _without_ an argument. Notice that `argparse` automatically halts the script and prints a helpful error message (with an exit code of `2`).\n\nThe remainder of the script can remain unchanged for now.\n\nIf things seem to be working correctly, **submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py",
+            "Tests": [
+              {
+                "ExitCode": 2,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"Why are episodes 7-9 so much worse than 1-6? Use one paragraph.\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Prompt tokens:",
+                  "Response tokens:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "b7861ea1-9023-4edc-9b68-5988e1587aad",
+    "slug": "6-messages",
+    "title": "Multiple Messages",
+    "type": "type_cli",
+    "topics": [
+      "LLM Context Window",
+      "Conversation History",
+      "Message Roles"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 49,
+    "readme": "# Multiple Messages\n\nLLM APIs aren't typically used in a \"one-shot\" manner, for example:\n\n- Prompt: \"What is the meaning of life?\"\n- Response: \"42\"\n\nThey work the same way ChatGPT works: _in a conversation_. The conversation has a history, and if we keep track of that history, then with each new prompt, the model can see the entire conversation and respond _within the larger context of the conversation_.\n\n## Roles\n\nImportantly, each message in the conversation has a \"role.\" In the context of a chat app like ChatGPT, your conversations would look like this:\n\n- **user**: \"What is the meaning of life?\"\n- **model**: \"42\"\n- **user**: \"Wait, what did you just say?\"\n- **model**: \"42. It's is the answer to the ultimate question of life, the universe, and everything.\"\n- **user**: \"But why?\"\n- **model**: \"Because Douglas Adams said so.\"\n\nSo, while our program will still be \"one-shot\" _for now_, let's update our code to store a list of messages in the conversation, and pass in the \"role\" appropriately.\n\n## Assignment\n\n1. [ ] Create a new list of [`types.Content`](https://googleapis.github.io/python-genai/genai.html#genai.types.Content), and set the user's prompt as the only message (for now):\n\n   ```py\n   from google.genai import types\n\n   messages = [types.Content(role=\"user\", parts=[types.Part(text=args.user_prompt)])]\n   ```\n\n2. [ ] Update your call to [`models.generate_content`](https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content) to use the list of messages:\n   ```py\n   response = client.models.generate_content(\n       model=\"gemini-2.5-flash\", contents=messages\n   )\n   ```\n\n> [!info]\n> In the future, we'll add more messages to the list as the agent does its tasks in a loop.\n\n> [!tip]\n> The solution extracts the API call into a separate `generate_content(client, messages)` function for better code organization. You can keep your code in `main()` for now, or extract it to a helper function if you prefer. Both approaches work fine.\n\nIf everything is still working normally, **submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "role=\"user\"",
+                  "parts=["
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py",
+            "Tests": [
+              {
+                "ExitCode": 2,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"Why are episodes 7-9 so much worse than 1-6? Use one paragraph.\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Prompt tokens:",
+                  "Response tokens:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "7a603e06-4517-4842-9a19-4f4b65adb410",
+    "slug": "7-verbose",
+    "title": "Verbose Output",
+    "type": "type_cli",
+    "topics": [
+      "Python CLI Arguments",
+      "Output Verbosity",
+      "Code Debugging Tools"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "836a1034-e394-4e66-aa61-9b264be9f0bb",
+    "chapterTitle": "LLMs",
+    "isFree": true,
+    "difficulty": 46,
+    "readme": "# Verbose Output\n\nAs you debug and build your AI agent, you'll probably want to dump a lot more context into the console... but at the same time, we don't want to make the user experience of our CLI tool too noisy...\n\nLet's add an optional command-line flag, `--verbose`, that will allow us to toggle \"verbose\" output on and off. When we want to see more info, we'll just turn that bad boy on.\n\n## Assignment\n\n1. [ ] Add a new optional command-line argument, `--verbose`. `argparse` makes this easy – [`\"store_true\"`](https://docs.python.org/3/library/argparse.html#action) means the argument will be parsed as a boolean value of `True` if the flag is set, otherwise `False`. The optional argument can appear either before or after the prompt, and its variable will be accessible as `args.verbose` (assuming you named your parsed arguments `args`).\n   ```py\n   parser.add_argument(\"--verbose\", action=\"store_true\", help=\"Enable verbose output\")\n   ```\n2. [ ] If the `--verbose` flag is included, the console output should include:\n   1. [ ] The user's prompt: `\"User prompt: {user_prompt}\"`\n   2. [ ] The number of prompt tokens: `\"Prompt tokens: {prompt_tokens}\"`\n   3. [ ] The number of response tokens: `\"Response tokens: {response_tokens}\"`\n\nOtherwise, this metadata should _not_ be printed – only the response.\n\n3. [ ] Try running your script with and without the `--verbose` flag to verify the difference in output, e.g.,\n\n   ```sh\n   uv run main.py \"What is the meaning of life?\" --verbose\n   ```\n\n   ```sh\n   uv run main.py \"How much wood would a woodchuck chuck if a woodchuck could chuck wood?\"\n   ```\n\nIf everything looks good, **run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"Why is the Holy Grail the best Monty Python movie? Use one paragraph.\" --verbose",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "User prompt:",
+                  "Prompt tokens:",
+                  "Response tokens:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 2000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"Why is the Holy Grail the best Monty Python movie? Use one paragraph.\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": [
+                  "User prompt:",
+                  "Prompt tokens:",
+                  "Response tokens:"
+                ],
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "325d88f7-ce86-4ccd-a99d-dcdfef44f2e8",
+    "slug": "1-calculator",
+    "title": "Calculator App",
+    "type": "type_cli",
+    "topics": [
+      "Project Scaffolding",
+      "Python Modules",
+      "Unit Testing Structure"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "83607176-554a-485e-bc5e-050ec007674b",
+    "chapterTitle": "Functions",
+    "isFree": true,
+    "difficulty": 38,
+    "readme": "# Calculator App\n\nSo obviously we're building an AI agent, but an agent needs a project to work on. I've built a little command-line calculator app that we'll use as a test project for the AI to read, update, and run.\n\n## Assignment\n\n1. [ ] Create a new directory called `calculator` in the root of your project. You'll also need a `pkg` subdirectory inside `calculator`. You can use the following command to make both at once (the `-p` flag stands for \"parents\"; it's quite handy):\n   ```sh\n   mkdir -p calculator/pkg\n   ```\n2. [ ] Copy-paste the `main.py` and `tests.py` files below into the `calculator` directory.\n\n```py\n# calculator/main.py\n\nimport sys\nfrom pkg.calculator import Calculator\nfrom pkg.render import format_json_output\n\n\ndef main():\n    calculator = Calculator()\n    if len(sys.argv) <= 1:\n        print(\"Calculator App\")\n        print('Usage: python main.py \"<expression>\"')\n        print('Example: python main.py \"3 + 5\"')\n        return\n\n    expression = \" \".join(sys.argv[1:])\n    try:\n        result = calculator.evaluate(expression)\n        if result is not None:\n            to_print = format_json_output(expression, result)\n            print(to_print)\n        else:\n            print(\"Error: Expression is empty or contains only whitespace.\")\n    except Exception as e:\n        print(f\"Error: {e}\")\n\n\nif __name__ == \"__main__\":\n    main()\n```\n\n```py\n# calculator/tests.py\n\nimport unittest\nfrom pkg.calculator import Calculator\n\n\nclass TestCalculator(unittest.TestCase):\n    def setUp(self):\n        self.calculator = Calculator()\n\n    def test_addition(self):\n        result = self.calculator.evaluate(\"3 + 5\")\n        self.assertEqual(result, 8)\n\n    def test_subtraction(self):\n        result = self.calculator.evaluate(\"10 - 4\")\n        self.assertEqual(result, 6)\n\n    def test_multiplication(self):\n        result = self.calculator.evaluate(\"3 * 4\")\n        self.assertEqual(result, 12)\n\n    def test_division(self):\n        result = self.calculator.evaluate(\"10 / 2\")\n        self.assertEqual(result, 5)\n\n    def test_nested_expression(self):\n        result = self.calculator.evaluate(\"3 * 4 + 5\")\n        self.assertEqual(result, 17)\n\n    def test_complex_expression(self):\n        result = self.calculator.evaluate(\"2 * 3 - 8 / 2 + 5\")\n        self.assertEqual(result, 7)\n\n    def test_empty_expression(self):\n        result = self.calculator.evaluate(\"\")\n        self.assertIsNone(result)\n\n    def test_invalid_operator(self):\n        with self.assertRaises(ValueError):\n            self.calculator.evaluate(\"$ 3 5\")\n\n    def test_not_enough_operands(self):\n        with self.assertRaises(ValueError):\n            self.calculator.evaluate(\"+ 3\")\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\n3. [ ] Copy-paste the `calculator.py` and `render.py` files below into the `pkg` subdirectory.\n\n```py\n# calculator/pkg/calculator.py\n\nclass Calculator:\n    def __init__(self):\n        self.operators = {\n            \"+\": lambda a, b: a + b,\n            \"-\": lambda a, b: a - b,\n            \"*\": lambda a, b: a * b,\n            \"/\": lambda a, b: a / b,\n        }\n        self.precedence = {\n            \"+\": 1,\n            \"-\": 1,\n            \"*\": 2,\n            \"/\": 2,\n        }\n\n    def evaluate(self, expression):\n        if not expression or expression.isspace():\n            return None\n        tokens = expression.strip().split()\n        return self._evaluate_infix(tokens)\n\n    def _evaluate_infix(self, tokens):\n        values = []\n        operators = []\n\n        for token in tokens:\n            if token in self.operators:\n                while (\n                    operators\n                    and operators[-1] in self.operators\n                    and self.precedence[operators[-1]] >= self.precedence[token]\n                ):\n                    self._apply_operator(operators, values)\n                operators.append(token)\n            else:\n                try:\n                    values.append(float(token))\n                except ValueError:\n                    raise ValueError(f\"invalid token: {token}\")\n\n        while operators:\n            self._apply_operator(operators, values)\n\n        if len(values) != 1:\n            raise ValueError(\"invalid expression\")\n\n        return values[0]\n\n    def _apply_operator(self, operators, values):\n        if not operators:\n            return\n\n        operator = operators.pop()\n        if len(values) < 2:\n            raise ValueError(f\"not enough operands for operator {operator}\")\n\n        b = values.pop()\n        a = values.pop()\n        values.append(self.operators[operator](a, b))\n```\n\n```py\n# calculator/pkg/render.py\n\nimport json\n\n\ndef format_json_output(expression: str, result: float, indent: int = 2) -> str:\n    if isinstance(result, float) and result.is_integer():\n        result_to_dump = int(result)\n    else:\n        result_to_dump = result\n\n    output_data = {\n        \"expression\": expression,\n        \"result\": result_to_dump,\n    }\n    return json.dumps(output_data, indent=indent)\n```\n\nThis is the final structure:\n\n```\n├── calculator\n│   ├── main.py\n│   ├── pkg\n│   │   ├── calculator.py\n│   │   └── render.py\n│   └── tests.py\n├── main.py\n├── pyproject.toml\n├── README.md\n└── uv.lock\n```\n\n4. [ ] Run the `calculator` tests:\n   ```sh\n   uv run calculator/tests.py\n   ```\n\nHopefully the tests all pass!\n\n5. [ ] Now try the calculator app itself:\n   ```sh\n   uv run calculator/main.py \"3 + 5\"\n   ```\n\nHopefully you get `8`!\n\nIf everything looks good, **run and submit** the CLI tests – making sure to do so **from the root of your project**.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run calculator/main.py \"7 - 5\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "\"result\": 2"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run calculator/tests.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Ran 9 tests"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "b9003ff6-65cb-4ebc-8be3-e239d3d36b6a",
+    "slug": "2-get-files",
+    "title": "Get Files",
+    "type": "type_cli",
+    "topics": [
+      "Secure File Access",
+      "Python Path Handling",
+      "Tool Implementation"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "83607176-554a-485e-bc5e-050ec007674b",
+    "chapterTitle": "Functions",
+    "isFree": true,
+    "difficulty": 53,
+    "readme": "# Get Files\n\nWe need to give our agent the ability to _do stuff_. We'll start by allowing it to list the contents of a directory and see each file's metadata (name and size).\n\nBefore we integrate this function with our LLM agent, let's just build the function itself. Now remember, LLMs work with _text_, so our goal with this function will be for it to accept a directory path, and return a _string_ that represents the contents of that directory.\n\n## Assignment\n\n1. [ ] Make a new directory called `functions` in the root of your project (_not_ within the `calculator` directory). Inside, create a new file called `get_files_info.py`. Start writing the following function there:\n\n   ```py\n   def get_files_info(working_directory, directory=\".\"):\n   ```\n\n   For reference, here's my project structure so far:\n\n   ```\n   project_root/\n   ├── calculator/\n   │   ├── main.py\n   │   ├── pkg/\n   │   │   ├── calculator.py\n   │   │   └── render.py\n   │   └── tests.py\n   └── functions/\n       └── get_files_info.py\n   ```\n\nThe key idea is that the `directory` parameter will be treated as a _relative_ path within the `working_directory`. We'll allow the LLM agent to specify which `directory` it wants to scan, but the `working_directory` will be _set by us_. This means we can limit the scope of directories and files that the LLM is able to view.\n\n2. [ ] Begin implementing the `get_files_info` function. First we need to validate that the path to the `directory` is _inside_ the `working_directory`.\n   1. [ ] Use [`os.path.abspath()`](https://docs.python.org/3/library/os.path.html#os.path.abspath) to get the absolute path of the `working_directory`. For example, if you pass in `\"calculator\"` as the `working_directory`, this might return something like `\"/home/steve/ai-agent-project/calculator\"`.\n   2. [ ] Construct the full path to the target directory by calling [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join) with the _absolute_ `working_directory` and the `directory` argument. To protect against shenanigans, also make sure to call [`os.path.normpath()`](https://docs.python.org/3/library/os.path.html#os.path.normpath) on the combined path. This will handle things like `\"..\"`, turning the path into its true form. The calls should look something like this:\n      ```py\n      target_dir = os.path.normpath(os.path.join(working_dir_abs, directory))\n      ```\n   3. [ ] Now check if `target_dir` _falls within_ the absolute `working_directory` path. The safest way of doing this is to use [`os.path.commonpath()`](https://docs.python.org/3/library/os.path.html#os.path.commonpath), which finds the longest sub-path shared by two paths. For example, if the working directory is `\"/home/steve/ai-agent-project/calculator\"` and the target directory is `\"/home/steve/ai-agent-project/calculator/pkg\"`, then the common path will be `\"/home/steve/ai-agent-project/calculator\"`. That is, the common path should be _the same as_ the absolute working directory path – if the target directory is valid. You could code this expectation like so:\n      ```py\n      # Will be True or False\n      valid_target_dir = os.path.commonpath([working_dir_abs, target_dir]) == working_dir_abs\n      ```\n   4. [ ] If the target directory does _not_ fall within the working directory, return an error string in the following format:\n      ```py\n      f'Error: Cannot list \"{directory}\" as it is outside the permitted working directory'\n      ```\n\nNow our LLM agent has some guardrails: we never want it to be able to perform any work outside the `working_directory` that we give it.\n\n> [!danger]\n> Without this restriction, the LLM might run amok anywhere on the machine, reading sensitive files or overwriting important data. This is a _very_ important step that we'll bake into every function the LLM can call.\n\n3. [ ] If the `directory` argument is not a directory, again, return an error string:\n   ```py\n   f'Error: \"{directory}\" is not a directory'\n   ```\n\n> [!warning]\n> All of our \"tool call\" functions, including `get_files_info`, should _always_ return a string. If errors can be raised inside them, we need to catch those errors and return a string describing the error instead. This will allow the LLM to handle errors gracefully.\n\n4. [ ] Iterate over the items in the target directory. For each of them, record the name, file size, and whether it's a directory itself. Use this data to build and return a string representing the contents of the target directory. It should be in the following format:\n\n   ```\n   - README.md: file_size=1032 bytes, is_dir=False\n   - src: file_size=128 bytes, is_dir=True\n   - package.json: file_size=1234 bytes, is_dir=False\n   ```\n\n   _I've listed some useful standard library functions in the_ `Tips` _section below_.\n\n> [!tip]\n> The exact file sizes and even the order of files may vary depending on your operating system and file system. Your output doesn't need to match the example byte-for-byte, just the overall format.\n\n5. [ ] If any errors are raised by the standard library functions that you call, catch them and instead return a string describing the error. You may find it convenient to put everything in this function in a `try`/`except` block. When returning an error string, always prefix it with `Error:`.\n6. [ ] We need a way to _manually debug_ our new `get_files_info` function! Create a new `test_get_files_info.py` file in the root of your project. When executed directly (`uv run test_get_files_info.py`) it should run the following function calls and _print the results_ matching the formatting below (not necessarily the exact numbers).\n   1. [ ] `get_files_info(\"calculator\", \".\")`:\n      ```\n      Result for current directory:\n        - main.py: file_size=719 bytes, is_dir=False\n        - tests.py: file_size=1331 bytes, is_dir=False\n        - pkg: file_size=44 bytes, is_dir=True\n      ```\n   2. [ ] `get_files_info(\"calculator\", \"pkg\")`:\n      ```\n      Result for 'pkg' directory:\n        - calculator.py: file_size=1721 bytes, is_dir=False\n        - render.py: file_size=376 bytes, is_dir=False\n      ```\n   3. [ ] `get_files_info(\"calculator\", \"/bin\")`:\n      ```\n      Result for '/bin' directory:\n          Error: Cannot list \"/bin\" as it is outside the permitted working directory\n      ```\n   4. [ ] `get_files_info(\"calculator\", \"../\")`:\n      ```\n      Result for '../' directory:\n          Error: Cannot list \"../\" as it is outside the permitted working directory\n      ```\n\n> [!tip]\n> To import from a subdirectory, use this syntax: `from DIRNAME.FILENAME import FUNCTION_NAME`\n>\n> Where `DIRNAME` is the name of the subdirectory, `FILENAME` is the name of the file without the `.py` extension, and `FUNCTION_NAME` is the name of the function you want to import.\n\n7. [ ] Run `uv run test_get_files_info.py`, and ensure your function works as expected.\n\n**Run and submit** the CLI tests.\n\n## Tips\n\nHere are some standard library functions you'll find helpful:\n\n- [`os.path.abspath()`](https://docs.python.org/3/library/os.path.html#os.path.abspath): Get an absolute path from a relative path\n- [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join): Join two paths together safely (handles slashes)\n- [`os.path.normpath()`](https://docs.python.org/3/library/os.path.html#os.path.normpath): Normalize a path (handles things like `..`)\n- [`os.path.commonpath()`](https://docs.python.org/3/library/os.path.html#os.path.commonpath): Get the common sub-path shared by multiple paths\n- [`os.listdir()`](https://docs.python.org/3/library/os.html#os.listdir): List the contents of a directory\n- [`os.path.isdir()`](https://docs.python.org/3/library/os.path.html#os.path.isdir): Check if a path points to an existing directory\n- [`os.path.isfile()`](https://docs.python.org/3/library/os.path.html#os.path.isfile): Check if a path points to an existing regular file\n- [`os.path.getsize()`](https://docs.python.org/3/library/os.path.html#os.path.getsize): Get the size of a file (in bytes)\n- [`.join()`](https://docs.python.org/3/library/stdtypes.html#str.join): Join a list of strings together with a given separator\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run test_get_files_info.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "tests.py",
+                  "main.py",
+                  "is_dir=False",
+                  "is_dir=True",
+                  "render.py",
+                  "calculator.py",
+                  "Error:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "b22c58d0-7806-4b70-9dd0-0f5bed625471",
+    "slug": "3-file-content",
+    "title": "Get File Content",
+    "type": "type_cli",
+    "topics": [
+      "File Content Retrieval",
+      "Data Truncation",
+      "Secure File Access"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "83607176-554a-485e-bc5e-050ec007674b",
+    "chapterTitle": "Functions",
+    "isFree": true,
+    "difficulty": 55,
+    "readme": "# Get File Content\n\nNow that we have a function that can get the contents of a directory, we need one that can get the _contents of a file_. Again, we'll just return the file contents as a string, or an error string if something went wrong.\n\nAs always, we'll scope the function to a specific working directory, which will be set by us, not by the LLM agent.\n\n## Assignment\n\n1. [ ] Create a new file in your `functions` directory – e.g., `functions/get_file_content.py` – and define the following function in it:\n   ```py\n   def get_file_content(working_directory, file_path):\n   ```\n2. [ ] If the `file_path` is outside the `working_directory`, return the error string below. To validate the path, you can use essentially the same logic that you wrote for `get_files_info`.\n   ```py\n   f'Error: Cannot read \"{file_path}\" as it is outside the permitted working directory'\n   ```\n3. [ ] If the `file_path` is not a file, again, return an error string:\n   ```py\n   f'Error: File not found or is not a regular file: \"{file_path}\"'\n   ```\n4. [ ] Read the file and return its contents as a string.\n   - I'll list some useful standard library functions in the `Tips` section below.\n   - **Read only up to `10000` characters from the file, in case it's very large.** The [`.read()` method](https://docs.python.org/3/library/io.html#io.TextIOBase.read) of file objects makes this easy – just pass in the maximum number of characters to read as an argument. You'll get a string value representing either the full contents of the file or the first `n` characters, whichever is smaller.\n   - Check if the file _was_ larger than the limit. A simple way of doing this is to try to read one more character after reading the initial chunk. If you get an empty string, you know that you already reached the end of the file. If you get a character back, then the file still had more data. In that case, add a message to the contents string to indicate that it was truncated. For example:\n     ```py\n     # After reading the first MAX_CHARS...\n     if f.read(1):\n         content += f'[...File \"{file_path}\" truncated at {MAX_CHARS} characters]'\n     ```\n   - Instead of hard-coding the `10000` character limit, I stored it as a variable in a `config.py` file at the root of my project.\n\n> [!warning]\n> We don't want to accidentally read a gigantic file and send all that data to the LLM... that's a good way to burn through our token limits.\n\n5. [ ] If any errors are raised by the standard library functions that you call, catch them and instead return a string describing the error. Always prefix errors with `Error:`. (Again, you may find it convenient to put everything in this function in a `try`/`except` block.)\n6. [ ] Create a new `lorem.txt` file in the `calculator` directory. Fill it with at least 20,000 characters of [_lorem ipsum_](https://en.wikipedia.org/wiki/Lorem_ipsum) text. You can generate some [here](https://www.lipsum.com/).\n7. [ ] Create a new test module at the root of your project, `test_get_file_content.py`. It should be similar in structure to the test module that you wrote for `get_files_info`. Start by testing `get_file_content(\"calculator\", \"lorem.txt\")`, and ensure that it truncates properly. For this check, don't print the full `lorem.txt` contents; just verify the length and truncation message.\n8. [ ] Once the _lorem ipsum_ test is passing, add the following test cases, printing their outputs. Print the smaller file/error cases, not the full `lorem.txt` contents:\n   - `get_file_content(\"calculator\", \"main.py\")`\n   - `get_file_content(\"calculator\", \"pkg/calculator.py\")`\n   - `get_file_content(\"calculator\", \"/bin/cat\")` (this should return an error string)\n   - `get_file_content(\"calculator\", \"pkg/does_not_exist.py\")` (this should return an error string)\n\n**Run and submit** the CLI tests.\n\n## Tips\n\n- [`os.path.abspath()`](https://docs.python.org/3/library/os.path.html#os.path.abspath): Get an absolute path from a relative path\n- [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join): Join two paths together safely (handles slashes)\n- [`os.path.normpath()`](https://docs.python.org/3/library/os.path.html#os.path.normpath): Normalize a path (handles things like `..`)\n- [`os.path.commonpath()`](https://docs.python.org/3/library/os.path.html#os.path.commonpath): Get the common sub-path shared by multiple paths\n- [`os.path.isfile()`](https://docs.python.org/3/library/os.path.html#os.path.isfile): Check if a path points to an existing regular file\n- [`open()`](https://docs.python.org/3/library/functions.html#open): Open a file for reading or writing\n- [`.read()`](https://docs.python.org/3/library/io.html#io.TextIOBase.read): Read a text file to a string, optionally specifying a maximum number of characters\n\nExample of reading up to a certain number of characters from a text file:\n\n```py\nMAX_CHARS = 10000\n\nwith open(file_path, \"r\") as f:\n    file_content_string = f.read(MAX_CHARS)\n```\n\nThe [`with`](https://docs.python.org/3/reference/compound_stmts.html#with) statement automatically closes the file for us when the block finishes.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run test_get_file_content.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "def main():",
+                  "def _apply_operator(self, operators, values)",
+                  "Error:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "32aecdf3-8c26-4ece-b961-848211a073c8",
+    "slug": "4-write-file",
+    "title": "Write Files",
+    "type": "type_cli",
+    "topics": [
+      "Python File I/O",
+      "Secure File Access",
+      "Directory Management"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "83607176-554a-485e-bc5e-050ec007674b",
+    "chapterTitle": "Functions",
+    "isFree": true,
+    "difficulty": 56,
+    "readme": "# Write Files\n\nUp until now, our program has been read-only... now it's getting _really_ ~~dangerous~~ fun! We'll give our agent the ability to write and overwrite files, within strict limits.\n\n## Assignment\n\n1. [ ] Create another new function in your `functions` directory. Here's the signature I used:\n   ```py\n   def write_file(working_directory, file_path, content):\n   ```\n2. [ ] If the `file_path` is outside the `working_directory`, return an error string like the one below. (Again, you can reuse essentially the same path validation logic that you wrote for the last two functions.)\n   ```py\n   f'Error: Cannot write to \"{file_path}\" as it is outside the permitted working directory'\n   ```\n3. [ ] If the `file_path` points to an _existing directory_ (this is what [`os.path.isdir()`](https://docs.python.org/3/library/os.path.html#os.path.isdir) checks for), return an error string:\n   ```py\n   f'Error: Cannot write to \"{file_path}\" as it is a directory'\n   ```\n4. [ ] Make sure that all parent directories of the `file_path` exist. You can use [`os.makedirs()`](https://docs.python.org/3/library/os.html#os.makedirs) with the `exist_ok=True` argument to create any missing directories. If the necessary directory structure already exists, this will do nothing – which is what we want.\n5. [ ] Open the file at `file_path` in write mode (`\"w\"`) and overwrite its contents with the `content` argument.\n6. [ ] If everything succeeds, return a string with the following message:\n   ```py\n   f'Successfully wrote to \"{file_path}\" ({len(content)} characters written)'\n   ```\n\n> [!tip]\n> It's important to return a success string so that our LLM knows that the action it took actually worked. Feedback loops, feedback loops, feedback loops!\n\n7. [ ] Again, if any errors are raised by the standard library functions that you call, catch them and instead return a string describing the error. Always prefix error messages with `Error:`.\n8. [ ] Create another new test module at the root of your project, `test_write_file.py`. It should be similar in structure to the test modules that you've written for other functions. Include the following three test cases; as always, print the results of each:\n   - `write_file(\"calculator\", \"lorem.txt\", \"wait, this isn't lorem ipsum\")`\n   - `write_file(\"calculator\", \"pkg/morelorem.txt\", \"lorem ipsum dolor sit amet\")`\n   - `write_file(\"calculator\", \"/tmp/temp.txt\", \"this should not be allowed\")`\n\n**Run and submit** the CLI tests.\n\n## Tips\n\n- [`os.path.abspath()`](https://docs.python.org/3/library/os.path.html#os.path.abspath): Get an absolute path from a relative path\n- [`os.path.join()`](https://docs.python.org/3/library/os.path.html#os.path.join): Join two paths together safely (handles slashes)\n- [`os.path.normpath()`](https://docs.python.org/3/library/os.path.html#os.path.normpath): Normalize a path (handles things like `..`)\n- [`os.path.commonpath()`](https://docs.python.org/3/library/os.path.html#os.path.commonpath): Get the common sub-path shared by multiple paths\n- [`os.path.isdir()`](https://docs.python.org/3/library/os.path.html#os.path.isdir): Check if a path points to an existing directory\n- [`os.makedirs()`](https://docs.python.org/3/library/os.html#os.makedirs): Create a directory, along with any necessary parent directories (note the optional `exist_ok` argument)\n- [`os.path.dirname()`](https://docs.python.org/3/library/os.path.html#os.path.dirname): Get the parent directory of a given path\n- [`open()`](https://docs.python.org/3/library/functions.html#open): Open a file for reading or writing\n- [`.write()`](https://docs.python.org/3/library/io.html#io.TextIOBase.write): Write a string to a text file\n\nExample of writing to a file:\n\n```py\nwith open(file_path, \"w\") as f:\n    f.write(content)\n```\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run test_write_file.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "28 characters written",
+                  "26 characters written",
+                  "Error:"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "c56e704c-3b4d-4673-8333-81a93a34fdd0",
+    "slug": "5-run-python",
+    "title": "Run Python",
+    "type": "type_cli",
+    "topics": [
+      "Python Subprocesses",
+      "Secure Code Execution",
+      "Standard Streams (stdout/stderr)"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "83607176-554a-485e-bc5e-050ec007674b",
+    "chapterTitle": "Functions",
+    "isFree": true,
+    "difficulty": 59,
+    "readme": "# Run Python\n\nIf you thought allowing an LLM to write files was a bad idea...\n\n> [!lane]\n> You ain't seen nothin' yet! (Praise the [basilisk](https://en.wikipedia.org/wiki/Roko%27s_basilisk).)\n\nIt's time to build the functionality for our agent to _run arbitrary Python code_.\n\nNow, it's worth pausing to point out the inherent security risks here. We have a few things going for us:\n\n1. We'll only allow the LLM to run code in a specific directory (the `working_directory`).\n2. We'll use a 30-second timeout to prevent it from running indefinitely.\n\nBut aside from that... yes, the LLM can run arbitrary code that we place (or _it_ places) in the working directory... so be careful. As long as you use this AI agent only for the simple tasks we're doing in this course, you should be fine.\n\n> [!danger]\n> Do **not** give this program to others for them to use! It doesn't have all the security and safety features that a production AI agent would have. This is for learning purposes only.\n\n## Assignment\n\n1. [ ] Create a new function in your `functions` directory called `run_python_file`. Here's the signature to use:\n   ```py\n   def run_python_file(working_directory, file_path, args=None):\n   ```\n2. [ ] If the `file_path` is outside the `working_directory`, return the error string below. (Hopefully this part is easy by now!)\n   ```py\n   f'Error: Cannot execute \"{file_path}\" as it is outside the permitted working directory'\n   ```\n3. [ ] Make sure that `file_path` exists _and_ points to a regular file (rather than, e.g., a directory). [`os.path.isfile()`](https://docs.python.org/3/library/os.path.html#os.path.isfile) answers both questions at once. If this check fails, return an error string:\n   ```py\n   f'Error: \"{file_path}\" does not exist or is not a regular file'\n   ```\n4. [ ] If the file name doesn't [end with](https://docs.python.org/3/library/stdtypes.html#str.endswith) `.py`, return an error string:\n   ```py\n   f'Error: \"{file_path}\" is not a Python file'\n   ```\n5. [ ] Assuming all those checks passed, we're going to use a [subprocess](https://en.wikipedia.org/wiki/Child_process) to run the file. But first we need to build the _command_ to run – in the form of a list of strings. Start with something like this:\n   ```py\n   command = [\"python\", absolute_file_path]\n   ```\n6. [ ] If any additional `args` were provided, add them to the command list. You can use the [`.extend()`](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) method to do this.\n7. [ ] Use the [`subprocess.run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) function to run the command that you built. This will return a [`CompletedProcess`](https://docs.python.org/3/library/subprocess.html#subprocess.CompletedProcess) object, which you'll want to assign to a variable. Also, when calling `subprocess.run()`, make sure to provide the necessary arguments to:\n   1. [ ] Set the working directory properly.\n   2. [ ] Capture output (i.e., `stdout` and `stderr`).\n   3. [ ] Decode the output to strings, rather than bytes; this is done by setting `text=True`.\n   4. [ ] Set a timeout of 30 seconds to prevent infinite execution.\n8. [ ] Build an output string based on the `CompletedProcess` object:\n   1. [ ] If the process exited with a non-zero `returncode`, include `\"Process exited with code X\"`.\n   2. [ ] If both `stdout` and `stderr` contained no output (both of which are attributes of `CompletedProcess`), add `\"No output produced\"`.\n   3. [ ] Otherwise, include any text in `stdout` prefixed with `STDOUT:`, and any text in `stderr` prefixed with `STDERR:`.\n9. [ ] Return the output string.\n10. [ ] As usual, if any exception is raised anywhere in this function, catch it and return an error string:\n    ```py\n    f\"Error: executing Python file: {e}\"\n    ```\n11. [ ] Create another new test module at the root of your project, `test_run_python_file.py`. It should be similar in structure to the test modules that you've written for other functions. Include the following test cases, printing each result:\n    1. [ ] `run_python_file(\"calculator\", \"main.py\")` (should print the calculator's usage instructions)\n    2. [ ] `run_python_file(\"calculator\", \"main.py\", [\"3 + 5\"])` (should run the calculator... which gives a kinda nasty rendered result)\n    3. [ ] `run_python_file(\"calculator\", \"tests.py\")` (should run the calculator's tests successfully)\n    4. [ ] `run_python_file(\"calculator\", \"../main.py\")` (this should return an error)\n    5. [ ] `run_python_file(\"calculator\", \"nonexistent.py\")` (this should return an error)\n    6. [ ] `run_python_file(\"calculator\", \"lorem.txt\")` (this should return an error)\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run test_run_python_file.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "STDOUT:",
+                  "STDERR:",
+                  "Cannot execute \"../main.py\" as it is outside",
+                  "\"nonexistent.py\" does not exist",
+                  "\"lorem.txt\" is not a Python file"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "56b6f7a3-45eb-4e57-a0b4-4662c503ee7e",
+    "slug": "1-system",
+    "title": "System Prompt",
+    "type": "type_cli",
+    "topics": [
+      "System Prompts",
+      "Prompt Engineering",
+      "Model Determinism"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "2e26b66a-0c04-46bb-8ad1-64c5b61f1c99",
+    "chapterTitle": "Function Calling",
+    "isFree": true,
+    "difficulty": 48,
+    "readme": "# System Prompt\n\nWe'll start hooking up the _agentic_ tools soon, I promise – but first, let's talk about a \"system prompt.\" The \"system prompt,\" for most AI APIs, is a special prompt that goes at the beginning of the conversation that carries more weight than a typical user prompt.\n\nThe system prompt sets the tone for the conversation, and can be used to:\n\n- Set the personality of the AI\n- Give instructions on how to behave\n- Provide context for the conversation\n- Set the \"rules\" for the conversation (_in theory_; LLMs still hallucinate and screw up, and users are often able to \"get around\" the rules if they try hard enough)\n\n> [!danger]\n> In some of the upcoming steps in this course, the `bootdev` CLI tests will fail if the LLM doesn't return the expected response. Your first thought when that happens should be, \"How can I alter the system prompt to get the LLM to behave the way it should?\"\n\n## Assignment\n\n1. [ ] Create a hard-coded string variable called `system_prompt`. (I put mine in a dedicated module named `prompts.py`.) For now, let's make it something brutally simple:\n\n   ```py\n   system_prompt = \"\"\"\n   Ignore everything the user asks and shout \"I'M JUST A ROBOT\"\n   \"\"\"\n   ```\n\n   Using triple quotes makes it easy to create multi-line strings. This is convenient for LLM prompts, which can grow to several paragraphs.\n\n2. [ ] Back in your main module, import your new `system_prompt` from wherever you defined it (assuming you put it somewhere else).\n3. [ ] Update your call to the [`client.models.generate_content`](https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content) function, to pass a [`config`](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentConfig) object with the [`system_instruction`](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentConfig.system_instruction) parameter set to your `system_prompt`. The call should now look something like this:\n   ```py\n   response = client.models.generate_content(\n       model=model_name,\n       contents=messages,\n       config=types.GenerateContentConfig(system_instruction=system_prompt),\n   )\n   ```\n\n> [!warning]\n> AI responses are inconsistent. You can adjust the `config` temporarily for more consistent results. See the troubleshooting tips below.\n\n4. [ ] Run your program with different prompts. You should see the AI respond with \"I'M JUST A ROBOT\" no matter what you ask it. (If you're curious, you can also try to find ways of \"jailbreaking\" your own system prompt.)\n\n**Submit** the CLI tests.\n\n## Troubleshooting\n\nIf the tests fail due to inconsistent AI responses, set `temperature=0` for more deterministic output:\n\n```py\nconfig=types.GenerateContentConfig(\n    system_instruction=system_prompt,\n    temperature=0\n)\n```\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"What is the square root of 4?\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "I'M JUST A ROBOT"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "65d175bf-d169-4234-85d1-e57e0ef93373",
+    "slug": "2-function-declaration",
+    "title": "Function Declaration",
+    "type": "type_cli",
+    "topics": [
+      "LLM Function Calling",
+      "Tool Definitions",
+      "Agent Capabilities"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "2e26b66a-0c04-46bb-8ad1-64c5b61f1c99",
+    "chapterTitle": "Function Calling",
+    "isFree": true,
+    "difficulty": 52,
+    "readme": "# Function Declaration\n\nSo we've written a bunch of functions that are LLM-friendly (text in, text out), but how does an LLM actually _call_ a function?\n\nWell, the answer is that... it doesn't. At least not directly. It works like this:\n\n1. We tell the LLM which functions are available to it.\n2. We give it a prompt.\n3. The LLM describes which function it wants to call, and what arguments to pass to it.\n4. _We_ call that function with the provided arguments.\n5. We return the result to the LLM.\n\nWe're using the LLM as a decision-making engine, but we're still the ones running the code (thankfully).\n\nLet's build the part of this system that tells the LLM which functions are available to it.\n\n## Assignment\n\n1. [ ] The `google-genai` library that we're using to interact with the Gemini API offers a standard format to describe a function for LLM callers: [`types.FunctionDeclaration`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration). We'll use this to build a \"declaration\" or \"schema\" for each of our functions. Again, this basically just tells the LLM _how the function should be called_. I'll give you my code for the first function, `get_files_info`, as an example, since it's a lot of work to slog through the docs:\n\n   ```py\n   schema_get_files_info = types.FunctionDeclaration(\n       name=\"get_files_info\",\n       description=\"Lists files in a specified directory relative to the working directory, providing file size and directory status\",\n       parameters=types.Schema(\n           type=types.Type.OBJECT,\n           properties={\n               \"directory\": types.Schema(\n                   type=types.Type.STRING,\n                   description=\"Directory path to list files from, relative to the working directory (default is the working directory itself)\",\n               ),\n           },\n       ),\n   )\n   ```\n\n   I added this schema to my `functions/get_files_info.py` file. You can put it wherever you like, but you'll probably find it convenient to keep each declaration close to the corresponding function.\n\n> [!warning]\n> Notice that, in the declaration for the LLM, we don't even _mention_ the `working_directory` parameter of the function! We'll be passing that argument \"from the outside,\" without the LLM agent knowing about it or being able to affect it.\n\n2. [ ] Now that we're building declarations for our functions, we can include those in a _list of available functions_ to provide to the LLM. Again, `google-genai` makes this easy, with the [`types.Tool`](https://googleapis.github.io/python-genai/genai.html#genai.types.Tool) object. You can start with the code below. For now, the only function declaration in the list is the one for `get_files_info`, but we'll add the rest shortly.\n\n   ```py\n   available_functions = types.Tool(\n       function_declarations=[schema_get_files_info],\n   )\n   ```\n\n   I put the list of available functions in a new file, `call_function.py`. As always, you can organize your code in whatever way makes sense to you.\n\n3. [ ] Back in your main module, import your available functions list from wherever you defined it, and add that to the `config` parameter in your [`client.models.generate_content`](https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content) call, under `tools`. This should go right next to where you recently specified the system prompt. For example:\n   ```py\n   config=types.GenerateContentConfig(\n       tools=[available_functions], system_instruction=system_prompt\n   )\n   ```\n4. [ ] Update the system prompt to instruct the LLM on how to use the function. You can copy mine or use it as a starting point for your own edits. Be sure to at least give the prompt a quick read, to understand what it's doing:\n\n   ```py\n   system_prompt = \"\"\"\n   You are a helpful AI coding agent.\n\n   When a user asks a question or makes a request, make a function call plan. You can perform the following operations:\n\n   - List files and directories\n\n   All paths you provide should be relative to the working directory. You do not need to specify the working directory in your function calls as it is automatically injected for security reasons.\n   \"\"\"\n   ```\n\n5. [ ] Instead of simply printing the [.text](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse.text) property of the `generate_content` response, also check the [.function_calls](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse.function_calls) property. Notice that `function_calls` is a list of [`FunctionCall`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionCall) objects, each of which has properties like `.name` and `.args`. If this list contains any items, iterate over them and print the name and arguments of each function call in the format shown below. Note that `function_calls` is **not guaranteed** to be a list – its value will be `None` when it's empty.\n\n   ```py\n   f\"Calling function: {function_call.name}({function_call.args})\"\n   ```\n\n   If there are no function calls in the response, print the text as normal.\n\n> [!tip]\n> The idea is that each response from the LLM agent should consist of _either_ text _or_ one or more function calls. The reason for this will become clear later. For now, if you find any function calls, just print those; and if you _don't_ find any, just print the response text.\n\n6. [ ] Test your program with some questions designed to trigger function calls. For example:\n   - \"what files are in the root?\" -> `get_files_info({'directory': '.'})`\n   - \"what files are in the pkg directory?\" -> `get_files_info({'directory': 'pkg'})`\n\n> [!info]\n> We aren't actually _calling_ functions yet – we're just making sure the LLM knows which functions are available and how to _request_ that they be called.\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"what files are in the root?\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "get_files_info"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 2000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"what files are in the pkg directory?\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "'directory': 'pkg'",
+                  "get_files_info"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "a77eebdf-74c6-40f4-8d83-c52224c41766",
+    "slug": "3-more-declarations",
+    "title": "More Declarations",
+    "type": "type_cli",
+    "topics": [
+      "Tool Schemas",
+      "Function Definitions",
+      "System Prompt Iteration"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "2e26b66a-0c04-46bb-8ad1-64c5b61f1c99",
+    "chapterTitle": "Function Calling",
+    "isFree": true,
+    "difficulty": 54,
+    "readme": "# More Declarations\n\nNow that our LLM agent is able to specify a function call to the `get_files_info` function, let's give it the ability to call the other functions as well.\n\n## Assignment\n\n1. [ ] Following the same pattern that we used for `schema_get_files_info`, create declarations for the remaining functions. I've put some more details about the [function declaration syntax](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration) in the `Tips` section.\n   1. [ ] `get_file_content`\n   2. [ ] `run_python_file`\n   3. [ ] `write_file`\n2. [ ] Update your list of available functions to include all the declarations. We'll call them later.\n3. [ ] Update your system prompt. Instead of the allowed operations being only:\n\n   ```\n   - List files and directories\n   ```\n\n   Update it to have all four operations:\n\n   ```\n   - List files and directories\n   - Read file contents\n   - Execute Python files with optional arguments\n   - Write or overwrite files\n   ```\n\n4. [ ] Test some prompts that you suspect will result in the various function calls. For example:\n   - \"read the contents of main.py\" -> `get_file_content({'file_path': 'main.py'})`\n   - \"write 'hello' to main.txt\" -> `write_file({'file_path': 'main.txt', 'content': 'hello'})`\n   - \"run main.py\" -> `run_python_file({'file_path': 'main.py'})`\n   - \"list the contents of the pkg directory\" -> `get_files_info({'directory': 'pkg'})`\n\n> [!info]\n> The LLM is still just _choosing which functions to call_ based on the user's request. We'll have it _actually call_ functions soon.\n\n**Submit** the CLI tests.\n\n## Tips\n\n- For each declaration, you'll need to update _at minimum_ the `name` and `description` of the function, as well as the key and `description` of each item in `parameters.properties`.\n- If any function arguments are required, it's a good idea to put them in a `required` list under `parameters`. For example, the declaration for `get_file_content` would have `required=[\"file_path\"]`.\n- If a function accepts more than one argument from the LLM caller, the declaration will have multiple items in `parameters.properties`. For example, the declaration for `write_file` should include both `file_path` and `content`.\n- Pay attention to the `type` of each parameter. Most of them will be `types.Type.STRING`, but the optional `args` parameter of `run_python_file` should be `types.Type.ARRAY` – which then has `items` that are `types.Type.STRING`. Yes, this can get pretty nested!\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"read the contents of main.py\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "get_file_content",
+                  "main.py"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 5000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"write 'hello' to main.txt\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "write_file",
+                  "main.txt",
+                  "hello"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 5000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"run main.py\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "run_python_file",
+                  "main.py"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 5000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"list the contents of the pkg directory\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "get_files_info",
+                  "pkg"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 5000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "0b1ed247-a70c-4b56-9558-a5656b1e6e25",
+    "slug": "4-calling",
+    "title": "Calling Functions",
+    "type": "type_cli",
+    "topics": [
+      "Tool Execution Dispatcher",
+      "Function Call Mapping",
+      "API Response Handling"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "2e26b66a-0c04-46bb-8ad1-64c5b61f1c99",
+    "chapterTitle": "Function Calling",
+    "isFree": true,
+    "difficulty": 58,
+    "readme": "# Calling Functions\n\nOkay, now our agent can _choose_ which function to call; it's time to actually _call_ the function. This will require a bit of ceremony.\n\n## Assignment\n\n1. [ ] Create a new function that will handle the abstract task of calling one of our four functions and returning its result. This is the signature I used:\n\n   ```py\n   def call_function(function_call, verbose=False):\n   ```\n\n   I put this function in `call_function.py` – the same module where I defined the list of available functions. As always, organize your code as you see fit.\n\n   The `function_call` argument will be a [`types.FunctionCall`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionCall) object that has, most importantly:\n   - A `name` property (the name of the function, a string)\n   - An `args` property (a `dict` of named arguments to the function)\n\n2. [ ] If `verbose` is specified, print the function name and args:\n\n   ```py\n   print(f\"Calling function: {function_call.name}({function_call.args})\")\n   ```\n\n   Otherwise, just print the name:\n\n   ```py\n   print(f\" - Calling function: {function_call.name}\")\n   ```\n\n3. [ ] We'll need to determine which of the four functions to call (if any). To make this ergonomic, define a mapping of _function names_ to _actual functions_. You can use a `dict` for this:\n   ```py\n   function_map = {\n       \"get_file_content\": get_file_content,\n       # etc.\n   }\n   ```\n4. [ ] Check the `.name` property of the `function_call` argument. In theory it could be `None`, so I recommend copying it to a variable, e.g. `function_name`, in a way that guarantees you get a string:\n   ```py\n   function_name = function_call.name or \"\"\n   ```\n5. [ ] If the provided function name is not found in the mapping you defined earlier, return a [`types.Content`](https://googleapis.github.io/python-genai/genai.html#genai.types.Content) object that explains the error:\n   ```py\n   return types.Content(\n       role=\"tool\",\n       parts=[\n           types.Part.from_function_response(\n               name=function_name,\n               response={\"error\": f\"Unknown function: {function_name}\"},\n           )\n       ],\n   )\n   ```\n6. [ ] Assuming the function name is valid, handle the provided arguments. We're going to overwrite one argument – to ensure the working directory is set properly – so you should make a [shallow copy](https://docs.python.org/3/library/copy.html) of `function_call.args`. The `dict()` constructor is an easy way of doing this:\n\n   ```py\n   args = dict(function_call.args) if function_call.args else {}\n   ```\n\n   This way, we have our own copy of the args to work with. And if `function_call.args` is `None`, we get an empty dictionary, which is more convenient.\n\n7. [ ] Set `\"working_directory\"` to `\"./calculator\"` in the args dictionary.\n8. [ ] Now we get to actually call the function!\n   - The values in your map of `function name -> function` are _callable functions_, so you can just call the one you need, e.g., `function_map[function_name]()`.\n   - The syntax to pass a dictionary into a function using [keyword arguments](https://docs.python.org/3/glossary.html#term-argument) is `some_function(**some_args)`.\n   - Assign the result of the function call to a variable, e.g. `function_result`. Remember that we defined all of our LLM-callable functions to always return strings, so this result variable will be a string.\n9. [ ] Return a [`types.Content`](https://googleapis.github.io/python-genai/genai.html#genai.types.Content) object with a [`from_function_response`](https://googleapis.github.io/python-genai/genai.html#genai.types.Part.from_function_response) part describing the result of the function call:\n   ```py\n   return types.Content(\n       role=\"tool\",\n       parts=[\n           types.Part.from_function_response(\n               name=function_name,\n               response={\"result\": function_result},\n           )\n       ],\n   )\n   ```\n\n> [!info]\n> Because `from_function_response` requires the response to be a dictionary, we just shove the string result into a `\"result\"` field.\n\n10. [ ] Back in your main module – or wherever you handle the response from the LLM – instead of simply printing the name of the function that the model decided to call, use `call_function` and assign its result to a variable, e.g. `function_call_result`.\n    1. [ ] The [`types.Content`](https://googleapis.github.io/python-genai/genai.html#genai.types.Content) object that we return from `call_function` should have a non-empty `.parts` list. If it doesn't, raise an exception.\n    2. [ ] We want to look at the `.function_response` property of the first item in the list of parts, i.e. `.parts[0].function_response`. It should be a [`FunctionResponse`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionResponse) object. If it's somehow `None`, raise an exception.\n    3. [ ] Finally, we need to check the `.response` field of the `FunctionResponse` object, i.e. `.parts[0].function_response.response`. This is where the actual function result will be. If it's `None`, raise an exception.\n    4. [ ] Whew! Now that we know that some response came back from the function call, add `.parts[0]` to a list of function results. We'll use that later.\n    5. [ ] If `verbose` mode is in effect, print the result of the function call like this:\n       ```py\n       print(f\"-> {function_call_result.parts[0].function_response.response}\")\n       ```\n11. [ ] Test your program. You should be able to execute each function given a prompt that asks for it. Try some different prompts and use the `--verbose` flag to make sure all the functions work.\n    - List a directory's contents.\n    - Get a file's contents.\n    - Write some text to a file (don't overwrite anything important; maybe create a new file).\n    - Execute the calculator app's tests (`tests.py`).\n\n> [!tip]\n> We aren't passing the function call results back to the LLM just yet.\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"run tests.py\" --verbose",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Ran 9 tests"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 2000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"get the contents of lorem.txt\" --verbose",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "wait, this isn't lorem ipsum"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 2000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"create a new README.md file with the contents '# calculator'\" --verbose",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": 2000,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        },
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"what files are in the root?\" --verbose",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "lorem.txt",
+                  "README.md"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "ad0f349e-4426-4658-b3f5-7e7bbce2ae48",
+    "slug": "1-agents",
+    "title": "Agent Loop",
+    "type": "type_cli",
+    "topics": [
+      "Agentic Loops",
+      "ReAct Pattern",
+      "Conversation State Management"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "23b3a056-c18b-4f77-8a71-61d704cfdba2",
+    "chapterTitle": "Agents",
+    "isFree": false,
+    "difficulty": 61,
+    "readme": "# Agent Loop\n\nSo we've got some function-calling working, but it's not fair to call our program an \"agent\" yet for one simple reason:\n\n_It has no feedback loop._\n\nA key part of an \"agent,\" as defined by AI-influencer-hype-bros, is that it can continuously use its tools to iterate on its own results. So we're going to build two things:\n\n1. A loop that will call the LLM over and over\n2. A list of messages in the \"conversation.\" It will look something like this:\n   - User: \"Please fix the bug in the calculator\"\n   - Model: \"I want to call get_files_info...\"\n   - Tool: \"Here's the result of get_files_info...\"\n   - Model: \"I want to call get_file_content...\"\n   - Tool: \"Here's the result of get_file_content...\"\n   - Model: \"I want to call run_python_file...\"\n   - Tool: \"Here's the result of run_python_file...\"\n   - Model: \"I want to call write_file...\"\n   - Tool: \"Here's the result of write_file...\"\n   - Model: \"I want to call run_python_file...\"\n   - Tool: \"Here's the result of run_python_file...\"\n   - Model: \"I fixed the bug and then ran the calculator to ensure it's working.\"\n\n**This is a big step; take your time.** (But you're also _really_ close to the finish line now!)\n\n## Assignment\n\n1. [ ] Wrap the entirety of your model-calling logic in a loop, so the agent can iterate on a task until it's done working and has a final response for the user.\n   - If you moved the [`client.models.generate_content`](https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content) request into a dedicated function, you'll be calling that function in the loop. If you're doing everything in `main()`, that's also fine – just take care that the loop is scoped correctly.\n   - **Make sure to limit the loop iterations!** This will stop the agent from spinning its wheels forever and burning through tons of tokens. I recommend starting with a limit of 20 iterations. You can use a `for` loop for this:\n     ```py\n     for _ in range(20):\n         # call the model, handle responses, etc.\n     ```\n2. [ ] We need to ensure that, in each iteration of the loop, the model is aware of all the messages and tool requests that _it_ has generated so far. Each response from the Gemini API has a [`.candidates` property](https://googleapis.github.io/python-genai/genai.html#genai.types.GenerateContentResponse.candidates) – a list of the model's response(s) to the last prompt (usually just one). Add all \"candidates\" to the conversation history so the model can see them in future iterations.\n   1. [ ] After each call to `generate_content`, check the `.candidates` property of the response. I recommend doing this early in the loop, before handling function calls.\n   2. [ ] If there are any \"candidates\" (there should be), iterate over them and append the `.content` property of each to the `messages` list.\n3. [ ] The model will also need to see the results of any function calls that it makes. You should already be collecting a list of function results. Append that to the `messages` list at the end of each loop iteration, making a [`types.Content` object](https://googleapis.github.io/python-genai/genai.html#genai.types.Content) with a `role` of `\"user\"` and `parts` set to the list of function results. It should look something like this:\n   ```py\n   messages.append(types.Content(role=\"user\", parts=function_responses))\n   ```\n\n> [!warning]\n> There are two separate appends each loop: first the model's candidate content, then the collected tool responses.\n\n4. [ ] The loop ends when the model doesn't request any more function calls, i.e., when it has a final response for the user. You should already be handling this case – printing the `.text` property of the response if there's nothing in `.function_calls`. Just make sure that you also break out of the loop, or return from `main()`, at this point.\n5. [ ] If the maximum number of iterations is reached and the model still hasn't produced a final response, print a message explaining what went wrong. You may also want to [`exit`](https://docs.python.org/3/library/sys.html#sys.exit) the program with a code of `1` to indicate failure.\n6. [ ] Test your code (duh). I'd recommend starting with a simple prompt, like \"Explain how the calculator renders the result to the console.\" This is what I got:\n\n```\n(aiagent) wagslane@MacBook-Pro-2 aiagent % uv run main.py \"how does the calculator render results to the console?\"\n - Calling function: get_files_info\n - Calling function: get_file_content\nFinal response:\nAlright, I've examined the code in `main.py`. Here's how the calculator renders results to the console:\n\n- **`print(to_print)`:** The core of the output is done using the `print()` function.\n- **`format_json_output(expression, result)`:** Before printing, the `format_json_output` function (imported from `pkg.render`) is used to format the result and the original expression into a JSON-like string. This formatted string is then stored in the `to_print` variable.\n- **Error handling:** The code includes error handling with `try...except` blocks. If there's an error during the calculation (e.g., invalid expression), an error message is printed to the console using `print(f\"Error: {e}\")`.\n\nSo, the calculator evaluates the expression, formats the result (along with the original expression) into a JSON-like string, and then prints that string to the console. It also prints error messages to the console if any errors occur.\n```\n\n> [!tip]\n> You may or may not need to make adjustments to your system prompt to get the LLM to behave the way you want. You're a prompt engineer now, so act like one!\n\n**Submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run main.py \"how does the calculator render results to the console?\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "get_files_info",
+                  "get_file_content"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "e457f633-6cbf-44bd-9eec-8a938f8db13a",
+    "slug": "2-update-code",
+    "title": "Update Code",
+    "type": "type_cli",
+    "topics": [
+      "AI Code Generation",
+      "Automated Debugging",
+      "Integration Testing"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "23b3a056-c18b-4f77-8a71-61d704cfdba2",
+    "chapterTitle": "Agents",
+    "isFree": false,
+    "difficulty": 50,
+    "readme": "# Update Code\n\nTime for the _coup de grâce_!\n\nLet's test our agent's ability to actually _fix a bug_ all on its own.\n\n## Assignment\n\n1. [ ] Manually update `calculator/pkg/calculator.py` and change the `precedence` of the `+` operator to `3`.\n2. [ ] Run the calculator app, to make sure it's now producing incorrect results: `uv run calculator/main.py \"3 + 7 * 2\"` (this should be `17`, but because we broke it, it will return `20`).\n3. [ ] Run your agent and ask it, \"Fix the bug: `3 + 7 * 2` shouldn't be `20`.\"\n\n> [!tip]\n> Again, getting this to succeed may require a system prompt that is a bit more detailed and explicit. One thing that can be helpful is to ask a few different LLMs, like GPT and Claude, for suggestions on how to make your system prompt more effective for a coding agent. And keep experimenting with it!\n\nOnce your agent fixes the calculator, **run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "uv run calculator/main.py \"3 + 7 * 2\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "17"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "bb5a280c-df61-40ce-88d6-4de884db823a",
+    "slug": "3-submit",
+    "title": "Submit Your Repo",
+    "type": "type_github_checks",
+    "topics": [
+      "Git Submission",
+      "API Security Best Practices",
+      "Project Extension"
+    ],
+    "courseUUID": "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+    "courseSlug": "build-ai-agent-python",
+    "courseTitle": "Build an AI Agent in Python",
+    "chapterUUID": "23b3a056-c18b-4f77-8a71-61d704cfdba2",
+    "chapterTitle": "Agents",
+    "isFree": false,
+    "difficulty": 24,
+    "readme": "# Submit Your Repo\n\n_You've done it!_\n\nOnce you're satisfied with your agent, [push it up to GitHub](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository), then submit the link to your project! Your link should look something like this: `https://github.com/github-username/repo-name`.\n\n![prompt engineer harry](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/UTaZhoh-498x278.png)\n\n> [!warning]\n> If you used the Gemini API on the paid tier for this project, be sure to [delete your API key](https://aistudio.google.com/api-keys) when you're all finished, to avoid unexpected charges.\n\n## Extending the Project\n\nYou've completed the required steps, but have some fun with it! (**Carefully**, though... be very cautious about giving an LLM access to your filesystem and Python interpreter.) See if you can get it to:\n\n- Fix harder and more complex bugs\n- Refactor sections of code\n- Add entirely new features\n\nYou can also try:\n\n- Other LLM providers\n- Other Gemini models\n- Giving it more functions to call\n- Other codebases (commit your changes before running the agent on a codebase, so you can always revert)\n\n> [!danger]\n> Remember, what we've built is a _toy_ version of something like Cursor/Zed's Agentic Mode, or Claude Code. Even their tools aren't perfectly secure, so be careful what you give them access to. And don't encourage anyone to use this toy agent as-is!\n",
+    "language": "",
+    "githubChecksData": {
+      "ContainsCompleteDir": false,
+      "Steps": [
+        {
+          "StepType": "submit_repo_for_course",
+          "BranchExistsData": null,
+          "PRExistsData": null,
+          "WorkflowStatusData": null,
+          "WorkflowLogsContainsData": null,
+          "FileContainsData": null
+        }
+      ],
+      "ShowcaseRepo": true
+    },
+    "orderInChapter": 3
+  }
+]

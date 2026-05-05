@@ -1,0 +1,791 @@
+[
+  {
+    "uuid": "6120f97b-117f-4a84-94d6-a3436f21f1a4",
+    "slug": "1-welcome",
+    "title": "Welcome to Bookbot",
+    "type": "type_cli",
+    "topics": [
+      "Python Development Environment",
+      "Command Line Interface"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "435be03a-53a3-42a2-b3ea-b8f2f6857b6b",
+    "chapterTitle": "Setup",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Welcome to Bookbot\n\nThis is (perhaps?) your first ever Python project, and almost certainly your first one on Boot.dev. Congratulations!\n\nWe're building **Book Bot** - a Python program that analyzes novels and prints a statistical report of the word and character usage found within. Our learning goals are to:\n\n- Configure a professional Python development environment on your local computer\n- Practice building a full project from scratch\n- Learn how to use a professional code editor (VS Code)\n\nHere's a quick demo (you might want to fullscreen):\n\n![bookbot demo](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/bookbot-final-project-demo-1920x1080-1920x1080.mp4)\n\n## [!windows] for Windows Users\n\n> [!warning]\n> Our automated tests run in Linux/macOS environments. If you're on Windows you must have WSL2 installed.\n\n## Boot.dev CLI\n\nThroughout this course, you'll be using the Boot.dev CLI to run our tests (which are just CLI commands) against your local environment. [Install it now](https://github.com/bootdotdev/bootdev?tab=readme-ov-file#installation) if you don't already have it. All the instructions and troubleshooting info are on the GitHub page.\n\nMake sure the Boot.dev CLI install worked:\n\n```bash\nbootdev --version\n```\n\n_If you're stuck, reach out in the help forums of the [Discord](https://www.boot.dev/community)._\n\nOnce the `bootdev` command is working, log in and follow the instructions:\n\n```bash\nbootdev login\n```\n\n## Run vs. Submit\n\nLessons have a series of \"commands\" that run on your local machine, and a series of tests it will check against the results of the command. There are two ways to run these commands: `run` and `submit`:\n\n1. `bootdev run <id>`: This will run the commands and show you the results. It's to be used for debugging, but it won't tell you whether or not you've passed the tests explicitly.\n2. `bootdev run <id> -s`: This will run the commands and give you pass/fail feedback. It will also mark the lesson as complete on the website. If you get it wrong however, you'll potentially lose your sharpshooter spree, so be sure to use `run` first!\n\nYou can copy the run/submit commands with the id ready-to-go from the test panel.\n\n## Assignment\n\nOnce you have the CLI installed and you're logged in, copy and paste the `run` command from the right into your terminal and execute it. If it's doing what you'd expect (printing `Ready for bookbot`), then run the submit command.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": false,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "echo \"Ready for bookbot\"",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Ready for bookbot"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "6be4c2a9-32ce-4e44-b400-e979d8e2462c",
+    "slug": "2-workspace",
+    "title": "Workspace",
+    "type": "type_choice",
+    "topics": [
+      "File System Organization"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "435be03a-53a3-42a2-b3ea-b8f2f6857b6b",
+    "chapterTitle": "Setup",
+    "isFree": true,
+    "difficulty": 2,
+    "readme": "# Workspace\n\nMany developers have spent _years_ writing code, but never develop good organization and so they end up with project directories strewn haphazardly across their filesystem.\n\n> [!lane]\n> I know it sounds silly, but it gets painful to manage so many projects. That's why I use the system I'm about to show you.\n\nTo be clear, you can organize your code however you prefer on your machine, but this method has served me very well. It's similar to how Golang used to _enforce_ code organization, which is in turn based on how code projects are hosted online:\n\n`~/workspace/USERNAME/PROJECTNAME`\n\nFor example:\n\n- `~/workspace/bootdotdev/curriculum`\n- `~/workspace/wagslane/go-rabbitmq`\n\nThis keeps _all_ my projects in a predictable location on my system.\n\n_Adopt my system if you'd like, but you don't have to._\n\n## Assignment\n\nRegardless of whether you choose my system or not, you _do_ need a project directory for this project. Once you create one, proceed to the next lesson.\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this step?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "4695fb05-cb7c-44e4-b206-0ed8eac44588",
+    "slug": "3-readme",
+    "title": "Readme",
+    "type": "type_cli",
+    "topics": [
+      "Markdown"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "435be03a-53a3-42a2-b3ea-b8f2f6857b6b",
+    "chapterTitle": "Setup",
+    "isFree": true,
+    "difficulty": 4,
+    "readme": "# Readme\n\nA [`README.md`](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) is a [markdown](https://www.markdownguide.org/getting-started/) documentation file that's supposed to explain what your project is and how to run it.\n\n> [!lane]\n> And if you're a *real developer*™ then it's always out of date and doesn't provide enough info.\n\n## Assignment\n\n1. [ ] Create a file named `README.md` in your editor and copy this text into it (be sure it matches, we'll be checking):\n\n```\n# bookbot\n\nBookBot is my first [Boot.dev](https://www.boot.dev) project!\n```\n\n> [!info]\n> The `[anchor](link)` syntax is how you make a link in markdown.\n\n2. [ ] Save the updated file. (`cmd+s` on macOS, `ctrl+s` on Windows/Linux in VS Code)\n\n**Run and submit** the CLI tests from the **root of your project**.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat README.md",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "BookBot is my first [Boot.dev](https://www.boot.dev) project!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "d2371c4c-0dad-4c85-9d4f-e92da72335f6",
+    "slug": "4-install-python",
+    "title": "Installing Python",
+    "type": "type_cli",
+    "topics": [
+      "Python Installation",
+      "Package Managers"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "435be03a-53a3-42a2-b3ea-b8f2f6857b6b",
+    "chapterTitle": "Setup",
+    "isFree": true,
+    "difficulty": 3,
+    "readme": "# Installing Python\n\nIn previous courses, we've written our Python code in the _browser_, but now we're going to install Python on our local machine, and use it just like you will as a professional developer.\n\n## Assignment\n\nThere are two versions of this lesson, one for WSL/Linux users, and one for macOS users.\n\n### [!linux][!windows] for Windows (WSL 2) / Linux Users\n\nIf you're on Linux (or Windows WSL 2), you may already have Python installed. You can verify this by running:\n\n```bash\npython3 --version\n```\n\nIf that worked, you can skip ahead!\n\nIf it didn't, we'll use the default package manager, `apt`, to download python.\n\n1. [ ] Run this command to install python3:\n\n```bash\nsudo apt update\nsudo apt install -y python3\n```\n\n**Make sure to read the installation logs in case there's some step you're missing!**\n\n2. [ ] Restart your shell to make sure the changes have taken effect.\n3. [ ] Verify the installation:\n\n```bash\npython3 --version\n```\n\nYou should get back a valid Python 3.x version.\n\n**Submit** the CLI tests. There's no penalty on failure for this lesson.\n\n### [!macos] for macOS\n\nWe'll use the [Homebrew](https://brew.sh/) package manager to install Python.\n\n1. [ ] If you don't already have Homebrew, install it by running the following command:\n\n```\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n```\n\n2. [ ] Open your `~/.zshrc` / `~/.bashrc` file (or whatever your shell config file is) and add this line to the bottom:\n\n```bash\nexport PATH=\"/opt/homebrew/bin:$PATH\"\n```\n\n3. [ ] Restart your shell to make sure the changes have taken effect.\n4. [ ] With `brew` now in your `PATH`, install Python:\n\n```bash\nbrew install python3\n```\n\n5. [ ] Verify the installation:\n\n```bash\npython3 --version\n```\n\nYou should get back a valid Python 3.x version.\n\n**Submit** the CLI tests. There's no penalty on failure for this lesson.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": false,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 --version",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Python 3"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "d6350dd3-7ec9-425b-b10c-892b8f2a9b7a",
+    "slug": "1-run-python",
+    "title": "Running Python",
+    "type": "type_cli",
+    "topics": [
+      "print() Function",
+      "Running Python Scripts"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Running Python\n\nLet's run some Python code!\n\n## Assignment\n\n1. [ ] Create a new file called `main.py`. You can use the VS Code file explorer or just run the command:\n\n```bash\ntouch main.py\n```\n\n2. [ ] Open the file in your editor and paste in this line of code. Don't forget to save your code after you write it!\n\n```python\nprint(\"greetings boots\")\n```\n\n3. [ ] Run your program:\n\n```bash\npython3 main.py\n```\n\nIf your code printed \"greetings boots\" to the console, pat yourself on the back! You've got a professional Python development environment up and running!\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "greetings boots"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "3e0113f5-18a9-4b4a-9600-6b9b928c01ac",
+    "slug": "2-book-data",
+    "title": "Book Data",
+    "type": "type_cli",
+    "topics": [
+      "File Organization"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 6,
+    "readme": "# Book Data\n\nTo be able to analyze a book, first we need to _have_ a book to analyze!\n\n## Assignment\n\n\"Frankenstein\" by Mary Shelley is in the public domain, so let's start with that.\n\n1. [ ] Create a directory in your `bookbot` project called `books`, and a new `books/frankenstein.txt` file.\n2. [ ] Open a browser and navigate to [the book file here](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/frankenstein.txt) (which is a copy from [Project Gutenberg](https://www.gutenberg.org/)). Copy and paste the entire contents of the page into your `frankenstein.txt` file.\n\n> [!warning]\n> Be careful to copy the entire file or else you'll fail future assignments!\n\nOr run the following command:\n\n```sh\nwget -O books/frankenstein.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/frankenstein.txt\n```\n\n**Run and submit** the CLI tests from the root of your project.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "head books/frankenstein.txt",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Frankenstein; Or, The Modern Prometheus"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "c6b03f98-bb00-4016-8db1-10300246c0e1",
+    "slug": "3-read-file",
+    "title": "Read File",
+    "type": "type_cli",
+    "topics": [
+      "open() Function",
+      "with Statement",
+      "File I/O",
+      "Python Functions"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 10,
+    "readme": "# Read File\n\nLet's start _ackshually_ building \"bookbot\"! Here are some things you'll need to know how to do for this step:\n\n## with Block\n\nA [with](https://docs.python.org/3/reference/compound_stmts.html#with) block can be used to [open a file](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files):\n\n```py\nwith open(path_to_file) as f:\n    # do something with f (the file) here\n```\n\n_The `with` block will automatically close the file when the block is exited, cleaning up resources_.\n\n## .read() Method\n\nYou can use the [.read()](https://python-reference.readthedocs.io/en/latest/docs/file/read.html) method to read the contents of a file into a string:\n\n```py\n# f is a file object\nfile_contents = f.read()\n```\n\n## Assignment\n\n1. [ ] Delete your \"greetings boots\" message.\n2. [ ] Write a new function called `get_book_text()`. It takes a filepath as input and returns the contents of the file as a string.\n3. [ ] Write a `main` function that uses `get_book_text()` with the _relative_ path to your `frankenstein.txt` file to print the entire contents of the book to the console.\n4. [ ] Call `main()` at the bottom of your file to execute your program.\n5. [ ] Test your program!\n\n```bash\npython3 main.py\n```\n\n**Run and submit** the CLI tests.\n\n## Tips\n\n- The path to a file is a string, so it needs to be in quotes.\n- You don't _need_ to write all your functions and variable names the same as mine, I'm just trying to give you some examples of how you can _potentially structure your code_. There are many correct ways to write the same program.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py > /tmp/frankenstein.txt",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "head /tmp/frankenstein.txt",
+            "Tests": [
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Frankenstein; Or, The Modern Prometheus"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "73bd80d2-edb5-492e-9212-967eba7e8047",
+    "slug": "4-words",
+    "title": "Count Words",
+    "type": "type_cli",
+    "topics": [
+      ".split() Method",
+      "len() Function",
+      "String Formatting"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 9,
+    "readme": "# Count Words\n\nTime for our first bit of data analysis! Let's count the words in the book.\n\n## Assignment\n\n1. [ ] Write a new function that accepts the text from the book as a string, and returns the number of words in the string. The [.split() method](https://docs.python.org/3.3/library/stdtypes.html?highlight=split#str.split) will be helpful here.\n2. [ ] Instead of printing the books contents, print this message to the console:\n\n```\nFound {num_words} total words\n```\n\nReplace `{num_words}` with the actual number of words in the book.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Found 75767 total words"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "bea7b054-305c-4d25-9464-97b6c5606e31",
+    "slug": "5-refactor",
+    "title": "Refactor",
+    "type": "type_cli",
+    "topics": [
+      "import Statement",
+      "Python Modules",
+      "Code Organization"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 8,
+    "readme": "# Refactor\n\n[Refactoring](https://en.wikipedia.org/wiki/Code_refactoring) is a fancy word for \"rewriting your god-awful code so it's not so terrible.\" Refactoring doesn't change the _behavior_ of your code, just the _way it's written_.\n\nThere are different kinds of refactors. The one we're gonna look into is splitting code in one file into smaller modules.\n\n## Importing\n\nIn Python, each `.py` file is a **module**, and we can import functions, variables, and classes from one module into another with the [`import`](https://docs.python.org/3/reference/simple_stmts.html#import) statement. The name of a module is the filename (without the `.py` extension).\n\nFor example, pretend we had a `database.py` file with a top-level function called `connect` and a variable called `db_version`. We could _import_ those into another file (like a `main.py` file) like this:\n\n```py\n# Import the `connect` function and `db_version` variable from the `database.py` file\nfrom database import connect, db_version\n```\n\nOr, if we want to import _everything_ from a module, we can use the `*` character:\n\n```py\n# Import everything from the `database.py` file into the current file\nfrom database import *\n```\n\n> [!tip]\n> I recommend [avoiding \"wildcard imports\" (using the `*`)](https://peps.python.org/pep-0008/#imports), because they make your code harder to read. It's better to be explicit when possible.\n\nLet's refactor our project to use multiple Python files. Not only will it be useful for you to learn how to split code across files, but in this case, it will help us organize our code. We'll use this structure:\n\n- `main.py` - The entry point to our program and any code that doesn't fit elsewhere\n- `stats.py` - A file that contains functions for analyzing the text\n\n## Assignment\n\n1. [ ] Move your function that counts the words into a new `stats.py` file.\n2. [ ] Import the function in your `main.py` file, it will look something like this:\n\n```py\nfrom stats import get_num_words\n```\n\n_Where `stats` is the name of the file (without the `.py` extension) and `get_num_words` is the name of the function you want to import._\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Found 75767 total words"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "cat main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "from stats import"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "b82a6805-17c9-4b1c-a1e6-def866faa7e6",
+    "slug": "6-letters",
+    "title": "Count Characters",
+    "type": "type_cli",
+    "topics": [
+      "Python Dictionaries",
+      ".lower() Method",
+      "for Loop",
+      "Character Frequency Analysis"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "2e507c93-6e97-4737-9dbc-ce1c1d90ccab",
+    "chapterTitle": "Data Analysis",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# Count Characters\n\nAh, the meat of bookbot: counting characters!\n\n## Assignment\n\n1. [ ] Add a new function to your `stats.py` file that takes the text from the book as a string, and returns the number of times each character, (including symbols and spaces), appears in the string.\n   - Convert any character to lowercase using the [`.lower()` method](https://docs.python.org/3/library/stdtypes.html#str.lower), we don't want duplicates.\n   - Use a dictionary of `String` -> `Integer`. The returned dictionary should look something like this:\n\n```\n{'p': 6121, 'r': 20818, 'o': 25225, ...\n```\n\n2. [ ] Import and call the function in `main.py`, and capture the result in a new variable.\n3. [ ] After printing the word count, print the dictionary of characters and their counts.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Found 75767 total words",
+                  "' ': 70480",
+                  "'t': 29493",
+                  "'p': 5952",
+                  "'c': 9011"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "d6536f09-dc1d-4922-a2a5-a73c536ee09d",
+    "slug": "1-report",
+    "title": "Print a Report",
+    "type": "type_cli",
+    "topics": [
+      ".sort() Method",
+      ".isalpha() Method",
+      "List of Dictionaries",
+      "String Formatting"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "9b617b5c-468e-453a-81f9-4a587177023a",
+    "chapterTitle": "Report",
+    "isFree": true,
+    "difficulty": 16,
+    "readme": "# Print a Report\n\nOur data crunching is done, time to print a pretty report!\n\nYou can use the `.sort()` method to sort a list of dictionaries:\n\n```py\n# A function that takes a dictionary and returns the value of the \"num\" key\n# This is how the `.sort()` method knows how to sort the list of dictionaries\ndef sort_on(items):\n    return items[\"num\"]\n\nvehicles = [\n    {\"name\": \"car\", \"num\": 7},\n    {\"name\": \"plane\", \"num\": 10},\n    {\"name\": \"boat\", \"num\": 2}\n]\nvehicles.sort(reverse=True, key=sort_on)\nprint(vehicles)\n# [{'name': 'plane', 'num': 10}, {'name': 'car', 'num': 7}, {'name': 'boat', 'num': 2}]\n```\n\n## Assignment\n\nThis is the structure of the report you need to print:\n\n```\n============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...\n----------- Word Count ----------\nFound 75767 total words\n--------- Character Count -------\ne: 44538\nt: 29493\na: 25894\no: 24494\ni: 23927\nn: 23643\ns: 20360\nr: 20079\nh: 19176\nd: 16318\nl: 12306\nm: 10206\nu: 10111\nc: 9011\nf: 8451\ny: 7756\nw: 7450\np: 5952\ng: 5795\nb: 4868\nv: 3737\nk: 1661\nx: 691\nj: 497\nq: 325\nz: 235\næ: 28\nâ: 8\nê: 7\në: 2\nô: 1\n============= END ===============\n```\n\n1. [ ] Add a new function to your `stats.py` file that takes the dictionary of characters and their counts and returns a _sorted list_ of dictionaries.\n   - Each dictionary should have two key-value pairs: one for the character itself and one for that character's count (e.g. `{\"char\": \"b\", \"num\": 4868}`).\n   - Use the [.sort()](https://docs.python.org/3/library/stdtypes.html#list.sort) method:\n     - Use a helper function to return the `\"num\"` key of each dictionary for comparison.\n     - Sort the list from greatest to least by the count.\n2. [ ] Import and call the function in `main.py`, and capture the result.\n3. [ ] Print the report to the console as shown above. If the character is not an alphabetical character (using the [.isalpha()](https://docs.python.org/3/library/stdtypes.html#str.isalpha) method), just skip it. (Be sure to match the expected output in the CLI tests!)\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Found 75767 total words",
+                  "e: 44538",
+                  "t: 29493"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "7b6379ff-8a74-45fe-8084-a79f9680a371",
+    "slug": "2-args",
+    "title": "Arguments",
+    "type": "type_cli",
+    "topics": [
+      "sys.argv",
+      "sys.exit() Function",
+      "Command Line Arguments",
+      "Input Validation"
+    ],
+    "courseUUID": "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+    "courseSlug": "build-bookbot-python",
+    "courseTitle": "Build a Bookbot in Python",
+    "chapterUUID": "9b617b5c-468e-453a-81f9-4a587177023a",
+    "chapterTitle": "Report",
+    "isFree": true,
+    "difficulty": 15,
+    "readme": "# Arguments\n\nBookbot is done! Almost...\n\nYou've probably noticed that most CLI tools you're used to (`ls`, `cd`, etc.) aren't limited to a single \"hard coded\" input. Right now `bookbot` can _only_ analyze `books/frankenstein.txt`. That's not very useful, is it? Let's update the program so that we can pass it a path to our book instead of using a hardcoded value.\n\n## System Arguments\n\nThe built in [`sys`](https://docs.python.org/3/library/sys.html) module provides access to [command line arguments](https://en.wikipedia.org/wiki/Command-line_interface#Arguments) in the terminal. In particular [`sys.argv`](https://docs.python.org/3/library/sys.html#sys.argv) is a list of strings representing the arguments passed to the script. The first argument is the script name, the rest are the arguments.\nFor example, `python3 main.py` will result in a `sys.argv` list that looks like this:\n\n```py\nprint(sys.argv)\n# Prints ['main.py']\n```\n\nAnd `python3 main.py books/frankenstein.txt` will result in a `sys.argv` list that looks like this:\n\n```py\nprint(sys.argv)\n# Prints ['main.py', 'books/frankenstein.txt']\n\nprint(len(sys.argv))\n# Prints 2\n\nprint(sys.argv[0])\n# Prints 'main.py'\n\nprint(sys.argv[1])\n# Prints 'books/frankenstein.txt'\n```\n\n## Assignment\n\n1. [ ] Remove any hard coded book paths from your code, we'll get the path from the command as shown above.\n2. [ ] At the top of `main.py`, import the built-in `sys` module:\n\n```py\nimport sys\n```\n\n3. [ ] In your code, check if the `sys.argv` list has two entries, if not:\n   - [ ] First print a message explaining how to use the program: `Usage: python3 main.py <path_to_book>`\n   - [ ] Then exit the program with a status code of `1` using [`sys.exit(1)`](https://docs.python.org/3/library/sys.html#sys.exit)\n4. [ ] Use the second argument in `sys.argv` as the path to the book file instead of the hardcoded path.\n5. [ ] Test your program with `python3 main.py books/frankenstein.txt` and make sure it works as expected.\n6. [ ] Download some more books and test your program with them, adding them to the `books` directory and passing them in as CLI arguments when you run your program. Add at least these two books:\n   - [ ] [`books/mobydick.txt`](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/mobydick.txt)\n   - [ ] [`books/prideandprejudice.txt`](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/prideandprejudice.txt)\n\n> [!warning]\n> Use the books that are linked above, or the CLI tests will fail.\n\nYou can also run the following command to download and create the files (on macOS/Linux with `wget` installed):\n\n```sh\nwget -O books/mobydick.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/mobydick.txt\nwget -O books/prideandprejudice.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/prideandprejudice.txt\n```\n\nIf you're on Windows or don't have `wget` installed, either download the files from the links above in your browser and save them into the `books` directory with the given filenames, **or** use `curl` instead, for example:\n\n```sh\ncurl -L \"https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/mobydick.txt\" -o books/mobydick.txt\ncurl -L \"https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/prideandprejudice.txt\" -o books/prideandprejudice.txt\n```\n\n**Run and submit** the CLI tests.\n\nIf the tests pass, it means you have finished building bookbot. Congrats!\n\nI hope you've enjoyed the project. It's always good to solidify the things you learn in courses by getting your hands dirty with a real project.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "python3 main.py",
+            "Tests": [
+              {
+                "ExitCode": 1,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Usage: python3 main.py <path_to_book>"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "python3 main.py books/frankenstein.txt",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "e: 44538",
+                  "t: 29493"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "python3 main.py books/mobydick.txt",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "e: 119354",
+                  "t: 89875"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        },
+        {
+          "CLICommand": {
+            "Command": "python3 main.py books/prideandprejudice.txt",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "e: 74451",
+                  "t: 50837"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  }
+]

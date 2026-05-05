@@ -1,0 +1,622 @@
+[
+  {
+    "path_slug": "backend",
+    "path_name": "Backend Developer Career Path",
+    "variants": [
+      {
+        "variant_name": "Python & Go",
+        "variant_url": "https://www.boot.dev/paths/backend?tech=python-golang",
+        "tech": "python & go",
+        "courses": [
+          {
+            "name": "Learn Coding Basics",
+            "slug": "learn-code-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-code-python",
+            "step": 1
+          },
+          {
+            "name": "Learn Linux",
+            "slug": "learn-linux",
+            "language": "Bash/Zsh",
+            "url": "https://www.boot.dev/courses/learn-linux",
+            "step": 2
+          },
+          {
+            "name": "Build a Bookbot",
+            "slug": "build-bookbot-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-bookbot-python",
+            "step": 3
+          },
+          {
+            "name": "Learn Git",
+            "slug": "learn-git",
+            "language": "Git",
+            "url": "https://www.boot.dev/courses/learn-git",
+            "step": 4
+          },
+          {
+            "name": "Learn Object Oriented Programming",
+            "slug": "learn-object-oriented-programming-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-object-oriented-programming-python",
+            "step": 5
+          },
+          {
+            "name": "Build an Asteroids Game",
+            "slug": "build-asteroids-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-asteroids-python",
+            "step": 6
+          },
+          {
+            "name": "Learn Functional Programming",
+            "slug": "learn-functional-programming-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-functional-programming-python",
+            "step": 7
+          },
+          {
+            "name": "Build an AI Agent",
+            "slug": "build-ai-agent-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-ai-agent-python",
+            "step": 8
+          },
+          {
+            "name": "Learn Data Structures and Algorithms",
+            "slug": "learn-data-structures-and-algorithms-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-data-structures-and-algorithms-python",
+            "step": 9
+          },
+          {
+            "name": "Build a Static Site Generator",
+            "slug": "build-static-site-generator-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-static-site-generator-python",
+            "step": 10
+          },
+          {
+            "name": "Learn Memory Management",
+            "slug": "learn-memory-management-c",
+            "language": "C",
+            "url": "https://www.boot.dev/courses/learn-memory-management-c",
+            "step": 11
+          },
+          {
+            "name": "Personal Project 1",
+            "slug": "build-personal-project-1",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-personal-project-1",
+            "step": 12
+          },
+          {
+            "name": "Learn Golang",
+            "slug": "learn-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-golang",
+            "step": 13
+          },
+          {
+            "name": "Learn HTTP Clients",
+            "slug": "learn-http-clients-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-http-clients-golang",
+            "step": 14
+          },
+          {
+            "name": "Build a Pokedex",
+            "slug": "build-pokedex-cli-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/build-pokedex-cli-golang",
+            "step": 15
+          },
+          {
+            "name": "Learn SQL",
+            "slug": "learn-sql",
+            "language": "SQL",
+            "url": "https://www.boot.dev/courses/learn-sql",
+            "step": 16
+          },
+          {
+            "name": "Build a Blog Aggregator",
+            "slug": "build-blog-aggregator-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/build-blog-aggregator-golang",
+            "step": 17
+          },
+          {
+            "name": "Learn HTTP Servers",
+            "slug": "learn-http-servers-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-http-servers-golang",
+            "step": 18
+          },
+          {
+            "name": "Learn File Storage and CDNs",
+            "slug": "learn-file-servers-s3-cloudfront-golang",
+            "language": "Go + S3 + CloudFront",
+            "url": "https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-golang",
+            "step": 19
+          },
+          {
+            "name": "Learn Docker",
+            "slug": "learn-docker",
+            "language": "Docker",
+            "url": "https://www.boot.dev/courses/learn-docker",
+            "step": 20
+          },
+          {
+            "name": "Learn Document Databases",
+            "slug": "",
+            "language": "Go + Mongo",
+            "url": null,
+            "step": 21
+          },
+          {
+            "name": "Learn Web Security",
+            "slug": "",
+            "language": "Go",
+            "url": null,
+            "step": 22
+          },
+          {
+            "name": "Learn Pub/Sub Architecture",
+            "slug": "learn-pub-sub-rabbitmq",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-pub-sub-rabbitmq",
+            "step": 23
+          },
+          {
+            "name": "Learn In-Memory Databases",
+            "slug": "",
+            "language": "Go + Redis",
+            "url": null,
+            "step": 24
+          },
+          {
+            "name": "Learn AI Coding",
+            "slug": "",
+            "language": "Python + OpenCode",
+            "url": null,
+            "step": 25
+          },
+          {
+            "name": "Capstone Project",
+            "slug": "build-capstone-project",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-capstone-project",
+            "step": 26
+          },
+          {
+            "name": "Learn to Find a Job",
+            "slug": "learn-job-search",
+            "language": "Job Search",
+            "url": "https://www.boot.dev/courses/learn-job-search",
+            "step": 27
+          }
+        ]
+      },
+      {
+        "variant_name": "Python & TypeScript",
+        "variant_url": "https://www.boot.dev/paths/backend?tech=python-typescript",
+        "tech": "python & typescript",
+        "courses": [
+          {
+            "name": "Learn Coding Basics",
+            "slug": "learn-code-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-code-python",
+            "step": 1
+          },
+          {
+            "name": "Learn Linux",
+            "slug": "learn-linux",
+            "language": "Bash/Zsh",
+            "url": "https://www.boot.dev/courses/learn-linux",
+            "step": 2
+          },
+          {
+            "name": "Build a Bookbot",
+            "slug": "build-bookbot-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-bookbot-python",
+            "step": 3
+          },
+          {
+            "name": "Learn Git",
+            "slug": "learn-git",
+            "language": "Git",
+            "url": "https://www.boot.dev/courses/learn-git",
+            "step": 4
+          },
+          {
+            "name": "Learn Object Oriented Programming",
+            "slug": "learn-object-oriented-programming-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-object-oriented-programming-python",
+            "step": 5
+          },
+          {
+            "name": "Build an Asteroids Game",
+            "slug": "build-asteroids-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-asteroids-python",
+            "step": 6
+          },
+          {
+            "name": "Learn Functional Programming",
+            "slug": "learn-functional-programming-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-functional-programming-python",
+            "step": 7
+          },
+          {
+            "name": "Build an AI Agent",
+            "slug": "build-ai-agent-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-ai-agent-python",
+            "step": 8
+          },
+          {
+            "name": "Learn Data Structures and Algorithms",
+            "slug": "learn-data-structures-and-algorithms-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-data-structures-and-algorithms-python",
+            "step": 9
+          },
+          {
+            "name": "Build a Static Site Generator",
+            "slug": "build-static-site-generator-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-static-site-generator-python",
+            "step": 10
+          },
+          {
+            "name": "Learn Memory Management",
+            "slug": "learn-memory-management-c",
+            "language": "C",
+            "url": "https://www.boot.dev/courses/learn-memory-management-c",
+            "step": 11
+          },
+          {
+            "name": "Personal Project 1",
+            "slug": "build-personal-project-1",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-personal-project-1",
+            "step": 12
+          },
+          {
+            "name": "Learn JavaScript",
+            "slug": "learn-javascript",
+            "language": "JavaScript",
+            "url": "https://www.boot.dev/courses/learn-javascript",
+            "step": 13
+          },
+          {
+            "name": "Learn TypeScript",
+            "slug": "learn-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/learn-typescript",
+            "step": 14
+          },
+          {
+            "name": "Learn HTTP Clients",
+            "slug": "learn-http-clients-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/learn-http-clients-typescript",
+            "step": 15
+          },
+          {
+            "name": "Build a Pokedex",
+            "slug": "build-pokedex-cli-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/build-pokedex-cli-typescript",
+            "step": 16
+          },
+          {
+            "name": "Learn SQL",
+            "slug": "learn-sql",
+            "language": "SQL",
+            "url": "https://www.boot.dev/courses/learn-sql",
+            "step": 17
+          },
+          {
+            "name": "Build a Blog Aggregator",
+            "slug": "build-blog-aggregator-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/build-blog-aggregator-typescript",
+            "step": 18
+          },
+          {
+            "name": "Learn HTTP Servers",
+            "slug": "learn-http-servers-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/learn-http-servers-typescript",
+            "step": 19
+          },
+          {
+            "name": "Learn File Storage and CDNs",
+            "slug": "learn-file-servers-s3-cloudfront-typescript",
+            "language": "TypeScript + S3 + CloudFront",
+            "url": "https://www.boot.dev/courses/learn-file-servers-s3-cloudfront-typescript",
+            "step": 20
+          },
+          {
+            "name": "Learn Docker",
+            "slug": "learn-docker",
+            "language": "Docker",
+            "url": "https://www.boot.dev/courses/learn-docker",
+            "step": 21
+          },
+          {
+            "name": "Learn Document Databases",
+            "slug": "",
+            "language": "TypeScript + Mongo",
+            "url": null,
+            "step": 22
+          },
+          {
+            "name": "Learn Web Security",
+            "slug": "",
+            "language": "TypeScript",
+            "url": null,
+            "step": 23
+          },
+          {
+            "name": "Learn Pub/Sub Architecture",
+            "slug": "learn-pub-sub-rabbitmq-typescript",
+            "language": "TypeScript",
+            "url": "https://www.boot.dev/courses/learn-pub-sub-rabbitmq-typescript",
+            "step": 24
+          },
+          {
+            "name": "Learn In-Memory Databases",
+            "slug": "",
+            "language": "TypeScript + Redis",
+            "url": null,
+            "step": 25
+          },
+          {
+            "name": "Learn AI Coding",
+            "slug": "",
+            "language": "Python + OpenCode",
+            "url": null,
+            "step": 26
+          },
+          {
+            "name": "Capstone Project",
+            "slug": "build-capstone-project",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-capstone-project",
+            "step": 27
+          },
+          {
+            "name": "Learn to Find a Job",
+            "slug": "learn-job-search",
+            "language": "Job Search",
+            "url": "https://www.boot.dev/courses/learn-job-search",
+            "step": 28
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path_slug": "computer-science",
+    "path_name": "Computer Science Learning Path",
+    "variants": []
+  },
+  {
+    "path_slug": "data-analyst",
+    "path_name": "Data Analyst Career Path",
+    "variants": []
+  },
+  {
+    "path_slug": "data-engineer",
+    "path_name": "Data Engineer Career Path",
+    "variants": []
+  },
+  {
+    "path_slug": "devops",
+    "path_name": "DevOps Career Path",
+    "variants": [
+      {
+        "variant_name": "Python & Go",
+        "variant_url": "https://www.boot.dev/paths/devops",
+        "tech": "python & go",
+        "courses": [
+          {
+            "name": "Learn Coding Basics",
+            "slug": "learn-code-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-code-python",
+            "step": 1
+          },
+          {
+            "name": "Learn Linux",
+            "slug": "learn-linux",
+            "language": "Bash/Zsh",
+            "url": "https://www.boot.dev/courses/learn-linux",
+            "step": 2
+          },
+          {
+            "name": "Build a Bookbot",
+            "slug": "build-bookbot-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-bookbot-python",
+            "step": 3
+          },
+          {
+            "name": "Learn Git",
+            "slug": "learn-git",
+            "language": "Git",
+            "url": "https://www.boot.dev/courses/learn-git",
+            "step": 4
+          },
+          {
+            "name": "Learn Shell Scripting",
+            "slug": "",
+            "language": "Bash",
+            "url": null,
+            "step": 5
+          },
+          {
+            "name": "Learn Object Oriented Programming",
+            "slug": "learn-object-oriented-programming-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/learn-object-oriented-programming-python",
+            "step": 6
+          },
+          {
+            "name": "Build an Asteroids Game",
+            "slug": "build-asteroids-python",
+            "language": "Python",
+            "url": "https://www.boot.dev/courses/build-asteroids-python",
+            "step": 7
+          },
+          {
+            "name": "Personal Project 1",
+            "slug": "build-personal-project-1",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-personal-project-1",
+            "step": 8
+          },
+          {
+            "name": "Learn Golang",
+            "slug": "learn-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-golang",
+            "step": 9
+          },
+          {
+            "name": "Learn Operating Systems",
+            "slug": "",
+            "language": "Go",
+            "url": null,
+            "step": 10
+          },
+          {
+            "name": "Learn Networking",
+            "slug": "",
+            "language": "Go",
+            "url": null,
+            "step": 11
+          },
+          {
+            "name": "Learn HTTP Clients",
+            "slug": "learn-http-clients-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-http-clients-golang",
+            "step": 12
+          },
+          {
+            "name": "Learn SQL",
+            "slug": "learn-sql",
+            "language": "SQL",
+            "url": "https://www.boot.dev/courses/learn-sql",
+            "step": 13
+          },
+          {
+            "name": "Learn HTTP Servers",
+            "slug": "learn-http-servers-golang",
+            "language": "Go",
+            "url": "https://www.boot.dev/courses/learn-http-servers-golang",
+            "step": 14
+          },
+          {
+            "name": "Learn Server Administration",
+            "slug": "",
+            "language": "Bash",
+            "url": null,
+            "step": 15
+          },
+          {
+            "name": "Learn Ansible",
+            "slug": "",
+            "language": "Ansible",
+            "url": null,
+            "step": 16
+          },
+          {
+            "name": "Learn Docker",
+            "slug": "learn-docker",
+            "language": "Docker",
+            "url": "https://www.boot.dev/courses/learn-docker",
+            "step": 17
+          },
+          {
+            "name": "Learn Logging and Telemetry",
+            "slug": "learn-logging-observability-golang",
+            "language": "Go, Grafana, Prometheus",
+            "url": "https://www.boot.dev/courses/learn-logging-observability-golang",
+            "step": 18
+          },
+          {
+            "name": "Learn CI/CD",
+            "slug": "learn-ci-cd-github-docker",
+            "language": "Docker + GitHub Actions + Go",
+            "url": "https://www.boot.dev/courses/learn-ci-cd-github-docker",
+            "step": 19
+          },
+          {
+            "name": "Learn Cloud Infrastructure",
+            "slug": "learn-aws",
+            "language": "AWS",
+            "url": "https://www.boot.dev/courses/learn-aws",
+            "step": 20
+          },
+          {
+            "name": "Learn Infrastructure as Code",
+            "slug": "",
+            "language": "Terraform",
+            "url": null,
+            "step": 21
+          },
+          {
+            "name": "Learn Kubernetes",
+            "slug": "learn-kubernetes",
+            "language": "Kubernetes",
+            "url": "https://www.boot.dev/courses/learn-kubernetes",
+            "step": 22
+          },
+          {
+            "name": "Learn Web Security",
+            "slug": "",
+            "language": "Go",
+            "url": null,
+            "step": 23
+          },
+          {
+            "name": "Learn AI Coding",
+            "slug": "",
+            "language": "Python + OpenCode",
+            "url": null,
+            "step": 24
+          },
+          {
+            "name": "Capstone Project",
+            "slug": "build-capstone-project",
+            "language": "any",
+            "url": "https://www.boot.dev/courses/build-capstone-project",
+            "step": 25
+          },
+          {
+            "name": "Learn to Find a Job",
+            "slug": "learn-job-search",
+            "language": "Job Search",
+            "url": "https://www.boot.dev/courses/learn-job-search",
+            "step": 26
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path_slug": "fullstack",
+    "path_name": "Fullstack Developer Career Path",
+    "variants": []
+  }
+]

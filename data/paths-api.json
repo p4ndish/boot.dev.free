@@ -1,0 +1,125 @@
+[
+  {
+    "uuid": "16dfb1f2-6077-4cbc-b5e0-27ec1a298870",
+    "slug": "backend-python-golang",
+    "title": "Back-end Developer Path",
+    "description": "Learn back-end development from start to finish with courses in Python, Golang and SQL",
+    "technologies": [
+      "Python",
+      "Go"
+    ],
+    "courseUUIDs": [
+      "f9a25dfb-3e00-4727-ac78-36de82315355",
+      "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+      "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+      "933d6dd0-b21a-488e-8ece-469bbef28652",
+      "f9a48bbc-d1ff-4388-bf0c-23c6e3c60ae0",
+      "b9d8cc18-455b-4531-b9ca-e134c7dba3df",
+      "b1459f0c-21eb-41e5-b7f3-562ef69d344c",
+      "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+      "7bbb53ed-2106-4f6b-b885-e7645c2ff9d8",
+      "d38e78e9-ae52-458e-8494-ec7ecbdab14f",
+      "8926592f-99b6-4398-a02f-f52e20677f64",
+      "273215af-23f0-4461-a5d8-617c7f19127c",
+      "3b39d0f6-f944-4f1b-832d-a1daba32eda4",
+      "323f2bff-0ba4-4ae9-b617-33bc5b2b7d79",
+      "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+      "bc0dc34b-025a-4d97-b7a0-382aa21533aa",
+      "3a8d6b13-c064-424d-bd09-5e09ceaddfea",
+      "81b7293c-60aa-40c7-a158-7c87428f6031",
+      "189c4b36-0a42-4211-ae03-7938550c5b57",
+      "2d740eb6-3234-419e-9a23-08ec9e9889b7",
+      "93174165-cfaf-4201-a5b6-7da1864c9792",
+      "25a0e482-fd55-463c-80b6-4fbf789fcef5",
+      "0617f271-09a6-4b1c-ab59-d0ec22f53153"
+    ],
+    "recommendedCourseUUIDs": [
+      "038a9949-71e5-4eee-9a0f-baf877389a2f",
+      "6e3b98ed-44ea-437e-aae2-581a03bb318b",
+      "bfc68e84-1d2d-461e-a8cd-ce94182d8731",
+      "6e6236f7-6f6b-45e3-859a-5fd0084754aa",
+      "1d057329-0a4a-486f-a8cc-2fccada6b307",
+      "6321ddbf-49eb-4748-9737-6bc12e8bb705",
+      "aaad49fb-0dc5-43c6-992c-96d3f83ee663"
+    ],
+    "estimatedMonths": 12
+  },
+  {
+    "uuid": "42d59022-5c18-41f0-907e-1daf68c2bd6f",
+    "slug": "backend-python-typescript",
+    "title": "Back-end Developer Path",
+    "description": "Learn back-end development from start to finish with courses in Python, TypeScript and SQL",
+    "technologies": [
+      "Python",
+      "TypeScript"
+    ],
+    "courseUUIDs": [
+      "f9a25dfb-3e00-4727-ac78-36de82315355",
+      "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+      "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+      "933d6dd0-b21a-488e-8ece-469bbef28652",
+      "f9a48bbc-d1ff-4388-bf0c-23c6e3c60ae0",
+      "b9d8cc18-455b-4531-b9ca-e134c7dba3df",
+      "b1459f0c-21eb-41e5-b7f3-562ef69d344c",
+      "66c3d478-affc-4967-8171-bbc79b8e3cf1",
+      "7bbb53ed-2106-4f6b-b885-e7645c2ff9d8",
+      "d38e78e9-ae52-458e-8494-ec7ecbdab14f",
+      "8926592f-99b6-4398-a02f-f52e20677f64",
+      "273215af-23f0-4461-a5d8-617c7f19127c",
+      "2af5c197-21eb-48b4-bd90-b0d59adb311e",
+      "95d9af8c-aabb-4c13-b68a-d4b05c4ec959",
+      "5d804c54-887a-4c1c-b8c7-b6436f3a132e",
+      "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+      "bc0dc34b-025a-4d97-b7a0-382aa21533aa",
+      "90a18541-cdac-4b0c-a60f-7794fdbc9886",
+      "ff177b31-d95b-4617-a6d3-db9007569db6",
+      "99abfd40-9396-4a81-9a97-c0f503408f14",
+      "2d740eb6-3234-419e-9a23-08ec9e9889b7",
+      "c32fd8e7-1090-42d7-8319-3cf356f321a9",
+      "25a0e482-fd55-463c-80b6-4fbf789fcef5",
+      "0617f271-09a6-4b1c-ab59-d0ec22f53153"
+    ],
+    "recommendedCourseUUIDs": [
+      "038a9949-71e5-4eee-9a0f-baf877389a2f",
+      "bfc68e84-1d2d-461e-a8cd-ce94182d8731",
+      "6e6236f7-6f6b-45e3-859a-5fd0084754aa",
+      "e4639893-eb78-438e-ab34-0d230a1c23c4",
+      "aaad49fb-0dc5-43c6-992c-96d3f83ee663",
+      "59fbb2aa-7d67-4e88-bac8-42f49798a9f5",
+      "2b266bb4-2262-49c0-b6d1-75cd8c5e8be8"
+    ],
+    "estimatedMonths": 12
+  },
+  {
+    "uuid": "a83f5040-481b-4fa7-9fdf-a6bce452e18e",
+    "slug": "devops-python-golang",
+    "title": "DevOps Engineer Path",
+    "description": "Learn DevOps from start to finish with courses in Python, Docker, AWS, Kubernetes and more",
+    "technologies": [
+      "Python",
+      "Go"
+    ],
+    "courseUUIDs": [
+      "f9a25dfb-3e00-4727-ac78-36de82315355",
+      "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+      "094fd7d4-ec78-4202-96ca-c5f79fc332d2",
+      "933d6dd0-b21a-488e-8ece-469bbef28652",
+      "f9a48bbc-d1ff-4388-bf0c-23c6e3c60ae0",
+      "b9d8cc18-455b-4531-b9ca-e134c7dba3df",
+      "273215af-23f0-4461-a5d8-617c7f19127c",
+      "3b39d0f6-f944-4f1b-832d-a1daba32eda4",
+      "323f2bff-0ba4-4ae9-b617-33bc5b2b7d79",
+      "bc0dc34b-025a-4d97-b7a0-382aa21533aa",
+      "81b7293c-60aa-40c7-a158-7c87428f6031",
+      "2d740eb6-3234-419e-9a23-08ec9e9889b7",
+      "a70429b1-0d3f-4b1d-8b5a-f43c2ab5a157",
+      "3e050063-c904-40ee-9ace-192ae26c6df4",
+      "1d057329-0a4a-486f-a8cc-2fccada6b307",
+      "6e6236f7-6f6b-45e3-859a-5fd0084754aa",
+      "25a0e482-fd55-463c-80b6-4fbf789fcef5",
+      "0617f271-09a6-4b1c-ab59-d0ec22f53153"
+    ],
+    "recommendedCourseUUIDs": [],
+    "estimatedMonths": 12
+  }
+]

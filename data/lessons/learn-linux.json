@@ -1,0 +1,1916 @@
+[
+  {
+    "uuid": "4813b39b-ee97-4697-8486-f80b59abb194",
+    "slug": "1-welcome",
+    "title": "Welcome to Learn Linux",
+    "type": "type_choice",
+    "topics": [
+      "Terminal Emulator",
+      "Bash Shell",
+      "Command Line Interface"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 3,
+    "readme": "# Welcome to Learn Linux\n\nWelcome to \"Learn Linux\"! Admittedly, the course name is a _bit_ of a misnomer. It's called \"Learn Linux\" because \"Linux\" is what most students _think_ of regarding the concepts in this course. A more accurate title might be \"Learn to use shells and terminals in a Unix-like environment,\" but that's a mouthful.\n\n## Learning Goals\n\n- Understand the difference between a shell and a terminal\n- Learn how to navigate and use the file system using the command line\n- Learn how to install software using the command line\n- Understand how to manage your `PATH` and environment variables\n- Learn how to manage permissions and execute programs\n\nThis course will get you comfortable working on a command line, which is a skill that's going to be critical for the rest of your career as a programmer. So, instead of writing code in the browser, in this course you'll interact with a command line interface (CLI) directly on _your_ machine.\n\n## Assignment\n\n1. Find and open a terminal on your computer (_see below for instructions_).\n2. Type the following command and press enter:\n   ```sh\n   echo \"Hello world\"\n   ```\n3. When you're done, **answer the question**.\n\n### How to Open a Terminal on Mac\n\nOpen the \"Terminal\" application. You can find it by searching for \"Terminal\" in Spotlight (the magnifying glass in the top-right corner of your screen).\n\n### How to Open a Terminal on Windows\n\nOpen the \"Command Prompt\" application. You can find it by searching for \"Command Prompt\" in the Start Menu.\n\n### How to Open a Terminal on Chromebook (ChromeOS)\n\nEnable the Linux development environment by going to Settings -> Advanced -> Developers -> Linux development environment. Once installed, open the \"Terminal\" application from your app launcher.\n\n### How to Open a Terminal on Linux\n\nIf you're on Linux, I refuse to believe that you don't already know how.\n",
+    "language": "",
+    "question": {
+      "question": "What happened when you pressed 'enter'?",
+      "answers": [
+        "The text 'Hello world' printed to the terminal's console.",
+        "An error message printed",
+        "Absolutely nothing"
+      ],
+      "correctAnswer": "The text 'Hello world' printed to the terminal's console."
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "77952757-1cec-4c3d-a953-08ce636b3c06",
+    "slug": "2-text-vs-gui",
+    "title": "Command Line vs. GUI",
+    "type": "type_choice",
+    "topics": [
+      "CLI vs GUI",
+      "whoami Command",
+      "Shell Automation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 4,
+    "readme": "# Command Line vs. GUI\n\nIn other Boot.dev courses you may have run your code by clicking a \"Run\" button. But as a real™ developer, you'll likely run your code using a command line interface (CLI) instead. For example, in Python, you would run a Python code file like this:\n\n```sh\npython main.py\n```\n\n## What's a CLI?\n\nYou'll often hear the terms \"terminal,\" \"shell,\" \"command line,\" \"CLI,\" and \"command prompt\" used interchangeably (despite some technical differences) to refer to the same thing: a program that allows you to interact with your computer in a text-based way.\n\n## What's a GUI?\n\nIf you don't have a technical background, you're probably used to interacting with your phone or computer using a [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface) (GUI). When you use a mouse to click on fancy icons, buttons, and menus, you're using a GUI.\n\n![GUI vs CLI](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/GUI-vs-CLI-1920x1080.mp4)\n\nTo be fair, it's usually easier to teach people to use a GUI than a CLI. You can simply point to things and say \"click here\" or \"drag this there.\" But GUIs do have some drawbacks:\n\n- **They're weak.** You are given much more control over your computer through a CLI. With a GUI you're limited to the options that the developer of the GUI has given you.\n- **They're slow.** Once you know the commands to type, it's much faster to type them than to click through endless menus with a mouse.\n- **They're not as reproducible.** If you want to share a set of instructions, you can just copy and paste commands without worrying about screen sizes and user preferences.\n- **They're not automatable.** It's easy to write code that manipulates text (as you've seen in Python), but it's much harder to write code that manipulates GUIs.\n- **They're not as cool.** You will be invited to 90% fewer romantic outings if you are a GUI user.\n\n## Assignment\n\nIn your terminal, run the following command:\n\n```sh\nwhoami\n```\n\nWhen you're done, **answer the question**.\n",
+    "language": "",
+    "question": {
+      "question": "What happened when you ran the command?",
+      "answers": [
+        "The text 'a dumb dumb' was printed",
+        "The terminal crashed",
+        "My username was printed to the console",
+        "I got an email"
+      ],
+      "correctAnswer": "My username was printed to the console"
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "3d1c6ce3-bcc3-43a9-b2ae-809a968d524a",
+    "slug": "3-wsl",
+    "title": "Installing Windows Subsystem for Linux",
+    "type": "type_choice",
+    "topics": [
+      "WSL 2",
+      "Ubuntu",
+      "Linux Distro"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Installing Windows Subsystem for Linux\n\n**You can skip this step** if you're on macOS or Linux, or already have WSL 2 configured. _I know the course is called \"Learn Linux,\" but if you're on Mac, it's Unix-like enough for all the lessons in this course._\n\nThe built-in Windows command prompt is _terrible_ (in my opinion). It's _so bad_ that if you're on Windows we're just going to have you install WSL 2 ([Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about)) and [Ubuntu](https://ubuntu.com/about). This will allow you to keep using your normal Windows desktop but _also_ have a [Linux](https://www.linux.org/) command line, operating system, and filesystem for your programming work.\n\n![not you windows](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/VgL0UqV-720x720.png)\n\nWSL 2 was a _huge_ step forward for developers on Windows. You get a full Linux operating system and command line experience without the need to dual boot. WSL is an official Microsoft product: it won't mess up your base Windows install. You'll still be able to run Steam...\n\nHere are a couple of things to keep in mind about WSL 2:\n\n- There are two versions of WSL. We will be using the latest: version 2.\n- The WSL 2 filesystem is _completely separate_ from your Windows file system. Use your normal Windows file system normally: for games, documents, Windows apps, whatever. I recommend using the Linux filesystem for all your code.\n\n## Assignment\n\nInstall WSL 2 and Ubuntu, and get the Ubuntu shell up and running.\n\n1. [ ] Make sure you're on Windows 10 or 11. These directions are inadequate for Windows versions < 10. If you are on an older version, **please upgrade**. Your life as a developer will not be fun if you're on an older version of Windows.\n2. [ ] Run Windows Update.\n   - [ ] Click on the start menu and begin typing \"Windows update.\" You should see a program called \"Windows Update Settings,\" open that.\n   - [ ] Click \"check for updates,\" and if there are any updates, install them and restart your computer as instructed by the updater.\n3. [ ] Open the Windows Command Prompt and install WSL.\n   - [ ] Click on the start menu and begin typing `cmd.exe`. You should see a program called \"Command Prompt,\" _right-click_ on it and select \"Run as administrator.\"\n   - [ ] Type `wsl --install` in the prompt and press enter. This will also install Ubuntu by default.\n   - [ ] It should bring up a new Ubuntu window, but if it didn't, you can search for the \"Ubuntu\" program in the start menu and launch it.\n4. [ ] Configure Ubuntu.\n   - The Ubuntu window will prompt you to enter a username and password ([which may not appear when typed](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password)). Make sure you remember these! These are the credentials for your Linux user. Later when you need to enter your password for certain commands, you'll need to re-enter this password. _Note: by default Ubuntu only accepts usernames in lowercase._\n   - In the future, to open Ubuntu, just search for the \"Ubuntu\" app in the start menu and launch it.\n5. [ ] Once you're logged in, you should see a command prompt! Go ahead and type:\n\n```sh\necho \"Hello world\"\n```\n\nYou should see the text \"Hello world\" printed to the console. If you do, you're good to move on to the next step.\n\n## Troubleshooting\n\n- Here is the link to the [official WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install). Take a look and see if you missed any steps.\n- If Ubuntu was not installed by default, you can install it manually by running `wsl --install -d Ubuntu`.\n- Seeing `Error: A required feature is not installed`?\n  - To fix this you will need to enable [Hyper-V (Virtualization)](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/). You can find this in your [Windows features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features?pivots=windows-11). You will need both Hyper-V Management Tools and Hyper-V Platform enabled.\n  - You may also need to enable virtualization in your BIOS.\n- You may have to restart your computer after installing WSL for changes to take effect.\n- Ask in the [Boot.dev Discord](https://boot.dev/community) if you're still having trouble with WSL 2!\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this step?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "541574b6-4312-4459-b6e8-0bf6cb0add99",
+    "slug": "4-terminals",
+    "title": "What Is a Terminal?",
+    "type": "type_choice",
+    "topics": [
+      "Terminal Emulator",
+      "TTY",
+      "Terminal Hardware"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# What Is a Terminal?\n\nAs we talked about, the terms \"shell,\" \"CLI,\" and \"terminal\" are often used to refer to the same thing: a program for issuing text-based commands.\n\nBut to get pedantic, the \"terminal\" is just one _specific part_ of that program. Historically, the word \"terminal\" meant a physical device that you could type commands into, essentially a keyboard and a screen.\n\n![A physical terminal](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/CLeobUr-400x355.jpg)\n\nThese days, when we say \"terminal,\" we really mean \"terminal _emulator_.\" A terminal emulator is a program that emulates a physical terminal. It's a program that lets you type commands into a window on your computer.\n\n_Which_ commands you're able to use isn't determined by the _terminal emulator_, but by the _shell_, which we'll talk about later.\n\n_Your terminal emulator is just responsible for drawing text on the screen and processing your keystrokes._\n",
+    "language": "",
+    "question": {
+      "question": "A terminal (or terminal emulator)...",
+      "answers": [
+        "Is a text-based operating system",
+        "Is a set of commands that can be used to control a computer",
+        "Is a program that accepts text based commands and can render text on the screen",
+        "Is a freshly baked Raspberry Pi"
+      ],
+      "correctAnswer": "Is a program that accepts text based commands and can render text on the screen"
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "f9d0dadb-59f8-489b-af77-f6693000d569",
+    "slug": "5-shells",
+    "title": "What Is a Shell?",
+    "type": "type_text_input",
+    "topics": [
+      "Shell",
+      "REPL",
+      "Bash",
+      "expr Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 8,
+    "readme": "# What Is a Shell?\n\nSo if your terminal is just a program that lets you issue text-based commands and renders the output of those commands...\n\n...What is the program that _runs_ those commands???\n\nThat's a shell.\n\nShells do a lot of things, but their main job is to interpret the commands you type and execute them.\n\n## REPL\n\nShells are often referred to as \"REPLs.\" REPL stands for\n\n- Read\n- Eval (evaluate)\n- Print\n- Loop\n\nThis is a fancy way of saying that shells are programs that:\n\n1. Read the commands you type\n2. Evaluate those commands, usually by running _other_ programs on your computer\n3. Print the output of those commands\n4. Give you a new prompt to type another command and repeat\n\n## Assignment\n\n> [!info]\n> This is a new kind of lesson! You'll simply type your _answer_ into the text box on the right. The only interaction is submitting your answer to be checked.\n\nIn your own shell in another window (_not_ the text box on the right), run the following command:\n\n```sh\nexpr 123456 + 7890\n```\n\n> [!warning]\n> If you're on Windows, use your WSL Ubuntu shell for this and all future lessons.\n\nPaste the output of that command into the text box on the right.\n\n## Tip\n\nIf you're confused about prompts vs outputs, here's a quick explanation.\n\n```sh\nwagslane@MacBook-Pro ~ % echo hello\nhello\nwagslane@MacBook-Pro ~ %\n```\n\nIn the example above, I started with an empty prompt and typed `echo hello` and pressed enter.\n\n```sh\nwagslane@MacBook-Pro ~ % echo hello\n```\n\nThe shell ran that command, and printed the output:\n\n```sh\nhello\n```\n\nFinally, it gave me a new prompt to type another command:\n\n```sh\nwagslane@MacBook-Pro ~ %\n```\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "004ccd6e-6614-4468-bc74-51e3bb293011",
+    "slug": "6-variables",
+    "title": "Variables",
+    "type": "type_text_input",
+    "topics": [
+      "Shell Variables",
+      "Bash Syntax",
+      "echo Command",
+      "String Interpolation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 10,
+    "readme": "# Variables\n\n- If you're using Ubuntu on WSL, you're probably running a [Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) shell.\n- If you're using macOS, you're probably running a [Zsh](https://en.wikipedia.org/wiki/Z_shell) shell.\n- If you're running full Linux, I pray you already know what you're using.\n\nThe point is that you're probably using Bash or Zsh, and for the purposes of this course, they're _basically_ the same.\n\nBoth Bash and Zsh are shells, and they also happen to be powerful programming languages. They have variables, functions, loops, and more. That said, only [crazy people](https://bashsta.cc/) write large programs in shell languages... shells are optimized for running other programs and writing small scripts, not for writing large applications.\n\n## Create a Variable\n\n```sh\nname=\"Lane\"\n```\n\nNotice there are no spaces between the variable `name`, assignment operator `=` and value `\"Lane\"`.\n\n## Use a Variable\n\n> [!info]\n> Starting a line with the `$` symbol is a convention to show it's a shell prompt, and it should not be typed. The actual command is `echo $name`.\n\n```sh\n$ echo $name\nLane\n```\n\nUnlike in Python, where you can just use a variable's _name_, in your shell you need to prefix the variable name with a `$` to _use_ it, else it would just print `name` instead of the value.\n\n## Interpolate a Variable in a String\n\n```sh\n$ echo Hello $name\nHello Lane\n```\n\nIt's really just _that_ easy.\n\n## Assignment\n\nFor the rest of this course, you'll be a forensic developer hired by the fictional \"WorldBanc\" to investigate a security breach. Like most mega-corporations, they don't know what they're doing, but they're happy to overpay you to come in so that they can say a \"third-party expert\" has reviewed their systems.\n\nTurns out, you're **not** an expert, but you're happy to learn on someone else's dime, so why not jump at the opportunity? Right?...\n\n...Anyhow, you'll be using your terminal and shell to traverse files, manipulate text, run programs, and investigate suspicious activity.\n\n1. [ ] Set the following three variables in your shell:\n   ```sh\n   bankname=\"WorldBanc\"\n   founded=\"1969\"\n   ceo=\"Jeff Gates\"\n   ```\n2. [ ] Write and execute a command that will print the following using `echo` and the _dynamic_ variables you just set:\n   ```text\n   WorldBanc was founded in 1969 by Jeff Gates\n   ```\n\nPaste **the entire command that generated** the correct output into the text field and submit it.\n\n## Tip\n\nCertain Windows versions may not let you paste into the Command Line. See [how to enable ctrl+shift+v](https://superuser.com/questions/1410026/how-to-enable-ctrl-shift-v-in-windows-subsystem-for-linux-wsl-command-pr).\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "498e7b52-9044-4c03-996f-6452eeeb4730",
+    "slug": "7-history",
+    "title": "History",
+    "type": "type_text_input",
+    "topics": [
+      "history Command",
+      "Shell History",
+      "Command Line History"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# History\n\nWhen you're working in a REPL, it's _really_ helpful to be able to see the commands you've typed in the past. That way you can easily re-run them, or copy and paste them into a script. To print out the history of commands you've typed in your shell, you can use the `history` command.\n\n```sh\nhistory\n```\n\n## Assignment\n\n1. [ ] In your shell, set 2 variables:\n   - [ ] `department` to `engineering`\n   - [ ] `team` to `ops`\n2. [ ] Use `echo` to print the following message (using the `$department` and `$team` variables):\n   - `I work in engineering on ops`\n3. [ ] Run the `history` command and paste its **full output** into the text field, including the variables you set and the final `echo` command.\n\n> [!warning]\n> Before running these commands, ensure your history doesn't contain sensitive data (such as passwords or API keys). Consider running this assignment in a new shell session with a fresh or temporary history (you can clear the history of your current shell session by running `history -c`) to protect your privacy.\n\n> [!tip]\n> Make sure you've copied all the above variables with **correct** spelling and capitalization... unless you like losing armor.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "317def47-df3a-4fb3-b3df-f01c1b180b6d",
+    "slug": "8-nav-history",
+    "title": "Navigate History",
+    "type": "type_choice",
+    "topics": [
+      "Arrow Keys",
+      "clear Command",
+      "Shell Navigation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 4,
+    "readme": "# Navigate History\n\nYou'll often want to re-run a command. You could just type it out again, but assuming you don't have the [WPM](https://en.wikipedia.org/wiki/Words_per_minute) of [ThePrimeagen](https://www.boot.dev/teachers/the-primeagen), that's a pain.\n\n## Arrow Keys\n\nYou can use the up and down arrows to quickly cycle through your command history.\n\nFocus your terminal window and use the \"up\" arrow key to start cycling through your command history. If you recently restarted your shell, then type a few commands first, like:\n\n```sh\necho hello\necho world\n```\n\nOnce you've cycled back through your history with the \"up\" arrow, you can use the \"down\" arrow to cycle back to the most recent command.\n\n## Clear\n\nIf your terminal is feeling cluttered with text, you can clear it with the `clear` command, or by pressing `ctrl + l`.\n\nThis won't _delete_ your history, it will just clear the screen.\n",
+    "language": "",
+    "question": {
+      "question": "The `____` arrow goes back in your history, and the `____` arrow goes forward.",
+      "answers": [
+        "up, down",
+        "right, left",
+        "left, right",
+        "down, up"
+      ],
+      "correctAnswer": "up, down"
+    },
+    "orderInChapter": 8
+  },
+  {
+    "uuid": "4bef08e6-b1f6-495f-bfde-3fbdfa1147ba",
+    "slug": "9--nav-history",
+    "title": "Navigate History",
+    "type": "type_choice",
+    "topics": [
+      "Arrow Keys",
+      "clear Command",
+      "Shell Navigation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 3,
+    "readme": "# Navigate History\n\nYou'll often want to re-run a command. You could just type it out again, but assuming you don't have the [WPM](https://en.wikipedia.org/wiki/Words_per_minute) of [ThePrimeagen](https://www.boot.dev/teachers/the-primeagen), that's a pain.\n\n## Arrow Keys\n\nYou can use the up and down arrows to quickly cycle through your command history.\n\nFocus your terminal window and use the \"up\" arrow key to start cycling through your command history. If you recently restarted your shell, then type a few commands first, like:\n\n```sh\necho hello\necho world\n```\n\nOnce you've cycled back through your history with the \"up\" arrow, you can use the \"down\" arrow to cycle back to the most recent command.\n\n## Clear\n\nIf your terminal is feeling cluttered with text, you can clear it with the `clear` command, or by pressing `ctrl + l`.\n\nThis won't _delete_ your history, it will just clear the screen.\n",
+    "language": "",
+    "question": {
+      "question": "The 'clear' command...",
+      "answers": [
+        "Opens a new terminal window",
+        "Deletes your shell history from memory",
+        "Clears the terminal's screen"
+      ],
+      "correctAnswer": "Clears the terminal's screen"
+    },
+    "orderInChapter": 9
+  },
+  {
+    "uuid": "3189f2fb-c736-425a-90fd-b2cfb582b042",
+    "slug": "10-terminal-alternatives",
+    "title": "Terminal Alternatives",
+    "type": "type_choice",
+    "topics": [
+      "Ghostty",
+      "Alacritty",
+      "Windows Terminal",
+      "Terminal Emulator"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "13c4beb4-a973-4121-8096-edf942ffa60d",
+    "chapterTitle": "Terminals and Shells",
+    "isFree": true,
+    "difficulty": 3,
+    "readme": "# Terminal Alternatives\n\nSo far you've likely been working in the default terminal that came with your operating system, and that's fine. However, there are other options, and I want to highlight a couple of them just in case you want to check them out (but you don't have to).\n\n## Editor/IDE Built-In Terminals\n\nMost text editors for developers have a built-in terminal.\n\nFor example, [VS Code](https://code.visualstudio.com/), [Zed](https://zed.dev/), and Cursor are popular text editors that also have a built-in terminal. While I do use Zed's terminal for most of my coding work, in this course, I do _not_ recommend using a built-in terminal because we don't need the extra text editor features.\n\n## Ghostty\n\n[Ghostty](https://ghostty.org/) is a _very_ new terminal emulator that differentiates itself by being fast, feature-rich, and native. It's a great option if you love to customize, and want a modern, fast, and feature-rich terminal.\n\n## Alacritty\n\n[Alacritty](https://github.com/alacritty/alacritty) is another popular terminal emulator that is known for its speed and extensibility. Before Ghostty, Alacritty was the go-to terminal for many developers who wanted a fast and customizable terminal.\n\n## [!windows] Windows Terminal\n\n[Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?rtc=1&hl=en-us&gl=US) is the terminal emulator for Windows. Use the \"cmd.exe\" program settings to change the default terminal. Be sure to start WSL whenever you open a new terminal window.\n",
+    "language": "",
+    "question": {
+      "question": "Which is not a terminal emulator?",
+      "answers": [
+        "Windows Terminal",
+        "Ubuntu",
+        "Ghostty",
+        "Alacritty"
+      ],
+      "correctAnswer": "Ubuntu"
+    },
+    "orderInChapter": 10
+  },
+  {
+    "uuid": "aa6b8b23-8be0-41a8-930f-5375f2026699",
+    "slug": "1-filesystem",
+    "title": "What Is a Filesystem?",
+    "type": "type_text_input",
+    "topics": [
+      "Linux Filesystem",
+      "pwd Command",
+      "Root Directory",
+      "Working Directory"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 8,
+    "readme": "# What Is a Filesystem?\n\nAll the data stored on your computer is organized into files and directories. Files and directories are organized into a tree-like structure called a filesystem.\n\n![filesystem](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/FwcpMrv-1280x563.png)\n\n- Directories (or \"folders\" on Windows) are just containers that hold files and other directories.\n- Files are just a dump of raw binary data: 1's and 0's. The bytes in a file can represent anything: text, images, videos, etc.\n\nThe filesystem tree starts with a single directory called the [root directory](https://en.wikipedia.org/wiki/Root_directory). The root directory contains files and directories, which can contain more files and directories, and so on.\n\nWhen you open your terminal, your _working directory_ (the one you're \"in\") is going to be... **somewhere**. Most commonly it is your [\"home\" directory](https://en.wikipedia.org/wiki/Home_directory).\n\n## Assignment\n\nYou've remotely logged onto a suspicious employee's machine at WorldBanc. First, you need to determine where on their filesystem you are...\n\n1. [ ] Run the \"print working directory\" command to see the filepath of your current working directory:\n   ```sh\n   pwd\n   ```\n2. [ ] Paste the **full output** of the command into the text field and submit it. (Be sure you're not running these commands in the default Windows terminal or else the output will not pass.)\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "f5f6762e-9736-4d2f-aaff-423088dbbf47",
+    "slug": "2-filepaths",
+    "title": "Filepaths",
+    "type": "type_text_input",
+    "topics": [
+      "File Paths",
+      "ls Command",
+      "cd Command",
+      "curl Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 14,
+    "readme": "# Filepaths\n\nThe output of `pwd` is a _filepath_. A filepath is a string that describes the location of a file or directory on your computer. Yours should look _something_ like this:\n\n## [!linux][!windows] Linux/Windows WSL\n\n```text\n/home/wagslane\n```\n\n- The first slash (`/`) represents the _root directory_. It's the tippy-top of the filesystem tree.\n- The next part (`home`) is the name of a directory inside the root directory.\n- Finally, the last part (`wagslane`) is the name of a directory inside the `home` directory.\n\nSo this path represents a directory 2 levels down from the root directory:\n\n```text\nroot\n  └── home\n        └── wagslane\n```\n\n## [!macos] macOS\n\n```text\n/Users/wagslane\n```\n\n- The first slash (`/`) represents the _root directory_. It's the tippy-top of the filesystem tree.\n- The next part (`Users`) is the name of a directory inside the root directory.\n- Finally, the last part (`wagslane`) is the name of a directory inside the `Users` directory.\n\nSo this path represents a directory 2 levels down from the root directory:\n\n```text\nroot\n  └── Users\n        └── wagslane\n```\n\n## Linux Filepath\n\n![Linux filepath](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/Linux-filepaths-1920x1080.mp4)\n\n## Assignment\n\nTime to start digging for evidence. _If you're on Windows, again, make sure you're in the Ubuntu (WSL) terminal_.\n\n1. [ ] Copy/paste and run the command below to download the `worldbanc` directory from GitHub. It contains files and directories that you'll need throughout this course. If prompted for a password, use the password for your machine's user account, or the one you used when setting up Ubuntu in WSL.\n\n   > [!warning]\n   > If you run into an issue, see the **troubleshooting tips** below. We'll cover what these commands do later.\n\n   ```sh\n   curl -L https://github.com/bootdotdev/worldbanc/archive/refs/heads/main.zip -o worldbanc.zip\n   unzip worldbanc.zip\n   rm worldbanc.zip\n   mv worldbanc-main worldbanc\n   sudo chown -R $(whoami) worldbanc\n   sudo chmod -R 755 worldbanc\n   ```\n\n   **You should now have a `worldbanc` directory in your current working directory.** When learning terminal commands in this course, it's possible to make a mistake and ruin your version of the worldbanc repo. If that happens, just come back to this lesson and download `worldbanc` again.\n\n2. [ ] Run the \"list\" command to see the contents of your current working directory:\n\n   ```sh\n   ls\n   ```\n\n   You should see a `worldbanc` directory listed.\n\n3. [ ] Run the \"change directory\" command to move into the `worldbanc` directory:\n   ```sh\n   cd worldbanc\n   ```\n4. [ ] Use the `ls` command again to see the contents of the `worldbanc` directory. Paste the console output into the text field and submit your answer.\n\n## Troubleshooting\n\nIf you're having issues with the download due to [`curl`](https://curl.se/docs/manpage.html) or [`unzip`](https://www.linux.org/docs/man1/unzip.html) not being installed on Ubuntu/WSL, you can install them with the following commands:\n\n```sh\nsudo apt install unzip\nsudo apt install curl\n```\n\nCertain Windows versions may not let you paste into the Command Line. See [how to enable ctrl+shift+v](https://superuser.com/questions/1410026/how-to-enable-ctrl-shift-v-in-windows-subsystem-for-linux-wsl-command-pr).\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "78334093-2660-49b1-9a5b-7a61d79ef6b4",
+    "slug": "3-parent",
+    "title": "Parent Directories",
+    "type": "type_text_input",
+    "topics": [
+      "Parent Directory",
+      "cd Command",
+      ".. Notation",
+      "ls Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 9,
+    "readme": "# Parent Directories\n\nThe `cd` command \"changes directory\" to move _into_ a directory. But how do you move back _out_ of the current directory?\n\nThe answer is two dots: `..`\n\n`..` is a special alias that refers to \"the parent directory.\" It's a shortcut that you can use to move up one level in the directory tree.\n\n## Assignment\n\nNavigate back out of the `worldbanc` directory so that you're in its parent directory. If you're in the top level of the `worldbanc` directory, just type:\n\n```sh\ncd ..\n```\n\nThen run the `ls` command again, but pass in the name of the `worldbanc` directory as an argument to list its contents from the parent directory:\n\n```sh\nls worldbanc\n```\n\nPaste the output into the input box and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "3e9e6816-baf9-448a-b3d5-eda6e130e94e",
+    "slug": "4-absolute-relative",
+    "title": "Absolute vs. Relative Paths",
+    "type": "type_choice",
+    "topics": [
+      "Absolute Paths",
+      "Relative Paths",
+      "File Paths",
+      "Root Directory"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 6,
+    "readme": "# Absolute vs. Relative Paths\n\nWe've mostly been dealing with [relative filepaths](https://www.redhat.com/sysadmin/linux-path-absolute-relative) which are paths that take your current directory into account. For example, let's say we have the following directory structure in our filesystem:\n\n```text\nvehicles\n├── cars\n│   ├── fords\n│   │   ├── mustang.txt\n│   │   └── focus.txt\n```\n\nWhen inside the top-level `vehicles` directory, the relative path to the `mustang.txt` file is:\n\n```text\ncars/fords/mustang.txt\n```\n\nHowever, when we're inside the `cars` directory, the relative path to the `mustang.txt` file is just:\n\n```text\nfords/mustang.txt\n```\n\nOr when inside the `fords` directory, just:\n\n```text\nmustang.txt\n```\n\n## Absolute Paths\n\nAn absolute path is a path that starts at the root of the filesystem. On [Unix-like systems](https://en.wikipedia.org/wiki/Unix-like) (macOS/Linux), the root is denoted by a forward slash `/`. So, if the `vehicles` directory is in the filesystem root, the absolute path to the `mustang.txt` file is:\n\n```text\n/vehicles/cars/fords/mustang.txt\n```\n\nSo, when inside the `fords` directory, you can use either:\n\n```text\n/vehicles/cars/fords/mustang.txt\n```\n\nor\n\n```text\nmustang.txt\n```\n\nto refer to the same file.\n\n## Which Should I Use?\n\nIt depends.\n\nRelative paths are easier to read and write, and as long as you're in the correct directory (or the directory you expect), they're easier to reason about.\n\nAbsolute paths are more explicit. They're useful when you're not sure what directory you're currently in. For example, maybe you're giving someone instructions on how to find a file on their computer. You can't be sure what directory they'll be in when they start following your instructions, so you'll need to use an absolute path.\n",
+    "language": "",
+    "question": {
+      "question": "Which is a relative path?",
+      "answers": [
+        "home/ryan",
+        "/usr/bin/ls",
+        "/home/ryan",
+        "/bin/ls"
+      ],
+      "correctAnswer": "home/ryan"
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "11fa796a-ef11-46db-83ed-3e25e6294a4c",
+    "slug": "5--absolute-relative",
+    "title": "Absolute vs. Relative Paths",
+    "type": "type_choice",
+    "topics": [
+      "Absolute Paths",
+      "Relative Paths",
+      "File Paths",
+      "Root Directory"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 6,
+    "readme": "# Absolute vs. Relative Paths\n\nWe've mostly been dealing with [relative filepaths](https://www.redhat.com/sysadmin/linux-path-absolute-relative) which are paths that take your current directory into account. For example, let's say we have the following directory structure in our filesystem:\n\n```text\nvehicles\n├── cars\n│   ├── fords\n│   │   ├── mustang.txt\n│   │   └── focus.txt\n```\n\nWhen inside the top-level `vehicles` directory, the relative path to the `mustang.txt` file is:\n\n```text\ncars/fords/mustang.txt\n```\n\nHowever, when we're inside the `cars` directory, the relative path to the `mustang.txt` file is just:\n\n```text\nfords/mustang.txt\n```\n\nOr when inside the `fords` directory, just:\n\n```text\nmustang.txt\n```\n\n## Absolute Paths\n\nAn absolute path is a path that starts at the root of the filesystem. On [Unix-like systems](https://en.wikipedia.org/wiki/Unix-like) (macOS/Linux), the root is denoted by a forward slash `/`. So, if the `vehicles` directory is in the filesystem root, the absolute path to the `mustang.txt` file is:\n\n```text\n/vehicles/cars/fords/mustang.txt\n```\n\nSo, when inside the `fords` directory, you can use either:\n\n```text\n/vehicles/cars/fords/mustang.txt\n```\n\nor\n\n```text\nmustang.txt\n```\n\nto refer to the same file.\n\n## Which Should I Use?\n\nIt depends.\n\nRelative paths are easier to read and write, and as long as you're in the correct directory (or the directory you expect), they're easier to reason about.\n\nAbsolute paths are more explicit. They're useful when you're not sure what directory you're currently in. For example, maybe you're giving someone instructions on how to find a file on their computer. You can't be sure what directory they'll be in when they start following your instructions, so you'll need to use an absolute path.\n",
+    "language": "",
+    "question": {
+      "question": "Which of the following paths always points to the same file, no matter the current working directory?",
+      "answers": [
+        "ryan/passwords/secret.txt",
+        "ryan",
+        "bin/ls",
+        "/usr/bin/ls"
+      ],
+      "correctAnswer": "/usr/bin/ls"
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "6ad3a904-7e19-4511-859e-cf78472db0aa",
+    "slug": "6-files",
+    "title": "Files",
+    "type": "type_text_input",
+    "topics": [
+      "cat Command",
+      "File Contents",
+      "Text Files"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 10,
+    "readme": "# Files\n\nYou're probably familiar with the concept of files from using a GUI like Windows Explorer or Finder.\n\nAt their core, files are just blobs of data. The raw bytes in a file can represent anything: text, images, videos, etc.\n\n## The cat Command\n\nThe `cat` command is used to view the contents of a file. It's short for \"concatenate,\" which is a fancy way of saying \"put things together.\" It can feel like a confusing name if you're using the `cat` command to view a single file, but it makes more sense when you're using it to view multiple files at once.\n\n```sh\n# Print the contents of a file to the terminal\ncat file1.txt\n```\n\n```sh\n# Concatenate the contents of multiple files and print them to the terminal\ncat file1.txt file2.txt\n```\n\n## Assignment\n\n1. [ ] Use the `cd` command to navigate into the `worldbanc` directory if you are not there already.\n2. [ ] Use `ls` to confirm that you're in the right place. You should see a `public` directory listed.\n3. [ ] `cd` into the `public` directory.\n4. [ ] You should see a file called `pr_ideas.txt`. Use the `cat` command to view its contents.\n\nPaste the **entire contents** of the `pr_ideas.txt` file from your terminal into the text field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "96b5e0ce-37f8-44c2-b219-ebdae3655f23",
+    "slug": "7-head-tail",
+    "title": "head and tail",
+    "type": "type_text_input",
+    "topics": [
+      "head Command",
+      "tail Command",
+      "Text Processing"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 13,
+    "readme": "# head and tail\n\nSometimes you don't want to print _everything_ in a file. Files can be really big after all.\n\n## The head Command\n\nThe [head](https://www.ibm.com/docs/en/aix/7.3?topic=h-head-command) command prints the first `n` lines of a file. The `-n` flag specifies `n` as shown:\n\n```sh\nhead -n 10 file1.txt\n```\n\nIf you don't specify a number using the `-n` flag, it will default to `10`.\n\n## The tail Command\n\nThe [tail](https://www.ibm.com/docs/en/aix/7.3?topic=t-tail-command) command prints the _last_ `n` lines of a file. The `-n` flag specifies `n` as shown:\n\n```sh\ntail -n 10 file1.txt\n```\n\n## Assignment\n\nTime to start investigating the bank's transactions.\n\n1. [ ] Use the `cd` command to get into the `worldbanc/private/transactions/` directory.\n2. [ ] Run the `cat` command to view the contents of the `2023.csv` file. You'll notice that it's a _really_ long file. We don't want to print the whole thing.\n3. [ ] Use the `head` command to print the _first_ 6 lines of the `2023.csv` file and copy them into the input field – **do not submit yet**\n\n   _We print the first 6 lines because the first line in the file is the header, and we want to include that along with the first 5 transactions._\n\n4. [ ] Use the `tail` command to print the _last_ 5 lines of the `2023.csv` file and copy them into the input field\n\nSubmit the **combined first 6 and last 5 lines**, for a total of 11 lines.\n\n## Tips\n\nRemember, you can use `..` as an alias for a parent directory. So if you're in `worldbanc/private/transactions/` and you want to get to `worldbanc`, you can run `cd ..` twice:\n\n```sh\ncd ..\ncd ..\n```\n\nAlternatively, you can just run:\n\n```sh\ncd ../..\n```\n\nonce.\n\nYou can run multiple commands on a single line by separating them with a semicolon (`;`).\n\n```sh\ncommand1 ; command2\n```\n\nThe second command runs immediately after the first command finishes. If you only want to run the second command if the first succeeds, then you can use `&&`:\n\n```sh\ncommand1 && command2\n```\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "8d06ba1c-108f-4f01-9e2d-826706754763",
+    "slug": "8-more-less",
+    "title": "More and Less",
+    "type": "type_text_input",
+    "topics": [
+      "less Command",
+      "more Command",
+      "File Paging"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 11,
+    "readme": "# More and Less\n\nThe [`more`](https://www.ibm.com/docs/en/aix/7.3?topic=m-more-command) and [`less`](https://man7.org/linux/man-pages/man1/less.1.html) commands let you view the contents of a file, one page (or line) at a time.\n\nAs the adage goes, `less` is `more`.\n\nIn the context of these commands, `less` is _literally_ `more`. The `less` command does everything that the `more` command does but also has more features. As a general rule, you should use `less` instead of `more`.\n\nYou would only use `more` if you're on a system that doesn't have `less` installed.\n\n## Assignment\n\nYou found nothing suspicious in the first and last transactions of 2023, but you're not done yet! It's time to dig through the middle of the file as well.\n\n1. [ ] Run `less` and pass in the path to the `2023.csv` file, located at the root in the `worldbanc/private/transactions` directory.\n\n   ```sh\n   less 2023.csv\n   ```\n\n   Notice that you're now in an interactive mode and you've lost your shell prompt! That's because `less` has taken over your terminal window.\n\n2. [ ] Press \"enter\" a few times to scroll down a few lines, just to see how that works. Press \"q\" to exit the `less` program and return to your shell prompt.\n3. [ ] Re-run the `less` command, but this time, pipe `cat -n` into it so the CSV stays plain text while you browse with line numbers:\n\n   ```sh\n   cat -n 2023.csv | less\n   ```\n\n   You can use the spacebar to scroll down a page at a time, and you can go back up by pressing \"b.\"\n\n4. [ ] Find line `153`. Copy and paste the contents of that line into the text field and submit it.\n\nYou can use \"q\" to exit `less` at any time.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 8
+  },
+  {
+    "uuid": "2dada879-c1e5-4b4f-99b1-0165c5062b7f",
+    "slug": "9-touch",
+    "title": "Touch",
+    "type": "type_text_input",
+    "topics": [
+      "touch Command",
+      "File Creation",
+      "File Timestamps"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 10,
+    "readme": "# Touch\n\nThe [`touch`](https://man7.org/linux/man-pages/man1/touch.1.html) command updates the access and modification timestamps of a file. By default, if the specified file does not exist, `touch` will create an empty file with the given filename. Because of this side-effect, you'll often see this command used to quickly create new empty files.\n\n```sh\ntouch new_file.txt\n```\n\nYou can also create multiple files at once by listing them:\n\n```sh\ntouch some_file.txt some_other_file.txt\n```\n\n`touch` can be very handy when writing scripts because it ensures files exist without altering existing ones, creating new files only if necessary.\n\n## Assignment\n\nYou discovered a discrepancy with the credit card files. WorldBanc is supposed to be keeping credit history records, but they aren't there!\n\n1. [ ] Change into the `worldbanc/public/products/credit_cards` directory\n2. [ ] Create a new file named `credithistory.txt` so they can keep track of that information\n3. [ ] Use `ls` to verify that the file has been created successfully.\n\nPaste the contents of the `credit_cards` directory into the text field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 9
+  },
+  {
+    "uuid": "98abd6eb-c33b-467c-b692-2c0a97b875f2",
+    "slug": "10-directories",
+    "title": "Directories",
+    "type": "type_text_input",
+    "topics": [
+      "mkdir Command",
+      "Directories",
+      "Linux Filesystem"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 11,
+    "readme": "# Directories\n\nAs we mentioned before, a directory is just a location in a filesystem that can contain files and other directories. On some systems, directories are called \"folders,\" but it's the same thing.\n\n## The mkdir Command\n\nThe [\"make directory\" command](https://www.ibm.com/docs/en/aix/7.3?topic=m-mkdir-command) creates a new directory inside (or relative to) the current directory.\n\n```sh\nmkdir my_directory\n```\n\n## Assignment\n\nDuring your digging, you find that a file appears to be out of place!\n\n1. [ ] Make sure you're in the `worldbanc/public/products/credit_cards` directory\n2. [ ] Run `ls` from there. You should see a file called `tbills.txt`. Treasury Bills (T-Bills) are a type of investment, not a credit card!\n3. [ ] Go back to the `products` directory and create a new directory called \"investments\".\n4. [ ] List the contents of the `products` directory again to confirm that the new directory was created.\n\nPaste the contents of the `products` directory into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 10
+  },
+  {
+    "uuid": "570087ff-dc69-4396-94f6-0ac620bf9550",
+    "slug": "11-mv",
+    "title": "Move",
+    "type": "type_text_input",
+    "topics": [
+      "mv Command",
+      "File Operations",
+      "Renaming Files"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# Move\n\nThe [move command](https://www.ibm.com/docs/en/aix/7.3?topic=files-moving-renaming-mv-command) moves a file or directory from one location to another. You can use it to rename a file or to move it to a different directory altogether. Your working directory can't be the directory you're moving.\n\nRenaming a file:\n\n```sh\nmv some_file.txt some_other_name.txt\n```\n\nMoving a file from the current directory to another nested directory:\n\n```sh\nmv some_file.txt some_directory/some_file.txt\n```\n\nMoving a file from the current directory, to the parent directory:\n\n```sh\nmv some_file.txt ../some_file.txt\n```\n\nIf you don't want to rename the file and you're just moving it to a different directory, you can omit the filename:\n\n```sh\nmv some_file.txt some_directory/\n```\n\n## Assignment\n\nMove the `tbills.txt` file from `worldbanc/public/products/credit_cards/tbills.txt`, into the new `worldbanc/public/products/investments` directory. Keep the filename the same.\n\nList the contents of the `investments` directory and paste the output into the text field and submit your answer.\n\n> [!tip]\n> Both the target and destination have to be valid paths from the current working directory. Use `pwd` to see where you are and adjust the source and destination paths accordingly. Use `ls` to verify that the file has been moved correctly. If you mess up the `mv` command, you'll need to figure out where you accidentally moved the file to, then move it from that location back to where it belongs.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 11
+  },
+  {
+    "uuid": "f0720fd2-b19d-41a9-a30d-60cb2127e4cd",
+    "slug": "12-rm",
+    "title": "Remove",
+    "type": "type_text_input",
+    "topics": [
+      "rm Command",
+      "File Deletion",
+      "Recursive Operations"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 13,
+    "readme": "# Remove\n\nThe [remove command](https://www.ibm.com/docs/en/aix/7.3?topic=files-deleting-rm-command) deletes a file or empty directory:\n\n```sh\nrm some_file.txt\n```\n\nYou can optionally add a `-r` flag to tell the `rm` command to delete a directory and _all_ of its contents recursively. \"Recursively\" is just a fancy way of saying \"do it again on all of the subdirectories and their contents.\"\n\n```sh\nrm -r some_directory\n```\n\n## Assignment\n\n1. [ ] Change directories to the `worldbanc/private` directory using the `cd` command.\n2. [ ] Use the `cat` command to view the contents of the `passwords/passwords.txt` file.\n\n   There's a big problem here! It looks like someone is storing passwords in plain text! Even on a private machine, this is a big security risk.\n\n3. [ ] Delete both the `passwords` directory and the `passwords.txt` file within it.\n4. [ ] List the contents of the \"private\" directory again to make sure that the file is gone.\n\nPaste the contents of the `private` directory into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 12
+  },
+  {
+    "uuid": "ba3c8b4f-aedd-4aad-99b3-59d17fcf3fb6",
+    "slug": "13-copy",
+    "title": "Copy",
+    "type": "type_text_input",
+    "topics": [
+      "cp Command",
+      "File Copying",
+      "Recursive Copy"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# Copy\n\nThe [copy command](https://www.ibm.com/docs/en/aix/7.3?topic=c-cp-command) does what you would (hopefully) expect: it copies a file from one location to another.\n\n```sh\ncp source_file.txt destination/\n```\n\nYou can also copy a directory and all of its contents recursively by adding the `-R` flag:\n\n```sh\ncp -R my_dir new_dir\n```\n\n> [!info]\n> On most Linux systems, the `-r` and `-R` flags for `cp` both mean \"recursive.\" We used lowercase `-r` with `rm` earlier and uppercase `-R` here, but either will work for recursive copy on most distros.\n\n## Assignment\n\n1. [ ] Take a look inside the `worldbanc/private/transactions/` directory. You should see a few files containing transactions from different years.\n2. [ ] Look inside the `backups` directory inside of `transactions`. It looks like something is missing!\n3. [ ] Copy the missing file from the `transactions` directory into the `backups` directory so there is a backup of all of the transactions.\n\nList the contents of the `backups` directory and paste the output **without the command** into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 13
+  },
+  {
+    "uuid": "f640a204-b09b-4fe3-979d-e6a122edeaad",
+    "slug": "14-home",
+    "title": "Home",
+    "type": "type_choice",
+    "topics": [
+      "Home Directory",
+      "Tilde Notation",
+      "User Directories",
+      "Linux Filesystem"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Home\n\nIn a Unix-like operating system, a user's [home directory](https://en.wikipedia.org/wiki/Home_directory) is the directory where their personal files are stored. It is also the directory that a user starts in when logging into the system.\n\nI recommend doing all of your development work in your home directory. For example, I like to create a `workspace` directory in my home directory, and all my programming projects live in subdirectories there.\n\n## Danger\n\nYour home directory is where you want to spend most of your time. Many of the other directories on your machine are critical to the operating system or other programs. Be careful when working in [other directories](https://www.ibm.com/docs/en/aix/7.3?topic=reference-directories) like `/bin`, `/etc`, `/var`, etc.\n\nYou can mess up your system if you're not careful.\n\n## The `~` Alias\n\nMy home directory (on Mac) is located at `/Users/wagslane`. The `~` character is an alias for your home directory. So when I want to go home, I don't have to type out `cd /Users/wagslane`, I can just type:\n\n```sh\ncd ~\n```\n",
+    "language": "",
+    "question": {
+      "question": "What does the filepath ~/workspace/names.csv refer to?",
+      "answers": [
+        "A 'workspace' file in a 'names.csv' directory in the home directory",
+        "A 'names.csv' file in a 'workspace' directory in the root directory",
+        "A 'names.csv' file in a 'workspace' directory in the home directory",
+        "A 'names.csv' file in a 'workspace' directory in the current directory"
+      ],
+      "correctAnswer": "A 'names.csv' file in a 'workspace' directory in the home directory"
+    },
+    "orderInChapter": 14
+  },
+  {
+    "uuid": "a23baab8-04e1-4458-a909-e57c866c457a",
+    "slug": "15-grep",
+    "title": "Grep",
+    "type": "type_text_input",
+    "topics": [
+      "grep Command",
+      "Pattern Matching",
+      "Text Search"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# Grep\n\nYou might be used to nice graphical interfaces that allow you to search for text in files, usually with `ctrl+f` or `cmd+f`. But what about when you're working in a terminal?\n\nAs it turns out, once you're used to it, searching for text in files in a CLI can be much faster than using a GUI.\n\n## The grep Command\n\nThe [grep command](https://www.digitalocean.com/community/tutorials/grep-command-in-linux-unix) allows you to search for text in files. It has a _ton_ of capability, and we'll only be scratching the surface of its true power.\n\n### Basic Usage\n\nThe most basic use for `grep` is to search for a string in a file. For example, if we wanted to search for the word \"hello\" in the file `words.txt`, we could run:\n\n```sh\ngrep \"hello\" words.txt\n```\n\nThis will print out every line in `words.txt` that contains the word `hello`. It's a case-sensitive search, so it will only match `hello`, not `Hello` or `HELLO`.\n\n## Assignment\n\nApplications often write their logs to files on disk. These logs can contain useful information about what the application is doing, and can also be used to debug problems. As a security auditor, you need to dig through these logs to find any evidence of suspicious activity.\n\nUse the `grep` command to find any lines with the text \"CRITICAL\" (all caps) in the `worldbanc/private/logs/2024-01-10.log` file.\n\nPaste the output of your `grep` command into the input field and submit it.\n\n## Tip\n\nThe tab key is your friend! If you start typing the name of a file or directory and then press tab, your shell will try to autocomplete the name for you. If there are multiple possible completions, it will show you a list of them. I rarely type out full file names, I type the first few characters and then press tab.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 15
+  },
+  {
+    "uuid": "1c7cda81-9f2d-49b4-98d3-37c6e19cfffa",
+    "slug": "16-grepfiles",
+    "title": "grep Multiple Files",
+    "type": "type_text_input",
+    "topics": [
+      "grep Command",
+      "Recursive Search",
+      "grep -R Flag"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 13,
+    "readme": "# grep Multiple Files\n\nYou can also search multiple files at once. For example, if we wanted to search for the word \"hello\" in `hello.txt` and `hello2.txt`, we could run:\n\n```sh\ngrep \"hello\" hello.txt hello2.txt\n```\n\n## Recursive Search\n\nYou can also search an entire directory, including all subdirectories. For example, to search for the word \"hello\" in the current directory and all subdirectories:\n\n```sh\ngrep -r \"hello\" .\n```\n\n_The `.` is a special alias for the current directory._\n\n## Assignment\n\nUse the grep command to find _all_ the lines with the text \"CRITICAL\" (all caps) in the `worldbanc/private/logs` _directory_.\n\nPaste the output of your `grep` command into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 16
+  },
+  {
+    "uuid": "0c4cbaad-aaa3-4e45-95aa-fb2445d50345",
+    "slug": "17-find",
+    "title": "Find",
+    "type": "type_text_input",
+    "topics": [
+      "find Command",
+      "Wildcard Patterns",
+      "File Search"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "010ec095-9148-436f-8979-91c4e9f49d38",
+    "chapterTitle": "Filesystems",
+    "isFree": true,
+    "difficulty": 14,
+    "readme": "# Find\n\nThe `find` command is a powerful tool for finding files and directories by name, not by their contents.\n\n## Find a File by Name\n\nLet's say you're looking for a file named `hello.txt` somewhere in your home directory. You can use the `find` command to search for exactly that title:\n\n```sh\nfind some_directory -name hello.txt\n```\n\n## Pattern Search\n\nThe `find` command can also search for files that match a pattern. For example, if you wanted to find all files that end in `.txt`, you could run:\n\n```sh\nfind some_directory -name \"*.txt\"\n```\n\nThe `*` character is a wildcard that matches anything. If you're trying to find filenames that _contain_ a specific word, you can use the `*` character to match the rest of the filename:\n\n```sh\n# Find all filenames that contain the word \"chad\"\nfind some_directory -name \"*chad*\"\n```\n\n## Assignment\n\nYou've been tipped off that fraudulent activity seems to happen often with \"joint\" accounts. \"joint\" means accounts that have more than one owner.\n\n`cd` into `worldbanc` and use the `find` command to search the `public/products` directory for all files that contain the word \"joint\" in their name.\n\nPaste the output of your `find` command into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 17
+  },
+  {
+    "uuid": "496e4f54-af61-4f7d-b992-fef8b42b62f4",
+    "slug": "1-users",
+    "title": "Users",
+    "type": "type_text_input",
+    "topics": [
+      "whoami Command",
+      "Linux Users",
+      "User Management"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 12,
+    "readme": "# Users\n\n[Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems (like the one you're using) support multiple users. Each user has their own home directory, their own files, and their own permissions.\n\nIf you're like most people these days, you're the only user on your machine. It used to be more common for multiple people to share a single computer, or for multiple people to do their work on the same computer over a network.\n\n## Sudo\n\nThe `sudo` keyword lets you run a command as a \"superuser\". It's short for [\"superuser do\"](https://www.linux.com/training-tutorials/linux-101-introduction-sudo/). To use it, you'll need the password of an account with superuser privileges, which you should already have if you're the only user of your machine.\n\n> [!lane]\n> Some people are pedantic and pronounce `sudo` as \"sue-doo.\" Others are correct and pronounce it \"sue-dough.\"\n\n> [!danger]\n> `sudo` grants unrestricted access and can risk system damage if you don't know what you're doing. All commands in this course are safe, but other commands should be reviewed before running with `sudo`.\n\n## Assignment\n\n1. [ ] Run the [\"Who am I?\" command](https://www.ibm.com/docs/en/zos/3.1.0?topic=wtsc-using-whoami-command) to see which user you're logged in as:\n   ```sh\n   whoami\n   ```\n2. [ ] Run the same command as root:\n\n   ```sh\n   sudo whoami\n   ```\n\n   > [!info]\n   > On some Linux systems your user might not be configured for `sudo` access by default. If `sudo whoami` fails with a permission or authentication error, your account may not have superuser privileges.\n\n3. [ ] You'll be prompted for your password. Enter it.\n   > [!info]\n   > If you're using WSL, make sure to use the password you set for your Linux distribution, not your Windows password.\n\nCopy and paste the _output_ of the last command into the input box and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "23d60fb8-2e90-4861-abde-26d3886722f8",
+    "slug": "2-permissions",
+    "title": "Permissions",
+    "type": "type_choice",
+    "topics": [
+      "Unix Permissions",
+      "File Permissions",
+      "rwx Notation",
+      "ls -l Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 6,
+    "readme": "# Permissions\n\nIn a Unix-like operating system, permissions control who can do what to which files and directories. The permissions of an individual file or directory are visually represented as a 10-character string:\n\n```text\ndrwxrwxrwx\n```\n\n![Linux-filepath-permissions](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/Linux-File-Permissions-1920x1080.mp4)\n\nLet's break down each character. The first one just tells you whether you're looking at a file or a directory:\n\n- `-`: Regular file (e.g. `-rwxrwxrwx`)\n- `d`: Directory (e.g. `drwxrwxrwx`)\n\nThe next 9 characters are broken up into 3 sets of `rwx` and represent the permissions themselves for the \"owner,\" \"group,\" and \"others,\" in order. Each group of 3 represents the permissions for reading, writing, and executing, in order. So, for example:\n\n- `rwx`: All permissions\n- `rw-`: Read and write, but not execute\n- `r-x`: Read and execute, but not write\n\n- The first 3 characters are \"owner\" permissions. The \"owner\" is usually just the user who created the file or directory, but it can be manually changed.\n- The next 3 characters are \"group\" permissions. Unix-like systems support groups of users, and each file or directory is assigned to exactly one owning group. Anyone who is not the owner and not a member of that group falls under \"others.\" To be honest, unless you're a system administrator, you won't often worry about groups.\n- The last 3 characters are \"others\" permissions. This is everyone else.\n\nIn my experience, when you're doing programming work on your own local machine, you mostly just care about the \"owner\" permissions because that's usually you. Here are some full examples:\n\n- `-rwxrwxrwx`: A file where everyone can do everything\n- `-rwxr-xr-x`: A file where everyone can read and execute, but only the owner can write\n- `drwxr-xr-x`: A directory where everyone can read (`ls` the contents) and execute (`cd` into it), but only the owner can write (modify the contents)\n- `drwx------`: A directory where only the owner can read, write and execute\n",
+    "language": "",
+    "question": {
+      "question": "Which permissions allow everyone to read?",
+      "answers": [
+        "-rwxrwx---",
+        "-rwxr-xr--",
+        "-rwx--x--x",
+        "-rwx------"
+      ],
+      "correctAnswer": "-rwxr-xr--"
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "1ef40c68-60f4-4db4-a2d3-d427b35fed47",
+    "slug": "3--permissions",
+    "title": "Permissions",
+    "type": "type_choice",
+    "topics": [
+      "Unix Permissions",
+      "File Permissions",
+      "rwx Notation",
+      "ls -l Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 6,
+    "readme": "# Permissions\n\nIn a Unix-like operating system, permissions control who can do what to which files and directories. The permissions of an individual file or directory are visually represented as a 10-character string:\n\n```text\ndrwxrwxrwx\n```\n\n![Linux-filepath-permissions](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/Linux-File-Permissions-1920x1080.mp4)\n\nLet's break down each character. The first one just tells you whether you're looking at a file or a directory:\n\n- `-`: Regular file (e.g. `-rwxrwxrwx`)\n- `d`: Directory (e.g. `drwxrwxrwx`)\n\nThe next 9 characters are broken up into 3 sets of `rwx` and represent the permissions themselves for the \"owner,\" \"group,\" and \"others,\" in order. Each group of 3 represents the permissions for reading, writing, and executing, in order. So, for example:\n\n- `rwx`: All permissions\n- `rw-`: Read and write, but not execute\n- `r-x`: Read and execute, but not write\n\n- The first 3 characters are \"owner\" permissions. The \"owner\" is usually just the user who created the file or directory, but it can be manually changed.\n- The next 3 characters are \"group\" permissions. Unix-like systems support groups of users, and each file or directory is assigned to exactly one owning group. Anyone who is not the owner and not a member of that group falls under \"others.\" To be honest, unless you're a system administrator, you won't often worry about groups.\n- The last 3 characters are \"others\" permissions. This is everyone else.\n\nIn my experience, when you're doing programming work on your own local machine, you mostly just care about the \"owner\" permissions because that's usually you. Here are some full examples:\n\n- `-rwxrwxrwx`: A file where everyone can do everything\n- `-rwxr-xr-x`: A file where everyone can read and execute, but only the owner can write\n- `drwxr-xr-x`: A directory where everyone can read (`ls` the contents) and execute (`cd` into it), but only the owner can write (modify the contents)\n- `drwx------`: A directory where only the owner can read, write and execute\n",
+    "language": "",
+    "question": {
+      "question": "Which permissions allow the owner to execute?",
+      "answers": [
+        "-rw-rw-rw-",
+        "-rw-rw-r--",
+        "-r-xr-xr--",
+        "-r--r--r--"
+      ],
+      "correctAnswer": "-r-xr-xr--"
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "633f53b5-29fe-4de3-b039-f1df17b9f57c",
+    "slug": "4-chmod",
+    "title": "Changing Permissions",
+    "type": "type_text_input",
+    "topics": [
+      "chmod Command",
+      "Unix Permissions",
+      "File Permissions",
+      "ls -l Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 16,
+    "readme": "# Changing Permissions\n\nThe [chmod command](https://www.ibm.com/docs/en/aix/7.3?topic=c-chmod-command) lets you change the permissions of a file or directory. It's short for \"change mode\" (I wish it was called \"change permissions,\" but alas).\n\n## Assignment\n\nAs part of your security audit, you need to know who has access to the files in the `private` directory. The `ls` command has a `-l` option (lowercase \"L\") that will print out the permissions of each file and directory in long format.\n\n1. [ ] List the files in the `worldbanc/private` directory along with their permissions using `ls -l` so you can see the current state of affairs.\n2. [ ] Change the permissions of the `private` directory and all of its contents so that:\n   - The owner can read, write, and execute\n   - The group can do nothing\n   - Others can do nothing\n\n   ```sh\n   chmod -R u=rwx,g=,o= DIRECTORY\n   ```\n\n   In the command above, `u` means \"user\" (aka \"owner\"), `g` means \"group,\" and `o` means \"others.\" The `=` means \"set the permissions to the following,\" and the `rwx` means \"read, write and execute.\" The `g=` and `o=` mean \"set group and other permissions to nothing.\" The `-R` means \"recursively,\" which means \"do this to all of the contents of the directory as well.\"\n\n   Be sure to replace `DIRECTORY` with the path to the `private` directory.\n\n   _Remember, `.` is a special alias for the current directory._\n\n3. [ ] Once you've changed the permissions, run the `ls -l` command again to make sure they've been updated.\n\nPaste _only_ the **10-character** permission string of the updated `private` directory itself (not its contents) into the input field and submit your answer.\n\n## Tip\n\nIf you're using WSL and `chmod` is not updating the permissions, your `worldbanc` directory may be on the Windows filesystem instead of inside WSL. Try moving `worldbanc` into your Linux home directory first. If you need to keep working on the Windows filesystem, you can [adjust your wsl.conf file to allow editing permissions](https://stackoverflow.com/questions/46610256/chmod-wsl-bash-doesnt-work).\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "26674288-acb9-4aad-a27d-2ea457b6b468",
+    "slug": "5-executables",
+    "title": "Executables",
+    "type": "type_text_input",
+    "topics": [
+      "Executable Files",
+      "chmod Command",
+      "Execute Permission",
+      "Bash Scripts"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 14,
+    "readme": "# Executables\n\nYou're familiar with the idea of reading and writing data into files. But what about _executing_ them? Executable files are just files where the data stored inside is a program that you can run on your computer.\n\nFiles with a `.sh` extension are [shell scripts](https://en.wikipedia.org/wiki/Shell_script). They're just text files that contain shell commands. You can run a file in your shell by typing its filepath:\n\n```sh\nmydir/program.sh\n```\n\nInterestingly, if the program is in the current directory (in this example, the `mydir` directory), you need to prefix it with `./` to run it:\n\n```sh\n./program.sh\n```\n\nAs far as file paths go, `./program.sh` and `program.sh` are the same. The dot (`.`) is an alias for the current directory. We _need_ the prefix when running executables so that the shell knows we're trying to run a file from a file path, not an installed command like `ls`, `mkdir`, `chmod`, etc.\n\n## Assignment\n\nThere seems to be a suspicious script in the `worldbanc/private/bin` directory called `genids.sh`. It looks like it generates some type of identifier... First, let's **remove our ability to run it**, just to see what happens. The `chmod` command has a convenient `-x` flag that will simply remove the executable permission from the file.\n\n1. [ ] Run the following commands in `worldbanc/private/bin`:\n   ```sh\n   chmod -x genids.sh\n   ```\n2. [ ] Let's test those permission changes. Try to run the script:\n\n   ```sh\n   ./genids.sh\n   ```\n\n   You should get an error like this:\n\n   ```sh\n   permission denied\n   ```\n\n3. [ ] That error occurs because the executable permission has been removed. Let's re-add the executable permission for the owner:\n   ```sh\n   chmod u+x <filename>\n   ```\n4. [ ] Once you've done that, try running the `./genids.sh` script again.\n\nPaste only the output of the script into the input field and submit your answer.\n\n## Tips\n\nYou'll frequently download scripts from the internet to run on your machine, and often you'll need to make them executable before you can run them. I use `chmod +x` quite often as a developer.\n\nThe internet is a shady place. Only run verified scripts from trusted publishers and authors.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "f68a315a-eda9-4ca4-b97e-226a7c720ea4",
+    "slug": "6-root",
+    "title": "Root User",
+    "type": "type_choice",
+    "topics": [
+      "Root User",
+      "Superuser",
+      "sudo Command",
+      "Linux Security"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Root User\n\nThe \"root\" user is a superuser. It has access to everything on the system and can do anything. When you use the `sudo` command, you're running as the root user (as long as your system hasn't been configured differently).\n\nThe `sudo` keyword is convenient because it quickly gives you elevated permissions to run a single command.\n\n![sudo make me a sandwich](https://imgs.xkcd.com/comics/sandwich.png)\n\n-- [xkcd](https://xkcd.com/149/)\n\nHowever, it can also be dangerous because it gives you access to everything. If you run a command with `sudo` that you don't understand, you could do serious damage to your system.\n\nFor example, `rm` with the `r` and `f` flags run on the root directory (`/`) will **delete all the files on your system**. Don't do that. The `r` flag is for \"recursive\" (delete everything inside) and the `f` flag is for \"force.\" Most systems will prevent you from doing this, but if you run it with `sudo`, you've just turned your computer into a very expensive paperweight.\n\n> [!info]\n> Some modern systems will actually prevent you from deleting everything by default as a safeguard unless you use `--no-preserve-root`, but it's still a very bad idea.\n\n## Should I Use sudo?\n\nSure, as long as you understand what the command you're running does. **Just be careful.**\n",
+    "language": "",
+    "question": {
+      "question": "Which is a superuser?",
+      "answers": [
+        "root",
+        "chucknorris",
+        "administrator",
+        "admin"
+      ],
+      "correctAnswer": "root"
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "c7491f1b-c6fb-4416-ad50-855da9a9b3fc",
+    "slug": "7--root",
+    "title": "Root User",
+    "type": "type_choice",
+    "topics": [
+      "Root User",
+      "Superuser",
+      "sudo Command",
+      "Linux Security"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 5,
+    "readme": "# Root User\n\nThe \"root\" user is a superuser. It has access to everything on the system and can do anything. When you use the `sudo` command, you're running as the root user (as long as your system hasn't been configured differently).\n\nThe `sudo` keyword is convenient because it quickly gives you elevated permissions to run a single command.\n\n![sudo make me a sandwich](https://imgs.xkcd.com/comics/sandwich.png)\n\n-- [xkcd](https://xkcd.com/149/)\n\nHowever, it can also be dangerous because it gives you access to everything. If you run a command with `sudo` that you don't understand, you could do serious damage to your system.\n\nFor example, `rm` with the `r` and `f` flags run on the root directory (`/`) will **delete all the files on your system**. Don't do that. The `r` flag is for \"recursive\" (delete everything inside) and the `f` flag is for \"force.\" Most systems will prevent you from doing this, but if you run it with `sudo`, you've just turned your computer into a very expensive paperweight.\n\n> [!info]\n> Some modern systems will actually prevent you from deleting everything by default as a safeguard unless you use `--no-preserve-root`, but it's still a very bad idea.\n\n## Should I Use sudo?\n\nSure, as long as you understand what the command you're running does. **Just be careful.**\n",
+    "language": "",
+    "question": {
+      "question": "What happens if you run 'sudo rm -rf /'?",
+      "answers": [
+        "Your computer will be wiped clean of all files, including files needed to function",
+        "Your computer will be wiped clean of all files, but will still function normally",
+        "You will lose your 'collection' of dank memes, everything else will be fine",
+        "Somewhere in the world Linus Torvalds chuckles"
+      ],
+      "correctAnswer": "Your computer will be wiped clean of all files, including files needed to function"
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "eb47787d-8499-4c41-b02f-9ad52dc1dec6",
+    "slug": "8-chown",
+    "title": "Chown",
+    "type": "type_text_input",
+    "topics": [
+      "chown Command",
+      "File Ownership",
+      "sudo Command",
+      "Unix Permissions"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 17,
+    "readme": "# Chown\n\nSo when do you _need_ to use `sudo`? `chmod` allows you to change the permissions of any file or directory that _you_ own. But what if you don't own the file or directory? That's where `sudo` is required. Let's change ownership of a directory to see how that works.\n\nThe `chown` command, which stands for \"change owner,\" allows you to change the owner of a file or directory, and it requires root privileges.\n\n## Assignment\n\n1. [ ] Change directory into `worldbanc/private`. Take a look at the contents with `ls`.\n2. [ ] You should see a directory called `contacts`. Take a look at its contents.\n3. [ ] You should see a file called `emergency.txt`. Take a look at the data inside with `cat`.\n\n   Hmmm, it seems like it has some personal contact info for employees. We don't know whose this is, but we're pretty sure it should have its access strictly limited.\n\n4. [ ] Let's change the owner of the entire `contacts` directory to `root`. Run this command in `worldbanc/private` directory:\n\n   ```sh\n   sudo chown -R root contacts\n   ```\n\n   Here's an explanation of the command:\n   - `sudo` – Run as the root user\n   - `chown` – Command to change the owner\n   - `-R` – \"Recursive,\" meaning also apply the changes to everything inside the directory\n   - `root` – The name of the new owner\n   - `contacts` – The directory to change the owner of\n\n5. [ ] From the `worldbanc/private` directory, run:\n\n   ```sh\n   ls -l\n   ```\n\nFind the line from the output that represents the `contacts` directory. **Copy the whole line into the input field** and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 8
+  },
+  {
+    "uuid": "a0b3a185-e602-49e8-9de6-44c440f4ace5",
+    "slug": "9-using-sudo",
+    "title": "Using sudo",
+    "type": "type_text_input",
+    "topics": [
+      "sudo Command",
+      "Root User",
+      "Privilege Escalation",
+      "apt Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "fe5b3554-f3ba-4b3e-9671-d188a353db01",
+    "chapterTitle": "Permissions",
+    "isFree": true,
+    "difficulty": 15,
+    "readme": "# Using sudo\n\nBefore you start this assignment, make sure the permissions on the `worldbanc/private/contacts` directory are `drwx------`, that the owner is `root`, and that you're not signed in as root. If you've been following along, all of those should be true. You can check with the `ls -l` command.\n\n## Assignment\n\nYou told senior staff about the `contacts` directory and its contents, and they've decided to delete it entirely.\n\n1. [ ] Go ahead and _try_ to delete the `contacts` directory with the `rm` command:\n\n   ```sh\n   rm -r contacts\n   ```\n\n   The `contacts` directory should fail to delete! You do not have permission to delete it. It's owned by the `root` user, and you're not `root`.\n\n2. [ ] Try again as root by using `sudo`.\n3. [ ] Once you have confirmed that you were able to delete it, run the `ls` command from inside the `private` directory.\n\nPaste the output of the `private` directory's contents into the input field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 9
+  },
+  {
+    "uuid": "5d1321fd-a35e-4d70-b20f-dc4721feae9a",
+    "slug": "1-compiled-vs-interpreted",
+    "title": "Compiled vs. Interpreted",
+    "type": "type_choice",
+    "topics": [
+      "Compiled Languages",
+      "Interpreted Languages",
+      "Program Execution"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 7,
+    "readme": "# Compiled vs. Interpreted\n\nA program is just a set of instructions that a computer can execute, and an \"executable\" is just a file that contains a program. The words \"program\" and \"executable\" are often used interchangeably. Broadly speaking, there are two types of programs:\n\n- Compiled programs\n- Interpreted programs\n\n![Compiled vs interpreted programs](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/Compiled%20vs%20Interpreted%20Programs_1080.mp4)\n\n## Compiled Programs\n\nA compiled program is a program that has been converted from human-readable source code into machine code (binary). [Machine code](https://en.wikipedia.org/wiki/Machine_code) is a set of instructions that a computer can execute directly: your computer's CPU is hardware that's been designed to execute machine code.\n\nProgramming languages like [Go](https://go.dev/), [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), and [Rust](https://www.rust-lang.org/) produce compiled programs.\n\n## Interpreted Programs\n\nAn interpreted program is a program that is executed by _another_ program. The program that executes the interpreted program is called an [interpreter](https://en.wikipedia.org/wiki/Interpreter_%28computing%29). The interpreter reads the source code of the interpreted program and executes it.\n\nProgramming languages like [Python](https://www.python.org/), [Ruby](https://www.ruby-lang.org/en/), and [JavaScript](https://en.wikipedia.org/wiki/JavaScript), are typically interpreted as they run, which means your computer needs to have the interpreter installed to run the program.\n\nAnother example is the `.sh` shell script files we talked about. Those are interpreted by the shell program.\n\n## Assignment\n\n1. [ ] In your shell, run the following command:\n\n   ```sh\n   which sh\n   ```\n\n   The `which` command tells you the location of an installed command line program. In this case, we're asking for the location of the `sh` (shell) program. Mine is located at `/bin/sh`.\n\n2. [ ] Take a look at the contents of that file:\n   ```sh\n   cat /bin/sh\n   ```\n\nKeep in mind, your `sh` program is a compiled executable, probably written in C. That's why when you try to view its contents with `cat`, you see... what you see.\n\nA file with a `.sh` extension, on the other hand, is a shell script. It's a text file that contains commands that will be interpreted and run by the `sh` program. They are both executable programs, but only one can be run without the help of another program.\n\n**Answer the associated questions.**\n",
+    "language": "",
+    "question": {
+      "question": "What is the output of 'cat'ing the sh executable?",
+      "answers": [
+        "Raw binary encoded as text in hexadecimal",
+        "Raw binary encoded as text in 1's and 0's",
+        "Nothing",
+        "A bunch of gibberish (raw bytes attempting to be interpreted as text)"
+      ],
+      "correctAnswer": "A bunch of gibberish (raw bytes attempting to be interpreted as text)"
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "883c8546-c7bb-472d-b776-5bb93753d82f",
+    "slug": "2--compiled-vs-interpreted",
+    "title": "Compiled vs. Interpreted",
+    "type": "type_choice",
+    "topics": [
+      "Compiled Languages",
+      "Interpreted Languages",
+      "Program Execution"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 7,
+    "readme": "# Compiled vs. Interpreted\n\nA program is just a set of instructions that a computer can execute, and an \"executable\" is just a file that contains a program. The words \"program\" and \"executable\" are often used interchangeably. Broadly speaking, there are two types of programs:\n\n- Compiled programs\n- Interpreted programs\n\n![Compiled vs interpreted programs](https://storage.googleapis.com/qvault-webapp-dynamic-assets/lesson_videos/Compiled%20vs%20Interpreted%20Programs_1080.mp4)\n\n## Compiled Programs\n\nA compiled program is a program that has been converted from human-readable source code into machine code (binary). [Machine code](https://en.wikipedia.org/wiki/Machine_code) is a set of instructions that a computer can execute directly: your computer's CPU is hardware that's been designed to execute machine code.\n\nProgramming languages like [Go](https://go.dev/), [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), and [Rust](https://www.rust-lang.org/) produce compiled programs.\n\n## Interpreted Programs\n\nAn interpreted program is a program that is executed by _another_ program. The program that executes the interpreted program is called an [interpreter](https://en.wikipedia.org/wiki/Interpreter_%28computing%29). The interpreter reads the source code of the interpreted program and executes it.\n\nProgramming languages like [Python](https://www.python.org/), [Ruby](https://www.ruby-lang.org/en/), and [JavaScript](https://en.wikipedia.org/wiki/JavaScript), are typically interpreted as they run, which means your computer needs to have the interpreter installed to run the program.\n\nAnother example is the `.sh` shell script files we talked about. Those are interpreted by the shell program.\n\n## Assignment\n\n1. [ ] In your shell, run the following command:\n\n   ```sh\n   which sh\n   ```\n\n   The `which` command tells you the location of an installed command line program. In this case, we're asking for the location of the `sh` (shell) program. Mine is located at `/bin/sh`.\n\n2. [ ] Take a look at the contents of that file:\n   ```sh\n   cat /bin/sh\n   ```\n\nKeep in mind, your `sh` program is a compiled executable, probably written in C. That's why when you try to view its contents with `cat`, you see... what you see.\n\nA file with a `.sh` extension, on the other hand, is a shell script. It's a text file that contains commands that will be interpreted and run by the `sh` program. They are both executable programs, but only one can be run without the help of another program.\n\n**Answer the associated questions.**\n",
+    "language": "",
+    "question": {
+      "question": "Which can be executed without the help of an interpreter?",
+      "answers": [
+        "A shell script like 'genids.sh'",
+        "A compiled executable, like the 'sh' program",
+        "A Python script"
+      ],
+      "correctAnswer": "A compiled executable, like the 'sh' program"
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "897afab9-f2c7-478b-943a-792efb0c23f7",
+    "slug": "3-shebang",
+    "title": "Shebang",
+    "type": "type_text_input",
+    "topics": [
+      "Shebang",
+      "Script Execution",
+      "cat Command",
+      "Bash Scripts"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 11,
+    "readme": "# Shebang\n\nAs we talked about before, you can run any executable file by typing its file path into your shell. For example:\n\n```sh\nbin/genids.sh\n```\n\nThat works out-of-the-box for files that are compiled executables. But what about scripts that need to be interpreted by another program? The computer needs to be told what program to use to interpret the file.\n\nA [\"shebang\"](<https://en.wikipedia.org/wiki/Shebang_(Unix)>) is a special line at the top of a script that tells your shell which program to use to execute the file.\n\nThe format of a shebang is:\n\n```sh\n#! interpreter [optional-arg]\n```\n\nFor example, if your script is a Python script and you want to use Python 3, your shebang might look like this:\n\n```sh\n#!/usr/bin/python3\n```\n\nThis tells the system to use the Python 3 interpreter located at `/usr/bin/python3` to run the script.\n\n## Assignment\n\nFrom the root of the `worldbanc` directory, use the `cat` command to view the contents of the `private/bin/genids.sh` file.\n\nPaste _only_ the shebang (1 line) into the input field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "b19fff0a-ca96-4004-9d9b-ba623ddf0320",
+    "slug": "4-bourne",
+    "title": "Bourne Shell",
+    "type": "type_choice",
+    "topics": [
+      "Bourne Shell",
+      "sh",
+      "Bash",
+      "Zsh"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 6,
+    "readme": "# Bourne Shell\n\nAs we talked about before:\n\n- If you're using Ubuntu on WSL, you're probably running a [Bash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) shell.\n- If you're using macOS, you're probably running a [Zsh](https://en.wikipedia.org/wiki/Z_shell) shell.\n- If you're running a raw Linux installation, I pray you already know what you're using.\n\nTo get hand-wavy about it, I want to explain the difference between the 3 shells you're likely to encounter:\n\n- `sh`: The Bourne shell. This is the original Unix shell and is [POSIX-compliant](https://en.wikipedia.org/wiki/POSIX). It's very basic and doesn't have many quality-of-life features.\n- `bash`: The Bourne Again shell. This is the most popular shell on Linux. It builds on `sh`, but also has a lot of extra features.\n- `zsh`: The Z shell. This is the most popular shell on macOS. Like `bash`, it does what `sh` can do, but also has a lot of extra features.\n\nBoth `zsh` and `bash` are \"sh-compatible\" shells, meaning they can run `.sh` scripts, but they also have extra features that generally make them more pleasant to use. For your purposes, the differences between `zsh` and `bash` are not super significant. Everything we do in this course will work in both shells.\n",
+    "language": "",
+    "question": {
+      "question": "`____` and `____` are a superset of `____`. They can do anything `____` can do, and more.",
+      "answers": [
+        "zsh, bash, zsh, zsh",
+        "sh, zsh, bash, bash",
+        "bash, zsh, sh, sh"
+      ],
+      "correctAnswer": "bash, zsh, sh, sh"
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "361d64af-d57b-4476-bff2-8a00db13eb25",
+    "slug": "5-shell-config",
+    "title": "Shell Configuration",
+    "type": "type_choice",
+    "topics": [
+      ".bashrc",
+      ".zshrc",
+      "Shell Configuration",
+      "Dotfiles"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 6,
+    "readme": "# Shell Configuration\n\nBash and Zsh both have [configuration files](https://en.wikipedia.org/wiki/Unix_shell#Configuration_files) that run automatically each time you start a new shell session. These files are used to set up your shell environment. They can be used to set up aliases, functions, and environment variables.\n\nThese files are located in your home directory (`~`) and are hidden by default. The `ls` command has a `-a` flag that will show hidden files:\n\n```sh\nls -a ~\n```\n\n- If you're using Bash, `.bashrc` is probably the file you want to edit.\n- If you're using Zsh, `.zshrc` is probably the file you want to edit or create if it doesn't yet exist.\n\n## Assignment\n\nAs part of your audit, you're trying to figure out what shell commands run automatically when a user logs in on the machine. You need to confirm which shell configuration file is being used.\n\n1. [ ] Edit the file you believe to be your shell configuration file. You can use the `nano` command to edit files in your terminal:\n   ```sh\n   nano ~/.bashrc\n   ```\n2. [ ] Add the following line to the bottom:\n\n   ```sh\n   echo \"Hello from the shell!\"\n   ```\n\n   You can use `Ctrl+O` to save the file (confirm any prompts with \"enter\"), and then `Ctrl+X` to exit the editor. (There should be a list of commands at the bottom of the screen.)\n\n3. [ ] Close your terminal and open a new one. If you see the message `Hello from the shell!`, you've found the right file!\n4. [ ] Edit `~/.bashrc` again to remove the line you added to the file so that you don't see that message every time you open a new shell.\n\n**Answer the question.**\n",
+    "language": "",
+    "question": {
+      "question": "Why might you restart your shell after changing a shell configuration file?",
+      "answers": [
+        "Because the config file runs when you type 'uwu senpai pweez'",
+        "Because the config file runs automatically when you start a new shell session",
+        "Because the config file runs automatically when you save a shell configuration file",
+        "Because the config file runs automatically when you close a shell"
+      ],
+      "correctAnswer": "Because the config file runs automatically when you start a new shell session"
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "81bcdb75-5ff0-41bf-9541-ee185d1c7498",
+    "slug": "6-env-vars",
+    "title": "Environment Variables",
+    "type": "type_text_input",
+    "topics": [
+      "Environment Variables",
+      "export Command",
+      "Shell Variables",
+      "printenv Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 14,
+    "readme": "# Environment Variables\n\nWe talked about how you can create and use local variables in your shell:\n\n```sh\nname=\"Lane\"\necho $name\n# Lane\n```\n\nThere is another type of variable called an [environment variable](https://en.wikipedia.org/wiki/Environment_variable). They are available to _all_ programs that you run in your shell.\n\nYou can view all of the environment variables that are currently set in your shell with the `env` command.\n\nTo set a variable for your current shell session, use the `export` command (it won't persist if you close the terminal):\n\n```sh\nexport NAME=\"Lane\"\n```\n\nYou can then use the variable in your shell, just as before:\n\n```sh\necho $NAME\n# Lane\n```\n\nThe interesting part is that programs and scripts you run in your shell can _also_ use that variable:\n\nFor example, we can create a file called `introduce.sh` with the following contents:\n\n```sh\n#!/bin/sh\necho \"Hi I'm $NAME\"\n```\n\nThen we run it:\n\n```sh\nchmod +x ./introduce.sh\n\n./introduce.sh\n# Hi I'm Lane\n```\n\n## Assignment\n\nTake a look at the contents of the `warn.sh` script in the `worldbanc/private/bin` directory. It looks like it's supposed to print nicely formatted warning messages with worldbanc branding.\n\nIn your terminal, `export` the required environment variables:\n\n- `WARN_MESSAGE`: \"The auditor is here\"\n- `WARN_FROM_NAME`: \"Your worst nightmare\"\n\nRun the script and paste its full output into the input field and submit your answer.\n\n## Tip\n\nYou can also temporarily set a variable for a single command, instead of exporting it for the whole session.\n\nFor example:\n\n```sh\nWARN_MESSAGE=\"this works too\" ./warn.sh\n```\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "32f0c5f1-9cdc-4d83-9f0d-b4802839cf67",
+    "slug": "7-path",
+    "title": "PATH",
+    "type": "type_choice",
+    "topics": [
+      "PATH Variable",
+      "Environment Variables",
+      "Command Search",
+      "export Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 7,
+    "readme": "# PATH\n\n_This is one of the most important lessons in this entire course!_ **Listen up.**\n\nThere are environment variables that are sort of \"built-in\" to your shell. By \"built-in\" I just mean that different programs and parts of your system know about them and use them. The `PATH` variable is one of those.\n\n## Why Do We Care About the `PATH`?\n\nIf it weren't for the `PATH`, you'd have to remember the filesystem path of every executable you wanted to run in your shell. Instead of just running `ls`, you'd have to run `/bin/ls` (or whatever the location of the `ls` executable is on your system). That's not very convenient.\n\nThe `PATH` variable is a list of directories that your shell will look into when you try to run a command. If you type `ls`, your shell will look in each directory listed in your `PATH` variable for an executable called `ls`. If it finds one, it will just run it. If it doesn't, it will give you an error like: \"command not found.\"\n\n## What's in the `PATH` Variable?\n\nTake a look at your current `PATH` variable:\n\n```sh\necho $PATH\n```\n\nYou should see a giant list of directories separated by colons (`:`). Each of those directories is a place where your shell will look for executables. For example, with a `PATH` like this:\n\n```text\n/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin\n```\n\nYour shell will look for executables in the following directories:\n\n- `/usr/local/bin`\n- `/usr/bin`\n- `/bin`\n- `/usr/sbin`\n- `/sbin`\n\n## Assignment\n\nAs something of a security engineer yourself, you want to temporarily disable the `PATH` variable so that you can only run executables by using their full path. You know, just so you don't accidentally run something you don't mean to.\n\n1. [ ] Reset your `PATH` variable to an empty string:\n\n   ```sh\n   export PATH=\"\"\n   ```\n\n   _This will only affect your current shell session. If you open a new shell, it will have the default `PATH` variable again._\n\n2. [ ] Try running some simple commands like `ls`, `pwd`, `echo`, etc – some will no longer work, while others that do not rely on `PATH` will.\n\n**Answer the question.**\n",
+    "language": "",
+    "question": {
+      "question": "After deleting your PATH, what happens when you try to run 'ls'?",
+      "answers": [
+        "The command isn't found",
+        "It lists the contents of the root directory",
+        "It lists the contents of the current directory",
+        "It gives a security warning"
+      ],
+      "correctAnswer": "The command isn't found"
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "25411224-2384-4c13-93d2-0eeb5ad30eb1",
+    "slug": "8-change-path",
+    "title": "Change Your PATH",
+    "type": "type_text_input",
+    "topics": [
+      "PATH Variable",
+      "export Command",
+      "Environment Variables",
+      "which Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 16,
+    "readme": "# Change Your PATH\n\nA common problem you'll run into in the future is that you install a new program on your machine, but when you try to run it from your terminal, you get an error like:\n\n```sh\n$ my-new-program\n-bash: my-new-program: command not found\n```\n\nNine times out of ten, it's because the program is installed in a directory that's not in your `PATH` variable. Oftentimes when you install a program using the CLI, it will print a message during the installation process that tells you where the command was installed. **Don't let your eyes glaze over when your terminal prints important messages!** Sometimes you just gotta [rtfm](https://www.dictionary.com/browse/rtfm).\n\n## Assignment\n\n1. [ ] Restart your shell session to reset your `PATH` variable to its default. You can do that by closing your terminal window and opening a new one.\n\n   The `worldbanc` directory that you downloaded has some executables that would be useful to have in your `PATH` so that you can run them from anywhere.\n\n2. [ ] Add the `worldbanc/private/bin` directory to your `PATH` variable. You'll need to add the absolute path, not the relative path. You can get the absolute path by running `pwd` in the `worldbanc/private/bin` directory, or by using the `realpath` command.\n\n   To add a directory to your `PATH` without overwriting all of the existing directories, use the `export` command and reference the existing `PATH` variable:\n\n   ```sh\n   export PATH=\"$PATH:/path/to/new\"\n   ```\n\n   The `$PATH` part is a reference to the existing `PATH` variable. The `:` separates the existing directories from the new directory (`/path/to/new`) that you're adding.\n\n3. [ ] `cd` outside of the `worldbanc` directory entirely. In fact, go to your home directory:\n   ```sh\n   cd ~\n   ```\n\nNow run the `worldbanc.sh` shell script (it should work because it's on your `PATH`). Follow the prompts, then copy/paste the entire interaction with the tool into the input field and submit your answer. (Starting with \"Welcome\" and ending with \"Goodbye!\")\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 8
+  },
+  {
+    "uuid": "6d1a96a4-9aa3-45ec-95ad-05e01db2e620",
+    "slug": "9-config-path",
+    "title": "PATH Config",
+    "type": "type_choice",
+    "topics": [
+      ".bashrc",
+      ".zshrc",
+      "Shell Configuration",
+      "PATH Variable"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "d7b7c367-e3f0-4d46-99bb-c4dfdbcabb6f",
+    "chapterTitle": "Programs",
+    "isFree": false,
+    "difficulty": 7,
+    "readme": "# PATH Config\n\nIn the last lesson, you changed your `PATH` variable for your current shell session. Trouble is, the next time you restart your shell, it will be reset to its default value. You won't be able to use the `worldbanc.sh` CLI tool from anywhere unless you change your `PATH` variable _permanently_.\n\nThe most common way to do this is to add the same `export` command that you used in the last lesson to your shell's configuration file.\n\n## Assignment\n\n1. [ ] Edit your `.zshrc` / `.bashrc` file (whatever your shell config file is) and add an `export` command to the end of the file that adds the `worldbanc/private/bin` directory to your `PATH` variable.\n2. [ ] Restart your shell session (or run [`source ~/.zshrc`](https://www.computerhope.com/unix/bash/source.htm) or `source ~/.bashrc`)\n3. [ ] Run the `worldbanc.sh` CLI tool again from your home directory and make sure it works.\n",
+    "language": "",
+    "question": {
+      "question": "What changed when we added the PATH change to the config file?",
+      "answers": [
+        "We need to use the full path to the 'worldbanc.sh' script to run it",
+        "The 'worldbanc.sh' script is available from anywhere, even after a session restart",
+        "The 'worldbanc.sh' script is available from anywhere, but only in the current session"
+      ],
+      "correctAnswer": "The 'worldbanc.sh' script is available from anywhere, even after a session restart"
+    },
+    "orderInChapter": 9
+  },
+  {
+    "uuid": "c238af62-9f55-4478-967e-cfc3b3e96a3f",
+    "slug": "1-man",
+    "title": "Man",
+    "type": "type_choice",
+    "topics": [
+      "man Command",
+      "Man Pages",
+      "Linux Documentation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 7,
+    "readme": "# Man\n\nThe [man](https://www.ibm.com/docs/en/aix/7.3?topic=m-man-command) command is short for \"manual.\" It's a program that displays the manual for other programs.\n\n![rtfm moses](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/tpIPc6I-958x500.jpg)\n\nI know that manuals and documentation can feel intimidating, heck, that's why there are courses like this one to give you a gentler introduction. That said, manuals and documentation will become more useful to you as you become a more experienced developer. They're not as scary as they seem when you actually take the time to read them.\n\n## Using man\n\nThe `man` command will only work for programs that it has a manual for, but most built-in commands and Unix programs are supported. You just pass the name of the command as an argument. The most intuitive place to start, of course, is reading the manual's manual:\n\n```sh\n# open the man pages for the 'man' command\nman man\n```\n\n## Searching\n\nMost people don't just [read man pages for fun](https://www.youtube.com/watch?v=rT-fbLFOCy0). More often, the manual is used as a reference to quickly look up usage or special flags.\n\nYou can search for text in the manual by pressing the `/` key and typing your search, then pressing enter. Let's try to look up what the `-r` flag does for the `ls` command:\n\n```sh\nman ls\n# type '/-r' to start searching\n\n# press 'n' to jump to the next result\n\n# press 'N' to go back if you went too far\n```\n\n## Assignment\n\nAs a systems person, the `grep` command will be your best friend. It has a lot of power, but it can be a little confusing to use.\n\n1. Open the `grep` manual.\n2. You'll notice that the manual is an interactive session. Page through the manual with the spacebar, and quit with `q`.\n\nRead the first couple paragraphs of the `grep` manual, then read the question and scroll through the rest of the manual for the answer.\n",
+    "language": "",
+    "question": {
+      "question": "What does the lowercase '-v' flag do?",
+      "answers": [
+        "selects non-matching lines",
+        "prints the version",
+        "matches lines that start with 'v'"
+      ],
+      "correctAnswer": "selects non-matching lines"
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "73938d13-9f48-421d-9297-2e5e7b040db2",
+    "slug": "2--man",
+    "title": "Man",
+    "type": "type_choice",
+    "topics": [
+      "man Command",
+      "Man Pages",
+      "Linux Documentation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 6,
+    "readme": "# Man\n\nThe [man](https://www.ibm.com/docs/en/aix/7.3?topic=m-man-command) command is short for \"manual.\" It's a program that displays the manual for other programs.\n\n![rtfm moses](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/tpIPc6I-958x500.jpg)\n\nI know that manuals and documentation can feel intimidating, heck, that's why there are courses like this one to give you a gentler introduction. That said, manuals and documentation will become more useful to you as you become a more experienced developer. They're not as scary as they seem when you actually take the time to read them.\n\n## Using man\n\nThe `man` command will only work for programs that it has a manual for, but most built-in commands and Unix programs are supported. You just pass the name of the command as an argument. The most intuitive place to start, of course, is reading the manual's manual:\n\n```sh\n# open the man pages for the 'man' command\nman man\n```\n\n## Searching\n\nMost people don't just [read man pages for fun](https://www.youtube.com/watch?v=rT-fbLFOCy0). More often, the manual is used as a reference to quickly look up usage or special flags.\n\nYou can search for text in the manual by pressing the `/` key and typing your search, then pressing enter. Let's try to look up what the `-r` flag does for the `ls` command:\n\n```sh\nman ls\n# type '/-r' to start searching\n\n# press 'n' to jump to the next result\n\n# press 'N' to go back if you went too far\n```\n\n## Assignment\n\nAs a systems person, the `grep` command will be your best friend. It has a lot of power, but it can be a little confusing to use.\n\n1. Open the `grep` manual.\n2. You'll notice that the manual is an interactive session. Page through the manual with the spacebar, and quit with `q`.\n\nRead the first couple paragraphs of the `grep` manual, then read the question and scroll through the rest of the manual for the answer.\n",
+    "language": "",
+    "question": {
+      "question": "Which of the following grep options is incorrect?",
+      "answers": [
+        "-t, --test",
+        "-r, --recursive",
+        "-i, --ignore-case",
+        "-c, --count"
+      ],
+      "correctAnswer": "-t, --test"
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "4b908057-c88a-4a65-a4c8-f48267598e63",
+    "slug": "3-flags",
+    "title": "Flags",
+    "type": "type_text_input",
+    "topics": [
+      "Command Flags",
+      "Command Line Arguments",
+      "ls Command",
+      "Flag Syntax"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 13,
+    "readme": "# Flags\n\nAs you've already seen in this course, some commands accept [flags](https://www.ibm.com/docs/en/aix/7.3?topic=names-command-flags). Flags are options that you can pass to a command to change its behavior.\n\nFor example, the `ls` command can take a `-l` flag to show a \"long\" listing of files:\n\n```sh\nls -l\n```\n\nOr the `-a` flag to show \"all\" files, including hidden files:\n\n```sh\nls -a\n```\n\nYou can also combine flags:\n\n```sh\nls -al\n```\n\n## Conventions\n\nWhether or not a command takes flags, and what those flags are, is up to the developer of the command. That said, there are some common conventions:\n\n- Single-character flags are prefixed with a single dash (e.g. `-a`)\n- Multi-character flags are prefixed with two dashes (e.g. `--help`)\n- Sometimes the same flag can be used with a single dash or two dashes (e.g. `-h` or `--help`)\n\n## Assignment\n\nYou've found that some files have been tampered with! To figure out which one it is, you need to know the number of bytes contained in each file.\n\n1. [ ] Use the [\"word count\" command](https://www.ibm.com/docs/en/aix/7.3?topic=af-counting-words-lines-bytes-in-files-wc-command), `wc`, to count the number of bytes in the `worldbanc/public/pr_ideas.txt` file. Use the `man` command to figure out which flag you need to use.\n\nPaste the number of bytes into the input field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "b933f5d5-dad0-4644-a641-1891ec973208",
+    "slug": "4-positional-args",
+    "title": "Positional Arguments",
+    "type": "type_text_input",
+    "topics": [
+      "Positional Arguments",
+      "Command Line Arguments",
+      "grep Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 12,
+    "readme": "# Positional Arguments\n\nProgramming languages have functions, and functions take arguments. For example, this Python function takes two parameters, `xp` and `level`:\n\n```py\ndef print_player(xp, level):\n    print(\"Player has\", xp, \"xp and is level\", level)\n```\n\nIt can then be called with two arguments:\n\n```py\nprint_player(100, 2)\n# Player has 100 xp and is level 2\n```\n\nIn a shell, commands (programs) can also take arguments. For example, the `cd` command takes a single argument (the directory to change to):\n\n```sh\ncd /home/wagslane\n```\n\nOther commands might take multiple arguments. For example, the `mv` command takes two arguments: the file to move, and the destination to move it to:\n\n```sh\nmv file.txt dest/file.txt\n```\n\n## Assignment\n\n1. [ ] Take a look inside the `worldbanc/public` directory. `cat` the contents of the suspicious-looking `key.txt` file. This looks like some kind of private key... why is it in the public directory?\n2. [ ] [Move](https://www.ibm.com/docs/en/aix/7.3?topic=m-mv-command) `key.txt` from `worldbanc/public/` to `worldbanc/private/`.\n   > [!warning]\n   > The `mv` command lets you rename the file you're moving, so be careful to keep the same name, changing only the directory in which it's located!\n3. [ ] List the contents of the `worldbanc/private` directory.\n\nPaste the contents of `worldbanc/private` into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "466a62f5-a3b6-4252-add1-dd42e5c4cc80",
+    "slug": "5-help",
+    "title": "Help",
+    "type": "type_text_input",
+    "topics": [
+      "--help Flag",
+      "Command Documentation",
+      "Command Line Arguments"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 13,
+    "readme": "# Help\n\nBy convention, most production-ready CLI tools have a \"help\" option that prints information about how to use the tool. It's usually accessed with one of the following:\n\n- `--help` (flag)\n- `-h` (flag)\n- `help` (first positional argument)\n\nThe \"help\" output is often easier to parse than a full `man` page. It's usually more of a quick start guide than a full manual.\n\n## Assignment\n\nYou need to make some network requests as part of this audit: you want to make sure that this machine you're auditing only has access to authorized systems.\n\nTo make those requests, you'll need to know how to use [curl](https://curl.se/). It's a CLI tool that lets you make network requests from the command line.\n\nPrint out the help menu for `curl`.\n\nPaste the command you used to print the menu (_not the menu itself_) into the input field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "5946717c-18eb-4eb7-b4f8-68461c2783f8",
+    "slug": "6-exit-codes",
+    "title": "Exit Codes",
+    "type": "type_text_input",
+    "topics": [
+      "Exit Codes",
+      "Return Values",
+      "$? Variable",
+      "Linux Processes"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 14,
+    "readme": "# Exit Codes\n\n[Exit codes](https://en.wikipedia.org/wiki/Exit_status) (sometimes called \"return codes\" or \"status codes\") are how programs communicate back whether they ran successfully or not.\n\n**`0` is the exit code for success. Any other exit code is an error.** 9 times out of 10, if a non-zero exit code is returned (meaning an error) it will be `1`, which is the \"catch-all\" error code.\n\nPrograms that call other programs use error codes to figure out if execution was successful. For example, if the Boot.dev server program exits with a non-zero exit code, we have another program that will automatically restart it and log the error.\n\nIn a shell, you can access the exit code of the last program you ran with the question mark variable (`$?`). For example, if you run a program that exits with a non-zero exit code, you can see what it was with the `echo` command:\n\n```sh\nls ~\necho $?\n# 0\n```\n\n```sh\nls /does/not/exist\necho $?\n# non-zero (depends on your OS)\n```\n\n## Assignment\n\nCommands will usually exit with error codes if they've been run without the proper arguments or configuration. For example, the `private/bin/warn.sh` script will exit with a non-zero code if you don't have the required environment variables set.\n\n1. [ ] Run the `warn.sh` script _without_ setting the two environment variables (`WARN_MESSAGE` and `WARN_FROM_NAME`) that it requires.\n2. [ ] Run the `echo` command to see the exit code.\n\nPaste just the **exit code** in the text box and submit your answer.\n\n## Tips\n\n- You can use the `unset` command to unset an environment variable:\n\n```sh\nunset ENV_VAR_NAME\n```\n\nAlternatively, you can set the environment variable to an empty string:\n\n```sh\nexport ENV_VAR_NAME=\"\"\n```\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "356f6be6-9f45-4302-b247-660454d8bf87",
+    "slug": "7-stdout",
+    "title": "Standard Output",
+    "type": "type_text_input",
+    "topics": [
+      "stdout",
+      "Standard Output",
+      "Output Streams",
+      "grep Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 12,
+    "readme": "# Standard Output\n\nYou might not even know it yet, but you're already a pro at using standard output. You've been using it since you started the first exercise in this course.\n\n[\"Standard Output\"](https://en.wikipedia.org/wiki/Standard_streams#Standard_output_%28stdout%29), usually called \"standard out\" or `stdout`, is the default place where programs print their output. It's just a stream of data that prints to your terminal, but we'll talk later about how it can be redirected to other places.\n\nAll programming languages have a simple way to print to stdout. In Python, it's the `print` function:\n\n```py\nprint(\"Hello world\")\n# Hello world\n```\n\nIn a shell, it's the `echo` command:\n\n```sh\necho \"Hello world\"\n# Hello world\n```\n\n## Assignment\n\nUse the `grep` command to print all the lines in the `worldbanc/private/transactions/2020.csv` file that contain the word \"Marshal\" to stdout.\n\nCopy the _output_ into the text field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 7
+  },
+  {
+    "uuid": "1c360eb8-4b1c-46ae-a123-2b92e67f0ac9",
+    "slug": "8-stderr",
+    "title": "Standard Error",
+    "type": "type_text_input",
+    "topics": [
+      "stderr",
+      "Standard Error",
+      "Stream Redirection",
+      "Output Streams"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 16,
+    "readme": "# Standard Error\n\n\"[Standard Error](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_%28stderr%29),\" usually called `stderr`, is a data stream just like standard output, but is intended to be used for _error_ messages.\n\nIt's a separate stream so that you can redirect it to a different place if need be, but by default, it prints to your terminal just like `stdout`.\n\n## Redirecting Streams\n\nYou can redirect `stdout` and `stderr` to different places using the `>` and `2>` operators. `>` redirects `stdout`, and `2>` redirects `stderr`.\n\n### Redirect `stdout` to a File\n\n```sh\necho \"Hello world\" > hello.txt\ncat hello.txt\n# Hello world\n```\n\n### Redirect `stderr` to a File\n\n```sh\ncat doesnotexist.txt 2> error.txt\ncat error.txt\n# cat: doesnotexist.txt: No such file or directory\n```\n\nIn this example, `cat` is used to intentionally generate an error message (since the file doesn't exist), which is then redirected to `error.txt`.\n\n## Assignment\n\nThere is a `process_transactions.sh` script in the `worldbanc/private/bin` directory.\n\n- It accepts a path to a CSV file containing transactions data as a [positional argument (or CLI argument)](https://en.wikipedia.org/wiki/Command-line_interface#Arguments).\n- It prints modern transactions (after the year 2000) to `stdout`, and old transactions (before 2000) to `stderr`.\n\n1. [ ] Run the script:\n   - [ ] Use the path to the `2020.csv` file in the `worldbanc/private/transactions` directory as an argument.\n   - [ ] Be sure to redirect `stderr` to a temporary file called `/tmp/worldbanc.log`.\n\n   If you're missing `2020.csv`, you made a mistake in a previous step! Ensure the files in `transactions` match the files in `transactions/backups`. If not, make a copy. Alternatively, manually copy the [file contents from GitHub](https://github.com/bootdotdev/worldbanc/blob/main/private/transactions/2020.csv).\n\n2. [ ] `cat` the `/tmp/worldbanc.log` file to see the old transactions.\n\n**Paste those transactions into the text field** and submit your answer.\n\n> [!info]\n> The [temporary directory](https://en.wikipedia.org/wiki/Temporary_folder) (`/tmp`) exists by default on all Unix-like systems, in your root directory. Files there are deleted by your system routinely. It's a great place to store temporary files that you don't need to keep around.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 8
+  },
+  {
+    "uuid": "016fddcf-cbb9-4245-b419-f7ca527ce290",
+    "slug": "9-stdin",
+    "title": "Standard In",
+    "type": "type_text_input",
+    "topics": [
+      "stdin",
+      "Standard Input",
+      "Input Streams",
+      "wc Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 13,
+    "readme": "# Standard In\n\nIf there's a standard _output_, there must be a standard _input_, right?\n\n[\"Standard Input\"](https://en.wikipedia.org/wiki/Standard_streams#Standard_input_%28stdin%29), usually called \"standard in\" or `stdin`, is the default place where programs _read_ their input. It's just a stream of data that programs can read from as they run.\n\nAll major programming languages provide a simple way to read from stdin. In Python, it's the `input` function:\n\n```py\n# execution stops until the user types\n# something (in this case \"Lane\") and presses enter\nname = input(\"What is your name? \")\n\nprint(\"Hello,\", name)\n# Hello, Lane\n```\n\n## Assignment\n\nRun the `worldbanc/private/bin/worldbanc.sh` program again. Notice that it makes use of stdin to read your name and email.\n\nTake a closer look at the code in the `worldbanc.sh` file. What command does it use to read from stdin?\n\nCopy the command's name into the input field and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 9
+  },
+  {
+    "uuid": "55514b9e-3aef-4f17-8791-9b7f67f2f537",
+    "slug": "10-pipe",
+    "title": "Piping",
+    "type": "type_text_input",
+    "topics": [
+      "Pipe Operator",
+      "Unix Pipe",
+      "grep Command",
+      "wc Command"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 17,
+    "readme": "# Piping\n\nOne of the most beautiful things about the shell is that you can [pipe](https://en.wikipedia.org/wiki/Pipeline_%28Unix%29) the output of one program into the input of another program. With this one simple concept, you can run incredibly powerful automation tasks.\n\n## Pipe\n\nThe pipe operator is `|`. It's the character that looks like a vertical line. It's usually on the same key as the backslash (`\\`) above the enter key. The pipe operator takes the stdout of the program on the left and \"pipes\" it into the stdin of the program on the right.\n\n```sh\necho \"Have you heard the tragedy of Darth Plagueis the Wise?\" | wc -w\n# 10\n```\n\nIn the example above, the `echo` command sends \"Have you heard the tragedy of Darth Plagueis the Wise?\" to stdout.\n\nHowever, instead of that text being sent to your terminal, the pipe operator pipes it into the `wc` (word count) command. The `wc` command counts the number of words in the input it receives. The `-w` flag tells `wc` to only count words.\n\nThis only works because the `wc` command, like most shell commands, can optionally read from stdin instead of a filepath.\n\n## Assignment\n\nWe need to figure out just how many transactions \"Bob\" has been involved in... Bob's looking sus fr.\n\n1. [ ] Use the `grep` command to find all lines in all of the transactions that include the word `Bob`.\n\n   You'll want to include all of the files in the `worldbanc/private/transactions` directory, but _not_ the files in the `backups` directory. Use the [`--exclude-dir`](https://www.gnu.org/software/grep/manual/grep.html#index-_002d_002dexclude_002ddir) flag:\n\n   ```sh\n   grep -R \"Bob\" PATH_TO_TRANSACTIONS_DIR --exclude-dir=\"backups\"\n   ```\n\n2. [ ] Pipe the output of that command into the `wc -l` command to count the number of lines. (Note: that's a lowercase L, not the number 1)\n\n**Paste the number of transactions** (just the number!) into the text field and **submit** your answer.\n\n## Tip\n\nIf you got `3002`, you made a mistake in a previous step. Ensure the files in `transactions` match the files in `transactions/backups`. If not, make a copy.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 10
+  },
+  {
+    "uuid": "69c59bfc-b23d-4c70-8ccc-2da48991460c",
+    "slug": "11-sigint",
+    "title": "Interrupt",
+    "type": "type_text_input",
+    "topics": [
+      "SIGINT",
+      "Unix Signals",
+      "Ctrl+C",
+      "Linux Processes"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 14,
+    "readme": "# Interrupt\n\nSometimes a program will get stuck and you'll want to stop it. Common reasons for this are:\n\n- You made a typo in the command and it's not doing what you want\n- It's trying to access the internet but you're not connected\n- It's processing too much data and you don't want to wait for it to finish\n- There is a bug in the program causing it to hang\n\nIn these cases, you can stop the program by pressing `ctrl + c`. This sends a \"SIGINT\" signal to the program, which tells it to stop.\n\n## Assignment\n\nInside the `worldbanc/private/bin/` directory, there is a program called `malicious.sh`. Sounds scary!\n\nAs a good security auditor, and knowing that you are on a secure system with no internet access, you want to see what this program does! Go ahead and run it!\n\nIt will run forever if you let it... use `ctrl + c` to send a `SIGINT` signal to the program and stop it.\n\nPaste the last line of its output into the text box and submit your answer.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 11
+  },
+  {
+    "uuid": "1979a34a-660a-4c30-89f7-a4442b0fffac",
+    "slug": "12-sigkill",
+    "title": "Kill",
+    "type": "type_text_input",
+    "topics": [
+      "SIGKILL",
+      "kill Command",
+      "ps Command",
+      "Unix Signals"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 18,
+    "readme": "# Kill\n\nSometimes a program is in _such_ a bad state (or is so malicious) that it doesn't respond to the `SIGINT`, in which case the best option is to use another shell session (new terminal window) to manually [kill](https://www.ibm.com/docs/en/aix/7.3?topic=k-kill-command) the program.\n\n## Syntax\n\n```sh\nkill <PID>\n```\n\n`PID` stands for \"process ID.\" Every process that's running on your machine has a unique ID. The [ps](https://www.ibm.com/docs/en/zos/3.1.0?topic=jobs-using-ps-command), \"process status\" command can be used to list the processes running on your machine, and their IDs:\n\n```sh\nps aux\n```\n\nThe \"aux\" options just mean \"show all processes, including those owned by other users, and show extra information about each process.\"\n\n## Assignment\n\nYou did some digging and found out that the malicious program actually has another mode: `force`.\n\n1. [ ] Run the program again in \"force\" mode:\n   ```sh\n   ./malicious.sh force\n   ```\n2. [ ] Try to kill the program using `CTRL+C`. _You shouldn't be able to kill it._ Copy the line that was printed to your terminal **when trying to kill the malicious program with `ctrl+c`**. Paste it into the input field, but **do not submit yet**.\n3. [ ] Open a second terminal window and pipe (this thing: `|`) the output of `ps aux` into `grep malicious.sh` to find the process ID of the malicious program.\n\n   You will probably get 2 results: one for the malicious program, and one for the `grep` command itself. **Make sure you use the correct PID, and that you don't miss any characters.** You don't want to accidentally kill a system-critical process.\n\n4. [ ] Once you have the PID (it should just be the first number in the line, e.g. \"93838\"), kill it:\n   ```sh\n   kill <PID>\n   ```\n5. [ ] Once you've killed the program, you should see your original terminal window return to a new prompt because it stopped running the malicious program.\n6. [ ] Now that you have control of the terminal again, submit the message the malicious program printed when you tried to terminate it with Ctrl+C, **which you should've copied already in step 2**.\n\n## Tip\n\nRun `ps aux | head -n 1` to see the header row of the ps aux table.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 12
+  },
+  {
+    "uuid": "b8141007-7dd6-4bfe-95c6-290e6eb9ca1e",
+    "slug": "13-unix-philosophy",
+    "title": "Unix Philosophy",
+    "type": "type_choice",
+    "topics": [
+      "Unix Philosophy",
+      "Modularity",
+      "Composability",
+      "Design Principles"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 5,
+    "readme": "# Unix Philosophy\n\nThe [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) is a simple set of principles that have guided the development of Unix-like operating systems for decades. It can be summarized as:\n\n1. Write programs that do one thing and do it well.\n2. Write programs to work together.\n3. Write programs to handle text streams, because that is a universal interface.\n\n## 1. Write Programs That Do One Thing and Do It Well\n\nThis is why programs like `ls`, `grep`, and `less` exist. They do one thing, and they do it well. They don't try to do too much.\n\n- `ls` lists files and directories\n- `grep` searches for text\n- `less` displays text\n\n## 2. Write Programs to Work Together\n\nBecause, at least according to the Unix Philosophy, programs should do one thing and do it well, it's easy to write programs that work together. For example, you can use `grep` to search for text in a file, and then pipe the output of `grep` into `less` to display the results interactively:\n\n```sh\ngrep \"hello\" some_file.txt | less\n```\n\n## 3. Write Programs to Handle Text Streams, Because That Is a Universal Interface\n\nThis point is more the \"how\" of the previous point. Programs work together easily when they all use the same interface: text streams. A text stream is just a sequence of characters that can be read or written sequentially. In other words, a text stream is just text.\n\nThis hearkens back to the point we talked about at the beginning of this course: the shell is a command-line (text) interface. Text-based interfaces are much more powerful and extensible than graphical interfaces. That's why developers have been using them for decades, and why what we can do with them looks like magic to the uninitiated.\n",
+    "language": "",
+    "question": {
+      "question": "Which of the following does NOT follow the Unix philosophy?",
+      "answers": [
+        "worldofwarcraft.exe",
+        "ls",
+        "grep",
+        "cat"
+      ],
+      "correctAnswer": "worldofwarcraft.exe"
+    },
+    "orderInChapter": 13
+  },
+  {
+    "uuid": "c66d6cf3-c40b-4341-be9d-c47874c2e93c",
+    "slug": "14--unix-philosophy",
+    "title": "Unix Philosophy",
+    "type": "type_choice",
+    "topics": [
+      "Unix Philosophy",
+      "Modularity",
+      "Composability",
+      "Design Principles"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 5,
+    "readme": "# Unix Philosophy\n\nThe [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) is a simple set of principles that have guided the development of Unix-like operating systems for decades. It can be summarized as:\n\n1. Write programs that do one thing and do it well.\n2. Write programs to work together.\n3. Write programs to handle text streams, because that is a universal interface.\n\n## 1. Write Programs That Do One Thing and Do It Well\n\nThis is why programs like `ls`, `grep`, and `less` exist. They do one thing, and they do it well. They don't try to do too much.\n\n- `ls` lists files and directories\n- `grep` searches for text\n- `less` displays text\n\n## 2. Write Programs to Work Together\n\nBecause, at least according to the Unix Philosophy, programs should do one thing and do it well, it's easy to write programs that work together. For example, you can use `grep` to search for text in a file, and then pipe the output of `grep` into `less` to display the results interactively:\n\n```sh\ngrep \"hello\" some_file.txt | less\n```\n\n## 3. Write Programs to Handle Text Streams, Because That Is a Universal Interface\n\nThis point is more the \"how\" of the previous point. Programs work together easily when they all use the same interface: text streams. A text stream is just a sequence of characters that can be read or written sequentially. In other words, a text stream is just text.\n\nThis hearkens back to the point we talked about at the beginning of this course: the shell is a command-line (text) interface. Text-based interfaces are much more powerful and extensible than graphical interfaces. That's why developers have been using them for decades, and why what we can do with them looks like magic to the uninitiated.\n",
+    "language": "",
+    "question": {
+      "question": "Which is the more powerful interface, at least from an extensibility and interoperability standpoint?",
+      "answers": [
+        "Text",
+        "Graphical"
+      ],
+      "correctAnswer": "Text"
+    },
+    "orderInChapter": 14
+  },
+  {
+    "uuid": "81817b86-bb41-4136-9ec7-7ccac0536e29",
+    "slug": "15-top",
+    "title": "Top",
+    "type": "type_text_input",
+    "topics": [
+      "top Command",
+      "Process Monitoring",
+      "System Resources",
+      "Linux Processes"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "0424b528-18b2-4655-a525-7bfd3fa57dee",
+    "chapterTitle": "Input/Output",
+    "isFree": false,
+    "difficulty": 15,
+    "readme": "# Top\n\nThe [`top`](https://man7.org/linux/man-pages/man1/top.1.html) command is a powerful tool that allows you to see which programs are using the most resources on your computer.\n\nI use the [`top`](https://man7.org/linux/man-pages/man1/top.1.html) command _all the time_, both on my local machine and on remote servers to diagnose performance issues. If you've ever opened up your task manager on Windows or Activity Monitor on macOS, `top` is similar, but for the command line.\n\n## Assignment\n\n1. [ ] Open your terminal and run the `top` command.\n\n   Notice that the `top` command runs in a loop, updating the information every few seconds.\n\n   By default, `top` sorts the processes by CPU usage, with the most CPU-intensive processes at the top. Another useful resource to sort by is memory (RAM) usage. To sort by memory usage, press `M` (uppercase) while `top` is running. On macOS, you can either start `top` sorted by memory with `top -o mem` from the shell, or, while `top` is running, press `o`, then type `mem` and press Enter to sort by memory.\n\n   What programs on your computer are using the most CPU and memory? Poke around a bit and see what you can find.\n\n2. [ ] Copy the column names from your terminal (the header row of the `top` command's output, which contains the column titles) and paste them into the text box on the right. **Note: if your terminal window is too narrow, you might be missing some columns.**\n\n   Don't submit yet.\n\n3. [ ] Exit the `top` command by pressing `q`.\n\n**Submit the column names** that you copied into the text box on the right.\n\n## Troubleshooting\n\n- `top` might _not_ print some columns if your terminal window isn't wide enough to fit them. Try to resize your window or zoom out (reduce font size) and **ensure that you print all columns**. Otherwise, your submission might fail.\n- If you resize your terminal window while `top` is running, make sure to quit and restart the `top` command to ensure all columns are displayed correctly.\n- If your system is set up with a non-English locale, make sure that your printed output matches the expected output by running this instead:\n  ```sh\n  LANG=C top\n  ```\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 15
+  },
+  {
+    "uuid": "d8087436-630d-4db4-a6fa-fc41db407eb7",
+    "slug": "1-package-managers",
+    "title": "Package Managers",
+    "type": "type_text_input",
+    "topics": [
+      "apt Command",
+      "brew Command",
+      "Package Managers",
+      "Neovim"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 14,
+    "readme": "# Package Managers\n\nA package manager is a software tool that helps you install other software. Its primary functions include:\n\n- Downloading software from official sources\n- Installing software\n- Updating software\n- Removing software\n- Managing dependencies\n\nAs a developer, you'll frequently use package managers to get access to the software you need to get your work done.\n\n## APT (Ubuntu)\n\nAPT, or \"Advanced Package Tool,\" is the primary package manager for Ubuntu. To be fair, you can use other package managers on Ubuntu, but APT is the default and most common.\n\nIf you're on WSL and Ubuntu, you'll be using APT. If you're on another Linux setup, I pray you already know what package manager you're using. If you're on WSL or Ubuntu, check to make sure you have APT installed by running the following command:\n\n```sh\napt --version\n```\n\n## Brew (macOS)\n\nThere isn't a \"default\" package manager for macOS. The most popular (but unofficial) package manager is [Homebrew](https://brew.sh/).\n\nIf you're on macOS, and you don't have Homebrew installed, you can install it by running the following command:\n\n```sh\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\n```\n\nSee the [Homebrew](https://brew.sh/) site for more information if needed.\n\n## Assignment\n\nLet's install something! [Neovim](https://neovim.io/) is a hyperextensible (and newer) version of Vim, which is a \"new\" version of Vi, which is a popular command line text editor.\n\n### [!linux][!windows] WSL/Ubuntu Instructions\n\nFirst, make sure that `apt` itself is up to date and will install the latest version of Neovim. Run the following command:\n\n```sh\nsudo apt update\n```\n\nThis command only updates `apt`; it doesn't upgrade anything.\n\nNext, install Neovim:\n\n```sh\nsudo apt install neovim\n```\n\n### [!macos] macOS Instructions\n\nIf you're using Homebrew on macOS, you can install Neovim by running the following command:\n\n```sh\nbrew install neovim\n```\n\n### Other Installation Methods\n\nIf the above methods don't work, you can try [other installation methods](https://github.com/neovim/neovim/blob/master/INSTALL.md).\n\n## Check Installation\n\nLet's make sure we installed it properly. Check your version:\n\n```sh\nnvim --version\n```\n\nPaste the entire output into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "48789c13-8b1b-4168-8d18-e5298427888d",
+    "slug": "2-use-nvim",
+    "title": "Using Neovim",
+    "type": "type_text_input",
+    "topics": [
+      "Neovim",
+      "Vim",
+      "Text Editors",
+      "Modal Editing"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 16,
+    "readme": "# Using Neovim\n\nThis isn't a course on [Neovim](https://neovim.io/) (we'd need **at least** 420 more lessons for that), but let's at least figure out how to edit a file and exit the program.\n\nDon't be fooled, exiting Vim (or Neovim) is one of the greatest hurdles you must overcome as a developer. It's a rite of passage. It's a badge of honor.\n\n![exit vim](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/EOHr7WG-583x344.jpg)\n\n## Assignment\n\nThere's a public file containing a company password!\n\n1. [ ] Use Neovim to open the `worldbanc/public/company_info.md` file.\n\n   It's a text file that's using [markdown](https://www.markdownguide.org/) syntax. You can open a file with Neovim by passing in the file path as an argument:\n\n   ```sh\n   nvim FILEPATH_HERE\n   ```\n\n   Once it's open, you might notice that you can't type anything. That's because you're in \"normal\" mode, the mode for navigating and manipulating text.\n\n2. [ ] Use the arrow keys (I know, Vim sacrilege) to move your cursor down to the last line.\n3. [ ] Enter \"insert\" mode by pressing the `i` key. You should see `-- INSERT --` appear at the bottom of the screen.\n4. [ ] You should now be able to delete the password. Replace just the password with the text `REDACTED` in all caps, no quotes.\n5. [ ] When you're done, press the `esc` key to return to normal mode.\n6. [ ] Then type `:w` and press enter to save your changes.\n7. [ ] Finally, type `:q` and press enter to quit Neovim.\n\n   You've successfully edited a file (and escaped from) Neovim!\n\n8. [ ] Use `cat` to view the contents of the edited file. Paste the contents into the input field and submit it.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": true,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "1fb99f9c-3b01-4135-a33e-eb3f8f20ccc9",
+    "slug": "3-package-manager-review",
+    "title": "Package Manager Review",
+    "type": "type_choice",
+    "topics": [
+      "apt Command",
+      "brew Command",
+      "Package Managers",
+      "sudo apt update"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 6,
+    "readme": "# Package Manager Review\n\nApt and Brew aren't the only package managers out there. There are many, many more, though they do happen to be two of the most popular, especially on Linux and macOS.\n\n## How Does a Package Manager Work?\n\nWhen you type a command like `apt install neovim`, the package manager will:\n\n1. Check to see if the package is already installed.\n2. If it's not installed, it will download the package from a repository.\n3. It will install the package on your computer.\n4. It will install any dependencies that the package needs to run.\n5. It will (hopefully) add the package to your PATH if it should be there.\n\nGood package managers keep track of what packages you have installed, and what versions of those packages you have installed. They keep your filesystem nice and tidy, making sure you haven't installed 10 different instances of the same package or application.\n\nFor your edification, take a look at where your package manager installed `nvim` on your filesystem. The `which` command will help:\n\n```sh\nwhich nvim\n```\n",
+    "language": "",
+    "question": {
+      "question": "What do package managers, like apt and brew, NOT do?",
+      "answers": [
+        "Manage the installation of software and its dependencies",
+        "Download software from the internet",
+        "Debug code and fix bugs in the software it manages",
+        "Add applications to your PATH"
+      ],
+      "correctAnswer": "Debug code and fix bugs in the software it manages"
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "033a8663-06c0-47e1-92f8-f401b34228f9",
+    "slug": "4-webi",
+    "title": "Webi",
+    "type": "type_text_input",
+    "topics": [
+      "Webi",
+      "curl Command",
+      "Shell Scripts",
+      "Package Installation"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 15,
+    "readme": "# Webi\n\nThere is one more package manager (actually more of an anti-package manager) I want to introduce you to: [Webi](https://webinstall.dev/).\n\nWebi lets you install command line tools directly from the web, with no need for a traditional package manager like `apt` or `brew`. You don't need to install Webi itself at all; instead, you just run a shell command that downloads and runs a given tool's official installer script.\n\n## [!windows] for Windows Users\n\n> [!warning]\n> If you're using WSL (Windows Subsystem for Linux), you should follow the Linux instructions.\n\n## Assignment\n\nLet's install [lsd](https://github.com/lsd-rs/lsd), a more modern version of the `ls` command. It's essentially `ls` with a bunch of extra features.\n\n1. [ ] Go to [Webi](https://webinstall.dev/) and look for the `lsd (LSDeluxe)` entry. Navigate to [its page](https://webinstall.dev/lsd/) and select the correct instructions to install it on your system (Linux/WSL or macOS). You should simply need to copy/paste and run a single command in your terminal.\n2. [ ] Make sure `lsd` works by listing all the files in the `worldbanc/private/transactions` directory.\n3. [ ] Try running `lsd` with the `--tree` flag on the `worldbanc/private` directory. One of the coolest features of `lsd` is that you can view your files in a tree-like structure.\n4. [ ] Run it again with both `--tree` _and_ `--classic` flags on the `worldbanc/private/transactions` directory. _Paste the output into the input field and submit it._\n\nThe output should look something like this:\n\n```text\n├── file.csv\n├── another-file.csv\n└── a-folder\n└── last-file.csv\n```\n\n_Optional Icons_: You must install [a nerd font](https://webinstall.dev/nerdfont/) and update the font in your terminal's settings for `lsd` to show icons. If you're using WSL, you will need to install the font _on Windows itself, not WSL_, and follow the [specific instructions](https://webinstall.dev/nerdfont/#nerd-fonts-for-windows-terminal) to download and configure Windows Terminal.\n\n### Note on Security\n\nAs a general rule, it's not smart to pipe a shell script from the internet directly into your terminal, because that script could do malicious things. That said, as long as you're doing it via HTTPS (which you are), and you trust the source (in this case `webinstall.dev`), it's not as big of a concern.\n\nIf you want to hear more about this, here's the [section of the Backend Banter podcast episode](https://youtu.be/zSkDandxcQ0?t=1447) where Webi's creator talks about it in more detail.\n",
+    "language": "",
+    "textInputConfig": {
+      "ContainsCompleteDir": false,
+      "ContainsAll": null,
+      "ContainsNone": null,
+      "MatchesOne": null
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "8c543cde-ede8-45d4-b3a7-f1d1e9caf6e8",
+    "slug": "5-vscode",
+    "title": "VS Code",
+    "type": "type_choice",
+    "topics": [
+      "VS Code",
+      "Text Editors",
+      "IDE",
+      "Development Tools"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 5,
+    "readme": "# VS Code\n\nUp to this point in Boot.dev, you've written code in Boot.dev's in-browser editor and you've used a standalone terminal.\n\nNow, some developers do their work inside a terminal and use a terminal editor like [Neovim](https://neovim.io/), but a lot of developers, myself included, prefer to use a hybrid GUI/terminal experience.\n\nEnter [VS Code](https://code.visualstudio.com/). It's a fairly lightweight editor that's easy to use for beginners, but powerful enough for professionals. VS Code (not to be confused with [Visual Studio](https://visualstudio.microsoft.com/)) is the [most popular](https://survey.stackoverflow.co/2025/technology#1-dev-id-es) code editor among developers today.\n\nSome other cool GUI editors include:\n\n- [Zed](https://zed.dev/) (I actually switched to Zed from VS Code recently)\n- [Cursor](https://www.cursor.com/)\n- [IntelliJ IDEA](https://www.jetbrains.com/idea/)\n\nAnd some of the most popular terminal editors are:\n\n- [Neovim](https://neovim.io/)\n- [Vim](https://www.vim.org/)\n- [Emacs](https://www.gnu.org/software/emacs/)\n\n## Assignment\n\nIf you don't already have a preferred editor, [install VS Code on your machine](https://code.visualstudio.com/) now.\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this step?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "d3a468d4-66f9-4807-938a-6000fca791fb",
+    "slug": "6-vscode-wsl",
+    "title": "WSL in VS Code",
+    "type": "type_choice",
+    "topics": [
+      "VS Code",
+      "WSL 2",
+      "Remote Development",
+      "Text Editors"
+    ],
+    "courseUUID": "bc7a07ef-ab87-42ab-80de-e7261f2c58a0",
+    "courseSlug": "learn-linux",
+    "courseTitle": "Learn Linux",
+    "chapterUUID": "f8508276-0ce4-4b29-a320-8b938d7a382d",
+    "chapterTitle": "Packages",
+    "isFree": false,
+    "difficulty": 5,
+    "readme": "# WSL in VS Code\n\nIf you're on Mac or Linux (non-WSL), you can skip this step. However, if you're on WSL, you need to [set up VS Code to work with WSL](https://code.visualstudio.com/docs/remote/wsl#_from-vs-code). This will allow you to use the full power of your Linux filesystem within VS Code.\n\n## Assignment\n\n1. [ ] Open VS Code and navigate to the \"Extensions\" menu on the left-hand toolbar.\n2. [ ] Search for \"WSL\" and install [the extension created by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).\n3. [ ] In the very bottom-left corner of VS Code, there should be a `><` remote button. Click on that and select \"Connect to WSL using Distro\" and select \"Ubuntu.\"\n\n   You should now have a new WSL-ready VS Code editor! You can close the other VS Code window. I recommend pinning this new window to your taskbar so that you can always open the WSL-enabled version of VS Code in one click. You won't have access to your Linux filesystem if you're in the \"regular\" VS Code window, so I'd just avoid it completely.\n\n4. [ ] Select \"file\" -> \"open folder\" and navigate to your `worldbanc` directory and open it. You should see all your files and directories in the sidebar on the left. You now have an editor that you can use for your future projects!\n\n> [!info]\n> For more detailed instructions, see the VS Code WSL extension's [Getting Started page](https://code.visualstudio.com/docs/remote/wsl#_getting-started).\n\n**Congrats on completing the course!**\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this step?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 6
+  }
+]

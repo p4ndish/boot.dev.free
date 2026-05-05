@@ -1,0 +1,690 @@
+[
+  {
+    "uuid": "002241a8-2fa9-44c9-a4d9-03bf6ef3a9bb",
+    "slug": "1-setup",
+    "title": "Welcome to Build a Pokedex",
+    "type": "type_cli",
+    "topics": [
+      "NVM",
+      "Node.js",
+      "CLI Tools"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "0abdfa7a-ec8d-4da4-8386-ae9632f235bf",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 22,
+    "readme": "# Welcome to Build a Pokedex\n\nWe're going to build a Pokedex in a command-line [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). We'll use the incredible [PokéAPI](https://pokeapi.co/) to fetch all of the data we'll need using GET requests. If you're not familiar with Pokemon, or a Pokedex, that's okay! A Pokedex is just a make-believe device that lets us look up information about Pokemon - things like their name, type, and stats.\n\n## [!windows] for Windows Users\n\n> [!warning]\n> If you try to complete this course without [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install) installed on Windows, you're gonna have a bad time.\n\n## Learning Goals\n\n- Practice making HTTP requests in TypeScript\n- Learn how to build a CLI tool that makes interacting with a back-end server easier\n- Get hands-on practice with local Typescript development and tooling\n- Learn about caching and how to use it to improve performance\n\n## Assignment\n\nBefore we dive into the code, let's make sure you have everything you'll need on your machine.\n\n1. [ ] Create a new repository on your machine for this project.\n2. [ ] Install [NVM](https://github.com/nvm-sh/nvm) (it's my preferred way to manage Node.js versions). After installing `nvm`, add a `.nvmrc` file to the root of your project directory that contains a snippet of text:\n\n```\n22.15.0\n```\n\nThis allows you to simply type `nvm use` in your CLI while in the root of your project to activate the correct version of node! You may get an installation command to run if you don't yet have that version of node, but it's just another one-liner.\n\nCheck to make sure you've activated the correct version of `node` by typing:\n\n```bash\nnode --version\n# Prints: v22.15.0\n```\n\n3. [ ] Use the [Boot.dev CLI](https://github.com/bootdotdev/bootdev) to run the tests. Go ahead and install it following the instructions in the README, then run `bootdev login` to authenticate.\n\n**Submit** the CLI tests. There's no penalty on failure for this lesson.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "node --version",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "647053ef-6952-4841-b783-b491a0bdf496",
+    "slug": "2-build",
+    "title": "Build",
+    "type": "type_cli",
+    "topics": [
+      "TypeScript Configuration",
+      "npm Scripts",
+      "ES Modules",
+      "TypeScript Compiler"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "0abdfa7a-ec8d-4da4-8386-ae9632f235bf",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 27,
+    "readme": "# Build\n\nBy the end of this step, you'll have a simple working program in Node!\n\n## Assignment\n\n1. [ ] From the root of your repository, run `npm init -y` to create a new Node.js project.\n2. [ ] Add TypeScript along with types for `node`:\n\n```bash\nnpm install -D typescript @types/node\n```\n\n> [!info]\n> The `-D` flag installs the packages as [development dependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), which means they won't be included in your production build.\n\n3. [ ] Configure TypeScript by creating a `tsconfig.json` file in the root of your project:\n\n```json\n{\n  \"compilerOptions\": {\n    \"target\": \"esnext\",\n    \"module\": \"nodenext\",\n    \"rootDir\": \"./src\",\n    \"outDir\": \"./dist\",\n    \"strict\": true,\n    \"moduleResolution\": \"nodenext\",\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true\n  },\n  \"include\": [\"./src/**/*.ts\"],\n  \"exclude\": [\"node_modules\"]\n}\n```\n\n- `rootDir` is where your TypeScript files are located\n- `outDir` is where your compiled JavaScript files will go (you won't modify these - they're generated from your TypeScript files)\n- `include` specifies the files to include in the compilation\n- `exclude` specifies the files to exclude from the compilation\n- `strict` enables all strict type checking options\n- `esModuleInterop` allows you to use ES module syntax\n- `moduleResolution` specifies how modules are resolved\n- `skipLibCheck` skips type checking all declaration files\n\n4. [ ] Configure the `package.json` in the root of your project:\n   - [ ] add `\"type\":\"module\"`. This means we can use the ES module syntax in our project for [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_features_into_your_script) and [exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#exporting_module_features).\n   - [ ] add a `build` script that runs `npx tsc` - this will compile your TypeScript code to JavaScript.\n   - [ ] add a `start` script that runs `node dist/main.js` - this will start the REPL.\n   - [ ] add a `dev` script that runs a combination of the `build` and `start` scripts for convenience.\n\n```json\n{\n...\n  \"type\": \"module\",\n  \"scripts\": {\n    \"build\": \"npx tsc\",\n    \"start\": \"node dist/main.js\",\n    \"dev\": \"npx tsc && node dist/main.js\"\n  },\n...\n}\n```\n\n> [!info]\n> The `npx` command allows us to run the `tsc` command without installing TypeScript globally.\n\n5. [ ] Add a `.gitignore` file to the root of your project and ensure it ignores the `dist` and `node_modules` directories.\n6. [ ] Create a new `src` directory to put your project - this is where your TypeScript code will live.\n7. [ ] In `src/main.ts`, create a `main()` function:\n\n```ts\nfunction main() {\n  console.log(\"Hello, world!\");\n}\n\nmain();\n```\n\n8. [ ] To pass off this step, from the root of your project, run:\n\n```bash\nnpm run dev\n```\n\nIf you see \"Hello, world!\" printed in the console, you're good to go!\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "npm run dev",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Hello, world!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "580c38e6-3a25-4ac7-bf32-d0fe82e4d074",
+    "slug": "3-test",
+    "title": "Tests",
+    "type": "type_cli",
+    "topics": [
+      "Vitest",
+      "Unit Testing",
+      "TDD",
+      "String Methods"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "0abdfa7a-ec8d-4da4-8386-ae9632f235bf",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 30,
+    "readme": "# Tests\n\nBy now, you should be familiar enough with [unit testing](https://en.wikipedia.org/wiki/Unit_testing). Like anything, the more you do it, the better you will be at it. More importantly, you will begin to understand how to write code that is easier to test.\n\nWe'll use [TDD](https://en.wikipedia.org/wiki/Test-driven_development) for this part.\n\n## Assignment\n\nIn this course we're going to use the [vitest](https://vitest.dev/guide/) testing framework, it's very popular and easy to setup.\n\n1. [ ] Install Vitest:\n\n```bash\nnpm install -D vitest\n```\n\n2. [ ] Add the `\"test\": \"vitest --run\"` to our `package.json` in the `\"scripts\"` object, it should look something like this:\n\n```json\n  \"scripts\": {\n    \"test\": \"vitest --run\"\n  },\n```\n\n3. [ ] Create a new file in `src`, I called mine `repl.ts`. Create a shell of a function called `cleanInput` that takes a string and returns an array of strings:\n\nThe purpose of this function will be to split the user's input into \"words\" based on whitespace. It should also lowercase the input and trim any leading or trailing whitespace. For example:\n\n- `hello world` -> `[\"hello\", \"world\"]`\n- `Charmander Bulbasaur PIKACHU` -> `[\"charmander\", \"bulbasaur\", \"pikachu\"]`\n\n```ts\nexport function cleanInput(input: string): string[] {\n  // logic goes here\n}\n```\n\n4. [ ] Create a new file in `src` for some unit tests. I called mine `repl.test.ts`. (The only requirement is that it ends in `.test.ts`.) Create a test suite for the `cleanInput` function. Here is the basic structure of the test file:\n\n**Import the `cleanInput` function:**\n\n```ts\nimport { cleanInput } from \"./repl.js\";\n```\n\n**Import `describe`, `expect` and `test` from vitest:**\n\n```ts\nimport { describe, expect, test } from \"vitest\";\n```\n\n**Use [`describe.each`](https://vitest.dev/api/describe#describe-each) to create a test suite:**\n\n```ts\ndescribe.each([\n  {\n    input: \"  hello  world  \",\n    expected: [\"hello\", \"world\"],\n  },\n  // TODO: more test cases here\n])( // we'll do stuff here in a bit\n```\n\n**Write the logic for the tests by looping over each case:**\n\n```ts\ndescribe.each([\n  {\n    input: \"  hello  world  \",\n    expected: [\"hello\", \"world\"],\n  },\n  // TODO: more test cases here\n])(\"cleanInput($input)\", ({ input, expected }) => {\n  test(`Expected: ${expected}`, () => {\n    // TODO: call cleanInput with the input here\n\n    // The `expect` and `toHaveLength` functions are from vitest\n    // they will fail the test if the condition is not met\n    expect(actual).toHaveLength(expected.length);\n    for (const i in expected) {\n      // likewise, the `toBe` function will fail the test if the values are not equal\n      expect(actual[i]).toBe(expected[i]);\n    }\n  });\n});\n```\n\n5. [ ] Once you have at least a few tests in your suite, run the tests using `npm run test` from the root of the repo. _We expect them to fail_.\n6. [ ] Implement the `cleanInput` function to make the tests pass.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "npm run test",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "passed"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "71da8e5c-13bd-42f4-99b7-30dd1abd208d",
+    "slug": "4-repl",
+    "title": "REPL",
+    "type": "type_cli",
+    "topics": [
+      "REPL",
+      "readline Module",
+      "Event Emitters",
+      "process.stdin"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "0abdfa7a-ec8d-4da4-8386-ae9632f235bf",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 31,
+    "readme": "# REPL\n\n[REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) stands for \"read-eval-print loop\". It's a common type of program that allows for interactivity. You type in a command, and the program evaluates it and prints the result. You can then type in another command, and so on.\n\nYour native terminal's command line is a REPL! Our Pokedex will _also_ be a REPL. In this step, we're just going to build the bones of the REPL: a loop that parses and cleans an input and prints the first word back to the user. Here is what your program should be able to do after this step:\n\n```bash\n> npm run dev\nPokedex > help me\nhelp\nPokedex > Exit\nexit\nPokedex > WHAT even is a pokeman?\nwhat\n```\n\n_`Pokedex >` is our own custom command line prompt. The program waited and recorded my input (in the first instance, `help me`) and didn't continue until I pressed `enter`_.\n\n## Assignment\n\n1. [ ] Remove your \"Hello, World!\" logic. Replace it with the following REPL logic.\n\n> [!tip]\n> Use `.js` extensions when importing files. We're using a bare-bones setup without a bundler, so Node can't import `.ts`. For example, this is my `main.ts`:\n\n```ts\n// repl.js actually refers to repl.ts\nimport { startREPL } from \"./repl.js\";\n\nfunction main() {\n  startREPL();\n}\n\nmain();\n```\n\n2. [ ] [Create an `Interface`](https://nodejs.org/api/readline.html#readlinecreateinterfaceoptions) for reading input. You'll need to specify:\n   - `input`: a readable stream (use [`process.stdin`](https://nodejs.org/api/process.html#process_process_stdin))\n   - `output`: a writable stream (use [`process.stdout`](https://nodejs.org/api/process.html#process_process_stdout))\n   - `prompt`: a string to print to `output` whenever `rl.prompt()` is called\n3. [ ] Use the interface's [`.prompt()`](https://nodejs.org/api/readline.html#rlpromptpreservecursor) method to display the prompt.\n4. [ ] Use the interface's [`.on(\"line\", callback)`](https://nodejs.org/api/readline.html#class-interfaceconstructor) method to listen for input. The callback should:\n   - [ ] Use your `cleanInput` function to parse the input into an array of words\n   - [ ] If the input is empty, call `.prompt()` to give the user back control to type another command and exit the callback\n   - [ ] Otherwise, print the first word back to the user in this format: `Your command was: <first word>`\n   - [ ] Call `.prompt()` to give the user back control to type another command\n5. [ ] Test your program. Here's my example session:\n\n```\nwagslane@MacBook-Pro-2 pokedexcli % npm run dev\nPokedex > well hello there\nYour command was: well\nPokedex > Hello there\nYour command was: hello\nPokedex > POKEMON was underrated\nYour command was: pokemon\n```\n\nYou can terminate the program by pressing `ctrl+c`.\n\n6. [ ] Run the CLI again and [`tee`](<https://en.wikipedia.org/wiki/Tee_(command)>) the output (which copies the stdout) to a new file called `repl.log` (and `.gitignore` the log).\n\n```bash\nnpm run dev | tee repl.log\n```\n\n- Use this as the first input: `CHARMANDER is better than bulbasaur`.\n- Use this as the second input: `Pikachu is kinda mean to ash`.\n- Terminate the program by pressing `ctrl+c`.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat repl.log",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Your command was: charmander",
+                  "Your command was: pikachu"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": [
+                  "better",
+                  "kinda"
+                ],
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "cb8f0181-3152-40ed-801f-6c4a28e48bc6",
+    "slug": "5-help-exit",
+    "title": "Help and Exit",
+    "type": "type_cli",
+    "topics": [
+      "Command Pattern",
+      "TypeScript Types",
+      "Callbacks",
+      "process.exit"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "0abdfa7a-ec8d-4da4-8386-ae9632f235bf",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 33,
+    "readme": "# Help and Exit\n\nA REPL is only useful if it does something! Our REPL will work using the concept of \"commands\". A command is a single word that maps to an action.\n\nWe're going to support two commands in this step:\n\n- `help`: prints a help message describing how to use the REPL\n- `exit`: exits the program\n\n## Assignment\n\n1. [ ] Remove your logic that prints the first word (the command) back to the user\n2. [ ] Add a callback for the `exit` command. Commands in our REPL are just callback functions. I created a `command_exit.ts` file and added a function:\n\n```ts\nexport function commandExit();\n```\n\nThis function should print `Closing the Pokedex... Goodbye!` then immediately exit the program. I used [`process.exit(0)`](https://nodejs.org/api/process.html#process_process_exit_code) to exit the program.\n\n3. [ ] Create a \"registry\" of commands. This will give us a nice abstraction for managing the many commands we'll be adding. I created a type that describes a command:\n\n```ts\nexport type CLICommand = {\n  name: string;\n  description: string;\n  callback: (commands: Record<string, CLICommand>) => void;\n};\n```\n\nThen I created an object literal of supported commands:\n\n```ts\nexport function getCommands(): Record<string, CLICommand> {\n  return {\n    exit: {\n      name: \"exit\",\n      description: \"Exits the pokedex\",\n      callback: commandExit,\n    },\n    // can add more commands here\n  };\n}\n```\n\n4. [ ] Register the `exit` command. Update your REPL loop to use the \"command\" the user typed in to look up the callback function in the registry. If the command is found, call the callback (and log any errors that are thrown). If there isn't a handler, just print `Unknown command`.\n5. [ ] Test your program (obviously).\n6. [ ] Add a `help` command, its callback, and register it. It should print:\n\n```\nWelcome to the Pokedex!\nUsage:\n\nhelp: Displays a help message\nexit: Exit the Pokedex\n```\n\nGenerate the \"usage\" section by iterating over my registry of commands. That way the help command will always be up-to-date with the available commands. I recommend:\n\n- Put your handler callback functions in their own files (e.g. `command_exit.ts`, `command_help.ts`)\n- Pass the command registry to the callback functions (although `exit` will ignore it) like this `export function commandHelp(commands: Record<string, CLICommand>)`\n- Define the `CLICommand` type in its own file (e.g. `command.ts`)\n- You can import types explicitly in TypeScript like this: `import type { CLICommand } from \"./command.js\";`\n\n7. Test your code again manually.\n\n**Run and submit** the CLI tests from the **root of the repo**.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"help\\nexit\\n\" | npm run dev",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Welcome to the Pokedex!",
+                  "Closing the Pokedex... Goodbye!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "c632b7a8-1c0e-4b3d-a515-a383a3477e0d",
+    "slug": "1-state",
+    "title": "State",
+    "type": "type_cli",
+    "topics": [
+      "State Management",
+      "Refactoring",
+      "TypeScript Interfaces",
+      "readline Module"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 34,
+    "readme": "# State\n\nAs we add more commands, the statefulness of our program is going to increase. We're going to shove all that state into a `State` object. There are a few goals for this object:\n\n- Give each command handler to the `commands` registry (looking at you `help` command)\n- Give the commands access to the `readline` interface created with `createInterface` so that the `exit` command can clean up after itself\n\nIn the future there will be even more shared state, and we want a simple function signature that _all_ the callbacks can conform to, namely:\n\n```ts\ncallback: (state: State) => void;\n```\n\n## Assignment\n\n1. [ ] Create a `state.ts` file.\n2. [ ] Move your definition of the `CLICommand` type into this file, and update the `callback` property to use the more flexible signature from above.\n3. [ ] Export a new `State` type from this file, it should contain the [`readline` interface](https://nodejs.org/api/readline.html#class-interfaceconstructor) and the `commands` registry. Here's a hint about how to get those types:\n\n```ts\nimport { createInterface, type Interface } from \"readline\";\n```\n\n4. [ ] Export a new function called `initState`. Move the logic that creates the `readline` interface and the `commands` registry into this function. It should return an initialized `State` object.\n5. [ ] Update `main.ts` to initialize a `State` object using the new function, and pass it into your REPL loop. The `REPL` loop should now use the state's `readline` interface and commands registry.\n6. [ ] Update the `exit` command handler to [`.close()`](https://nodejs.org/api/readline.html#readline_rl_close) the `readline` interface before exiting the program.\n7. [ ] Update the `help` command handler to use the commands registry via the `State` object.\n\nNow that we've done all this... nothing's changed! Our code should still work the exact same way. Womp womp. Welcome to [refactoring](https://en.wikipedia.org/wiki/Code_refactoring)! Refactoring is actually a super important skill that you'll spend a lot of time doing as a developer. It's all about updating the structure (but not behavior) of your code to make it easier to read, maintain, and extend.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"help\\nexit\\n\" | npm run dev",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Welcome to the Pokedex!",
+                  "Closing the Pokedex... Goodbye!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "c5d01e17-fa2a-4a3b-8ae8-23a3d9a454d6",
+    "slug": "2-pokeapi",
+    "title": "PokeAPI",
+    "type": "type_cli",
+    "topics": [
+      "fetch API",
+      "REST API",
+      "JSON Parsing",
+      "Async/Await"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 36,
+    "readme": "# PokeAPI\n\nNow we're going to use the [PokeAPI](https://pokeapi.co/) to get some real data from the Pokemon world!\n\n## Assignment\n\n1. [ ] Add a `map` command. It displays the names of `20` location areas in the Pokemon world. Each subsequent call to `map` should display the next 20 locations, and so on. This will be how we explore the Pokemon world. Example usage:\n\n```bash\nPokedex > map\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\n```\n\nHere are some pointers for implementing this command:\n\n- [ ] You'll need to use the [PokeAPI location-area endpoint](https://pokeapi.co/docs/v2#location-areas) to get the **location areas**. Note that this is a different endpoint than the \"location\" endpoint. Calling the endpoint without an `id` will return a batch of location areas.\n- [ ] Use the [fetch api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to make `GET` requests to the pokeapi\n- [ ] I created a `pokeapi.ts` file that exports a `Pokeapi` class as well as the types for the returned location area JSON objects. Here is a shell of my class:\n\n```ts\nexport class PokeAPI {\n  private static readonly baseURL = \"https://pokeapi.co/api/v2\";\n\n  constructor() {}\n\n  async fetchLocations(pageURL?: string): Promise<ShallowLocations> {\n    // implement this\n  }\n\n  async fetchLocation(locationName: string): Promise<Location> {\n    // implement this\n  }\n}\n\nexport type ShallowLocations = {\n  // add properties here\n};\n\nexport type Location = {\n  // add properties here\n};\n```\n\n- [ ] Update the `State` object to contain a `PokeAPI` object that you'll use to fetch location areas.\n- [ ] Update the `State` object to contain `nextLocationsURL` and `prevLocationsURL` URLs that you'll need to paginate through location areas.\n- [ ] Update the `callback` field in the `CLICommand` type to return a Promise: `callback: (state: State) => Promise<void>;`. Update all the callbacks themselves to be `async` functions (which means they return Promises).\n- [ ] Update the entrypoint to treat the repl loop as an async function and properly `await` the callback functions. Handle potential network errors with a `try/catch` block.\n- [ ] You can make `GET` requests in your browser or by using [`curl`](https://curl.se/)! It's convenient for testing and debugging.\n\n2. [ ] Add the `mapb` (map back) command. It's similar to the `map` command, however, instead of displaying the _next_ 20 locations, it displays the _previous_ 20 locations. It's a way to go back.\n\nIf you're on the first \"page\" of results, this command should just print \"you're on the first page\". Example usage:\n\n```bash\nPokedex > map\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\nPokedex > map\nmt-coronet-1f-route-216\nmt-coronet-1f-route-211\nmt-coronet-b1f\ngreat-marsh-area-1\ngreat-marsh-area-2\ngreat-marsh-area-3\ngreat-marsh-area-4\ngreat-marsh-area-5\ngreat-marsh-area-6\nsolaceon-ruins-2f\nsolaceon-ruins-1f\nsolaceon-ruins-b1f-a\nsolaceon-ruins-b1f-b\nsolaceon-ruins-b1f-c\nsolaceon-ruins-b2f-a\nsolaceon-ruins-b2f-b\nsolaceon-ruins-b2f-c\nsolaceon-ruins-b3f-a\nsolaceon-ruins-b3f-b\nsolaceon-ruins-b3f-c\nPokedex > mapb\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\n```\n\n3. [ ] Run the CLI again and [`tee`](<https://en.wikipedia.org/wiki/Tee_(command)>) the output (which copies the stdout) to a new file called `repl.log` (and `.gitignore` the log).\n\n```bash\nnpm run dev | tee repl.log\n```\n\nOnce in the REPL, run the following commands:\n\n- `map`\n- `map`\n- `mapb`\n- `exit`\n\n**Run and submit** the CLI tests.\n\n## Tips\n\n- [JSON lint](https://jsonlint.com/) is a useful tool for debugging JSON, it makes it easier to read.\n- [JSON to TS](https://transform.tools/json-to-typescript) a useful tool for converting JSON to TS interfaces/types. You can use it to generate the structs you'll need to parse the PokeAPI response. Keep in mind it sometimes can't know the exact type of a field that you want, because there are multiple valid options.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat repl.log",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "canalave-city-area",
+                  "eterna-city-area"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "062a8eef-3e51-4000-8f80-d8df57075718",
+    "slug": "3-caching",
+    "title": "Caching",
+    "type": "type_cli",
+    "topics": [
+      "Caching",
+      "TypeScript Map",
+      "setInterval",
+      "TypeScript Generics"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 41,
+    "readme": "# Caching\n\nIt's time to implement [caching](<https://en.wikipedia.org/wiki/Cache_(computing)>)! This will make moving around the map feel a lot snappier. We'll be building a _flexible_ caching system to help with performance in future steps.\n\n## What Is a Cache?\n\nA cache temporarily stores data so that future requests for that data can be served faster.\n\nIn our case, we'll be caching responses from the PokeAPI so that when we need that same data again, we can grab it from memory instead of making another network request.\n\n## Assignment\n\n1. [ ] Create a new file in your `src` directory called `pokecache.ts`. This will encapsulate all of our caching logic.\n2. [ ] I created a `CacheEntry<T>` type to hold the objects we're going to cache. It has the following properties:\n   - `createdAt` - A [`number`] for the [`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) value that represents when the entry was created.\n   - `val` - A `T` [generic](https://www.freecodecamp.org/news/how-typescript-generics-work/) that represents the object we're caching.\n3. [ ] Then I made a `Cache` class that has a [private](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties) `#cache` property. It's a [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of `CacheEntry` objects:\n\n```ts\nexport class Cache {\n  #cache = new Map<string, CacheEntry<any>>();\n}\n```\n\n4. [ ] Create an `add<T>()` method that adds a new entry to the cache object. It should take a `key` (a `string`) and a `val` (a `T` generic).\n5. [ ] Create a `get<T>()` method that gets an entry from the cache object. It should take a `key` (a `string`) and returns some object. Return `undefined` if the entry is missing.\n\nGreat, now we can add and remove entries from our cache... but we don't want it to just grow forever! Let's add a loop that cleans up old entries.\n\n6. [ ] Add a `#reapIntervalId` private field for a union type of [`NodeJS.Timeout`](https://nodejs.org/api/timers.html#class-timeout) and `undefined`, initialized to `undefined`. We'll use this as a timer to know when to clean up old entries.\n7. [ ] Add a `#interval` private field for a `number` to hold the interval (in milliseconds) for the timer.\n\n```ts\nexport class Cache {\n  #cache = new Map<string, CacheEntry<any>>();\n  #reapIntervalId: NodeJS.Timeout | undefined = undefined;\n  #interval: number;\n}\n```\n\n8. [ ] Create a `#reap()` method to delete any entries that are older than the interval. It should loop through the cache and delete any entries that are older than `Date.now() - this.#interval`.\n9. [ ] Create a `#startReapLoop()` method that uses [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval) to call `this.#reap()` after a delay of `this.#interval` and store the interval ID in `this.#reapIntervalId`.\n10. [ ] Pass a `number` parameter to the `constructor()` method and assign its value to `this.#interval`. Call `this.#startReapLoop()` in the `constructor()` method to get the loop started.\n11. [ ] Create a public (non-`#`) `stopReapLoop()` method that uses [`clearInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/clearInterval) to stop the reap loop and set `this.#reapIntervalId` back to `undefined`.\n12. [ ] Update your code `PokeAPI` class to _use_ the cache. If you already have the data for a given URL (we'll use the URLs as our cache keys) in the cache, use that cached data instead of making a new request. Whenever you do make a request, add the response to the cache.\n13. [ ] **Write at least 1 test for your cache package**! The tip below should help you get started. Vitest's [`test.concurrent.each()`](https://vitest.dev/api/#test-concurrent) method may come in handy here.\n14. [ ] Test your application manually to ensure that the cache works as expected. When you use the `map` command to get data for the first time there should be a noticeable waiting time. However, when you use `mapb` it should be instantaneous because the data for that page is already in the cache. Feel free to add some logging that informs you in the command line when the cache is being used.\n\n**Run and submit** the CLI tests from the **root of the repo**.\n\n## Tip\n\nThis example code should give you an idea of how to get started testing your cache, but feel free to add a few more cases.\n\n```ts\nimport { Cache } from \"./pokecache.js\";\nimport { test, expect } from \"vitest\";\n\ntest.concurrent.each([\n  {\n    key: \"https://example.com\",\n    val: \"testdata\",\n    interval: 500, // 1/2 second\n  },\n  {\n    key: \"https://example.com/path\",\n    val: \"moretestdata\",\n    interval: 1000, // 1 second\n  },\n])(\"Test Caching $interval ms\", async ({ key, val, interval }) => {\n  const cache = new Cache(interval);\n\n  cache.add(key, val);\n  const cached = cache.get(key);\n  expect(cached).toBe(val);\n\n  await new Promise((resolve) => setTimeout(resolve, interval * 2));\n  const reaped = cache.get(key);\n  expect(reaped).toBe(undefined);\n\n  cache.stopReapLoop();\n});\n```\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "npm run test",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "passed"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "9a8f1dcb-64c1-499c-9d8e-a375d4102e80",
+    "slug": "4-explore",
+    "title": "Explore",
+    "type": "type_cli",
+    "topics": [
+      "REST API",
+      "JSON Parsing",
+      "Rest Parameters",
+      "Caching"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 38,
+    "readme": "# Explore\n\nAfter using the `map` commands, we want our users to be able to see a list of all the Pokémon in a given area.\n\n## Assignment\n\n1. [ ] Add an `explore` command. It takes the name of a location area as an argument. Here's the expected behavior:\n\n```bash\nPokedex > explore pastoria-city-area\nExploring pastoria-city-area...\nFound Pokemon:\n - tentacool\n - tentacruel\n - magikarp\n - gyarados\n - remoraid\n - octillery\n - wingull\n - pelipper\n - shellos\n - gastrodon\nPokedex >\n```\n\n- [ ] Use the same [PokeAPI location-area endpoint](https://pokeapi.co/docs/v2#location-areas), but this time you'll need to pass the `name` of the location area being explored. By adding a `name` or `id`, the API will return _a lot_ more information about the location area.\n- [ ] Parse the Pokemon's names from the response and display them to the user.\n- [ ] Make sure to use the caching layer again! Re-exploring an area should be blazingly fast.\n- [ ] You'll need to pass extra arguments from the input to your commands' functions. E.g. `explore <area_name>`. As a result, you'll need to update the callback function signature: `callback: (state: State, ...args: string[]) => Promise<void>;`. If your command doesn't use the extra arguments, you can simply omit them entirely. For example, `commandExit` can just be:\n\n```ts\nexport async function commandExit(state: State): Promise<void> {}\n```\n\n> [!info]\n> This works because variadic parameters (`...args`) are treated as optional in TypeScript. A function satisfies a type as long as it includes all required parameters and matches the return type.\n\n2. [ ] Run the CLI again and [`tee`](<https://en.wikipedia.org/wiki/Tee_(command)>) the output (which copies the stdout) to a new file called `repl.log` (and `.gitignore` the log).\n\n```bash\nnpm run dev | tee repl.log\n```\n\nOnce in the REPL, run the following commands:\n\n- `explore pastoria-city-area`\n- `exit`\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat repl.log",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "tentacool",
+                  "tentacruel"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "e26c1c8d-c4e5-48b6-a580-d7d2dbec4be9",
+    "slug": "5-catch",
+    "title": "Catch",
+    "type": "type_cli",
+    "topics": [
+      "Math.random",
+      "TypeScript Record",
+      "REST API",
+      "State Management"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 40,
+    "readme": "# Catch\n\nIt's time to catch some pokemon! Catching Pokemon adds them to the user's Pokedex.\n\n## Assignment\n\n1. [ ] **Add a `catch` command**. It takes the name of a Pokemon as an argument. _Example usage_:\n\n```bash\nPokedex > catch pikachu\nThrowing a Pokeball at pikachu...\npikachu escaped!\nPokedex > catch pikachu\nThrowing a Pokeball at pikachu...\npikachu was caught!\n```\n\n- [ ] Be sure to print the `Throwing a Pokeball at <pokemon>...` message before determining if the Pokemon was caught or not.\n- [ ] Use the [Pokemon endpoint](https://pokeapi.co/docs/v2#pokemon) to get information about a Pokemon by name.\n- [ ] Give the user a _chance_ to catch the Pokemon using the [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) static method.\n- [ ] You can use the pokemon's \"base experience\" to determine the chance of catching it. The higher the base experience, the harder it should be to catch.\n- [ ] Once the Pokemon is caught, add it to the user's Pokedex. The user's \"pokedex\" should just be a `Record<string, Pokemon>` (a map of Pokemon by name) stored in the `State` object.\n- [ ] Test the `catch` command manually - make sure you can actually catch a Pokemon within a reasonable number of tries.\n\n2. [ ] Run the CLI again and [`tee`](<https://en.wikipedia.org/wiki/Tee_(command)>) the output (which copies the stdout) to a new file called `repl.log` (and `.gitignore` the log).\n\n```bash\nnpm run dev | tee repl.log\n```\n\nOnce in the REPL, run the following commands:\n\n- `catch squirtle`\n- `exit`\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat repl.log",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Throwing a Pokeball at squirtle..."
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "e721a8cf-2847-482a-8e98-7194f6e38948",
+    "slug": "6-inspect",
+    "title": "Inspect",
+    "type": "type_choice",
+    "topics": [
+      "State Management",
+      "TypeScript Record",
+      "JSON Data",
+      "Conditional Logic"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "e8d9b281-4746-49fe-970f-a4aaf938adff",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 37,
+    "readme": "# Inspect\n\nJust like in the Pokemon _game_, our Pokedex will only allow players to see details about a Pokemon if they have seen it before (or in our case, caught it)\n\n## Assignment\n\nAdd an `inspect` command. It takes the name of a Pokemon and prints the name, height, weight, stats and type(s) of the Pokemon. **Example usage**:\n\n```bash\nPokedex > inspect pidgey\nyou have not caught that pokemon\nPokedex > catch pidgey\nThrowing a Pokeball at pidgey...\npidgey was caught!\nPokedex > inspect pidgey\nName: pidgey\nHeight: 3\nWeight: 18\nStats:\n  -hp: 40\n  -attack: 45\n  -defense: 40\n  -special-attack: 35\n  -special-defense: 35\n  -speed: 56\nTypes:\n  - normal\n  - flying\n```\n\nYou should _not_ need to make an API call to get this information, since you should have already stored it when the user caught the Pokemon.\n\nIf the user has not caught the Pokemon, just print a message saying so.\n\n**Test this one manually**! Move on when you're satisfied with your implementation.\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this lesson?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 6
+  },
+  {
+    "uuid": "e69dd843-fa68-4651-9b26-d59e8ef4f046",
+    "slug": "1-pokedex",
+    "title": "Pokedex",
+    "type": "type_choice",
+    "topics": [
+      "TypeScript Record",
+      "Object.keys",
+      "State Management",
+      "Iteration"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "99219272-32c6-437a-8a8b-b74e9271acdd",
+    "chapterTitle": "Pokedex",
+    "isFree": true,
+    "difficulty": 36,
+    "readme": "# Pokedex\n\nThe _main purpose_ of a Pokedex is to keep track of all the Pokemon you've caught. _Gotta catch 'em all_!\n\n## Assignment\n\nAdd a `pokedex` command. It takes no arguments but prints a list of all the names of the Pokemon the user has caught. _Example usage_:\n\n```bash\nPokedex > catch pidgey\nThrowing a Pokeball at pidgey...\npidgey was caught!\nYou may now inspect it with the inspect command.\nPokedex > catch caterpie\nThrowing a Pokeball at caterpie...\ncaterpie was caught!\nYou may now inspect it with the inspect command.\nPokedex > pokedex\nYour Pokedex:\n - pidgey\n - caterpie\n```\n\n**Test your implementation manually**! Move on when you're satisfied that it's working.\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this lesson?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "a634e1eb-5c90-4463-8164-484def656040",
+    "slug": "2-submit",
+    "title": "Submit Your Repo",
+    "type": "type_github_checks",
+    "topics": [
+      "Git",
+      "GitHub",
+      "Portfolio Projects"
+    ],
+    "courseUUID": "1a69d994-8c86-4b36-9b49-6d7cb1fa280d",
+    "courseSlug": "build-pokedex-cli-typescript",
+    "courseTitle": "Build a Pokedex in TypeScript",
+    "chapterUUID": "99219272-32c6-437a-8a8b-b74e9271acdd",
+    "chapterTitle": "Pokedex",
+    "isFree": true,
+    "difficulty": 18,
+    "readme": "# Submit Your Repo\n\n_Great work_! You've built a fully functional REPL and caching system for the PokeAPI. Now it's time to submit your work.\n\nYour link should look something like `https://github.com/github-username/repo-name`.\n\n## Ideas for Extending the Project\n\nYou don't have to extend this project, but if you're planning to make this something you add to your personal portfolio, you should consider making it your own by adding to it. Here are just a few ideas.\n\n- Implement the [`repl`](https://nodejs.org/api/repl.html) Node module\n- Simulate battles between pokemon\n- Add more unit tests\n- Refactor your code to organize it better and make it more testable\n- Keep pokemon in a \"party\" and allow them to level up\n- Allow for pokemon that are caught to evolve after a set amount of time\n- Persist a user's Pokedex to disk so they can save progress between sessions\n- Use the PokeAPI to make exploration more interesting. For example, rather than typing the names of areas, maybe you are given choices of areas and just type \"left\" or \"right\"\n- Random encounters with wild pokemon\n- Adding support for different types of balls (Pokeballs, Great Balls, Ultra Balls, etc), which have different chances of catching pokemon\n",
+    "language": "",
+    "githubChecksData": {
+      "ContainsCompleteDir": false,
+      "Steps": [
+        {
+          "StepType": "submit_repo_for_course",
+          "BranchExistsData": null,
+          "PRExistsData": null,
+          "WorkflowStatusData": null,
+          "WorkflowLogsContainsData": null,
+          "FileContainsData": null
+        }
+      ],
+      "ShowcaseRepo": true
+    },
+    "orderInChapter": 2
+  }
+]

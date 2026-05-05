@@ -1,0 +1,59 @@
+# Build artifacts
+.next/
+backend/server
+*.exe
+*.tar.gz
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+scraper/node_modules/
+scripts/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug / temp
+data/*.png
+data/*.txt
+data/debug-*.json
+data/demo-*.json
+data/refetch-uuids.json
+data/first-lesson.json
+data/course-slugs.json
+data/course-details.json
+data/summary.json
+deps/
+*.deb
+/backend/stdcopy*
+/backend/docker
+/home/opencode/.local/
+
+# Environment
+.env
+!.env.example
+
+# Playwright
+.cache/
+ms-playwright/
+playwright-report/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Curriculum (cloned, not our code)
+curriculum/

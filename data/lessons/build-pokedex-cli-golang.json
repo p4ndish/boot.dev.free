@@ -1,0 +1,624 @@
+[
+  {
+    "uuid": "dff17f87-1ce8-43ce-a43b-2cb611ce76f1",
+    "slug": "1-setup",
+    "title": "Welcome to Build a Pokedex",
+    "type": "type_cli",
+    "topics": [
+      "Go Installation",
+      "Development Environment"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "81d1e8da-aaf8-4f92-a88a-53015e985b34",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 20,
+    "readme": "# Welcome to Build a Pokedex\n\nWe're going to build a Pokedex in a command-line [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). We'll use the incredible [PokéAPI](https://pokeapi.co/) to fetch all of the data we'll need using GET requests. If you're not familiar with Pokemon, or a Pokedex, that's okay! A Pokedex is just a make-believe device that lets us look up information about Pokemon - things like their name, type, and stats.\n\n## [!windows] for Windows Users\n\n> [!warning]\n> If you try to complete this course without [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/install) installed on Windows, you're gonna have a bad time.\n\n### Learning Goals\n\n- Learn how to parse JSON in Go\n- Practice making HTTP requests in Go\n- Learn how to build a CLI tool that makes interacting with a back-end server easier\n- Get hands-on practice with local Go development and tooling\n- Learn about caching and how to use it to improve performance\n\n## Assignment\n\nBefore we dive into the project, let's make sure you have everything you'll need on your machine. This is a simple Golang project, so all you'll need is the latest [Go toolchain](https://golang.org/doc/install).\n\n**Submit** the CLI tests once **Go is installed locally**. There's no penalty on failure for this lesson.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": false,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "go version",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": true
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "6c884808-f220-4d1b-9520-288ef266859d",
+    "slug": "2-build",
+    "title": "Build",
+    "type": "type_cli",
+    "topics": [
+      "go mod init",
+      "go build",
+      "Go Modules"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "81d1e8da-aaf8-4f92-a88a-53015e985b34",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 24,
+    "readme": "# Build\n\nBy the end of this step, you'll have a simple working program in Go!\n\n## Assignment\n\n1. [ ] Create a `main.go` file. It should be part of `package main` in the root of your project and have a `main()` function that just prints the text \"Hello, World!\".\n2. [ ] [Create a Go module](https://golang.org/doc/tutorial/create-module) in the root of your project. Here's the command:\n\n```\ngo mod init MODULE_NAME\n```\n\nI recommend naming the module by its remote Git location (you should store all your projects in Git!). For example, my GitHub name is `wagslane` so my module name might be `github.com/wagslane/pokedexcli`.\n\n3. [ ] Build your program:\n\n```bash\ngo build\n```\n\n> [!info]\n> The executable will be named after the directory containing the `main.go` file, hence mine was `pokedexcli`. You should `.gitignore` the executable.\n\n4. [ ] Run your program:\n\n```bash\n./pokedexcli\n```\n\nIt should print \"Hello, World!\" to the console!\n\n**Run and submit** the CLI tests from the **root of the repo**.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "go run .",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Hello, World!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "d062dd5f-2f28-41cc-8436-ed896d5ef137",
+    "slug": "3-test",
+    "title": "Tests",
+    "type": "type_cli",
+    "topics": [
+      "testing Package",
+      "TDD",
+      "Table-Driven Tests",
+      "strings Package"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "81d1e8da-aaf8-4f92-a88a-53015e985b34",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 28,
+    "readme": "# Tests\n\nBy now, you should be familiar enough with [unit testing](https://en.wikipedia.org/wiki/Unit_testing). Like anything, the more you do it, the better you will be at it. More importantly, you will begin to understand how to write code that is easier to test.\n\nWe'll use [TDD](https://en.wikipedia.org/wiki/Test-driven_development) for this part, and [Go's testing package](https://pkg.go.dev/testing).\n\n> [!lane]\n> If you're unsure how to write unit tests in Go, I highly recommend reading Dave Cheney's [excellent blog post](https://dave.cheney.net/2019/05/07/prefer-table-driven-tests) on the subject.\n\n## Assignment\n\n1. [ ] Create a new `cleanInput(text string) []string` function. For now it should just return an empty slice of strings.\n\nThe purpose of this function will be to split the user's input into \"words\" based on whitespace. It should also lowercase the input and trim any leading or trailing whitespace. For example:\n\n- `hello world` -> `[\"hello\", \"world\"]`\n- `Charmander Bulbasaur PIKACHU` -> `[\"charmander\", \"bulbasaur\", \"pikachu\"]`\n\n2. [ ] Create a new file for some unit tests. I called mine `repl_test.go` since I put `cleanInput` in a new file, `repl.go` (but you can organize your project your way, the only requirement is that the test file ends in `_test.go`). Create a test suite for the `cleanInput` function. Here is the basic structure of the test file:\n\n**All tests** go inside `TestXXX` functions that take a `*testing.T` argument:\n\n```go\nfunc TestCleanInput(t *testing.T) {\n    // ...\n}\n```\n\n> [!tip]\n> Remember to import the `testing` package if it isn't imported already.\n\nI like to start by creating a slice of test case structs, in this case:\n\n```go\ncases := []struct {\n\tinput    string\n\texpected []string\n}{\n\t{\n\t\tinput:    \"  hello  world  \",\n\t\texpected: []string{\"hello\", \"world\"},\n\t},\n\t// add more cases here\n}\n```\n\nThen I loop over the cases and run the tests:\n\n```go\nfor _, c := range cases {\n\tactual := cleanInput(c.input)\n\t// Check the length of the actual slice against the expected slice\n\t// if they don't match, use t.Errorf to print an error message\n\t// and fail the test\n\tfor i := range actual {\n\t\tword := actual[i]\n\t\texpectedWord := c.expected[i]\n\t\t// Check each word in the slice\n\t\t// if they don't match, use t.Errorf to print an error message\n\t\t// and fail the test\n\t}\n}\n```\n\n3. [ ] Once you have at least a few tests, run the tests using `go test ./...` from the root of the repo. We expect them to fail.\n4. [ ] Implement the `cleanInput` function to make the tests pass.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "go test ./...",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "ok"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "2d4ed658-b546-4bf1-b569-57e5e321c1ef",
+    "slug": "4-repl",
+    "title": "REPL",
+    "type": "type_cli",
+    "topics": [
+      "REPL",
+      "bufio.Scanner",
+      "os.Stdin",
+      "for Loop"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "81d1e8da-aaf8-4f92-a88a-53015e985b34",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 30,
+    "readme": "# REPL\n\n[REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) stands for \"read-eval-print loop\". It's a common type of program that allows for interactivity. You type in a command, and the program evaluates it and prints the result. You can then type in another command, and so on.\n\nYour native terminal's command line is a REPL! Our Pokedex will _also_ be a REPL. In this step, we're just going to build the bones of the REPL: a loop that parses and cleans an input and prints the first word back to the user. Here is what your program should be able to do after this step:\n\n```bash\n> go run .\nPokedex > help me\nhelp\nPokedex > Exit\nexit\nPokedex > WHAT even is a pokeman?\nwhat\n```\n\n_`Pokedex > ` is our own custom command line prompt. The program waited and recorded my input (in the first instance, `help me`) and didn't continue until I pressed `enter`_.\n\n## Assignment\n\n1. [ ] Remove your \"Hello, World!\" logic.\n2. [ ] Create support for a simple REPL\n   - [ ] Create a [bufio.Scanner](https://pkg.go.dev/bufio#Scanner) that reads from `os.Stdin`, for example: `scanner := bufio.NewScanner(os.Stdin)`. When you later call [`scanner.Scan`](https://pkg.go.dev/bufio#Scanner.Scan) it will block and wait for input until the user presses enter.\n   - [ ] Start an infinite `for` loop. This loop will execute once for every command the user types in (we don't want to exit the program after just one command)\n     - [ ] Use [fmt.Print](https://pkg.go.dev/fmt#Print) to print the prompt `Pokedex > ` **without** a newline character\n     - [ ] Use the scanner's [.Scan](https://pkg.go.dev/bufio#Scanner.Scan) and [.Text](https://pkg.go.dev/bufio#Scanner.Text) methods to get the user's input as a string\n     - [ ] Clean the user's input string\n     - [ ] Capture the first \"word\" of the input and use it to print: `Your command was: <first word>`\n3. [ ] Test your program. Here's my example session:\n\n```\nwagslane@MacBook-Pro-2 pokedexcli % go run .\nPokedex > well hello there\nYour command was: well\nPokedex > Hello there\nYour command was: hello\nPokedex > POKEMON was underrated\nYour command was: pokemon\n```\n\nYou can terminate the program by pressing `ctrl+c`.\n\n4. [ ] Run the CLI again and [`tee`](<https://en.wikipedia.org/wiki/Tee_(command)>) the output (copies the stdout) to a new file called `repl.log` (and `.gitignore` the log).\n\n```bash\ngo run . | tee repl.log\n```\n\n- Use this as the first input: `CHARMANDER is better than bulbasaur`.\n- Use this as the second input: `Pikachu is kinda mean to ash`.\n- Terminate the program by pressing `ctrl+c`.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "cat repl.log",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Your command was: charmander",
+                  "Your command was: pikachu"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": [
+                  "better",
+                  "kinda",
+                  "is"
+                ],
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "7d7ba7b9-f840-49e5-8767-42007b0a104f",
+    "slug": "5-help-exit",
+    "title": "Help and Exit",
+    "type": "type_cli",
+    "topics": [
+      "Go Maps",
+      "CLI Commands",
+      "Callback Functions",
+      "os.Exit"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "81d1e8da-aaf8-4f92-a88a-53015e985b34",
+    "chapterTitle": "REPL",
+    "isFree": true,
+    "difficulty": 32,
+    "readme": "# Help and Exit\n\nA REPL is only useful if it does something! Our REPL will work using the concept of \"commands\". A command is a single word that maps to an action.\n\nWe're going to support two commands in this step:\n\n- `help`: prints a help message describing how to use the REPL\n- `exit`: exits the program\n\n## Assignment\n\n1. [ ] Remove your logic that prints the first word (the command) back to the user\n2. [ ] Add a callback for the `exit` command. Commands in our REPL are just callback functions with no arguments, but that return an `error`. For example:\n\n```go\nfunc commandExit() error\n```\n\nThis function should print `Closing the Pokedex... Goodbye!` then immediately exit the program. I used [`os.Exit(0)`](https://pkg.go.dev/os#Exit).\n\n3. [ ] Create a \"registry\" of commands. This will give us a nice abstraction for managing the many commands we'll be adding. I created a struct type that describes a command:\n\n```go\ntype cliCommand struct {\n\tname        string\n\tdescription string\n\tcallback    func() error\n}\n```\n\nThen I created a `map` of supported commands:\n\n```go\nmap[string]cliCommand{\n    \"exit\": {\n        name:        \"exit\",\n        description: \"Exit the Pokedex\",\n        callback:    commandExit,\n    },\n}\n```\n\n4. [ ] Register the `exit` command. Update your REPL loop to use the \"command\" the user typed in to look up the callback function in the registry. If the command is found, call the callback (and print any errors that are returned). If there isn't a handler, just print `Unknown command`.\n5. [ ] Test your program (obviously).\n6. [ ] Add a `help` command, its callback, and register it. It should print:\n\n```\nWelcome to the Pokedex!\nUsage:\n\nhelp: Displays a help message\nexit: Exit the Pokedex\n```\n\n> [!tip]\n> You can dynamically generate the \"usage\" section by iterating over my registry of commands. That way the help command will always be up-to-date with the available commands.\n\n7. [ ] Test your code again manually.\n\n**Run and submit** the CLI tests from the **root of the repo**.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"help\\nexit\\n\" | go run .",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Welcome to the Pokedex!",
+                  "Closing the Pokedex... Goodbye!"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "813eafe1-2e1d-42a0-b358-53e0f4d4fdc8",
+    "slug": "1-pokeapi",
+    "title": "PokeAPI",
+    "type": "type_cli",
+    "topics": [
+      "net/http",
+      "HTTP GET",
+      "JSON Parsing",
+      "REST API"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "ff3bed7e-695d-42ef-abbc-1bf7970455f6",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 35,
+    "readme": "# PokeAPI\n\nNow we're going to use the [PokeAPI](https://pokeapi.co/) to get some real data from the Pokemon world!\n\n## Assignment\n\n1. [ ] Add the `map` command. It displays the names of `20` location areas in the Pokemon world. Each subsequent call to `map` should display the next 20 locations, and so on. This will be how we explore the Pokemon world. Example usage:\n\n```bash\nPokedex > map\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\n```\n\nHere are some pointers for implementing this command:\n\n- You'll need to use the [PokeAPI location-area endpoint](https://pokeapi.co/docs/v2#location-areas) to get the **location areas**. Note that this is a different endpoint than the \"location\" endpoint. Calling the endpoint without an `id` will return a batch of location areas.\n- Update all commands (e.g. `help`, `exit`, `map`) to now accept a pointer to a \"config\" struct as a parameter. This struct will contain the `Next` and `Previous` URLs that you'll need to paginate through location areas.\n- [Here's an example](https://pkg.go.dev/net/http#example-Get) of how to make a GET request in Go.\n- [Here's how to unmarshal](https://www.boot.dev/blog/golang/json-golang/#example-unmarshal-json-to-struct-decode) a slice of bytes into a Go struct.\n- You can make `GET` requests in your browser or by using [`curl`](https://curl.se/)! It's convenient for testing and debugging.\n\n2. [ ] Add the `mapb` (map back) command. It's similar to the `map` command, however, instead of displaying the _next_ 20 locations, it displays the _previous_ 20 locations. It's a way to go back.\n\nIf you're on the first \"page\" of results, this command should just print \"you're on the first page\". Example usage:\n\n```bash\nPokedex > map\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\nPokedex > map\nmt-coronet-1f-route-216\nmt-coronet-1f-route-211\nmt-coronet-b1f\ngreat-marsh-area-1\ngreat-marsh-area-2\ngreat-marsh-area-3\ngreat-marsh-area-4\ngreat-marsh-area-5\ngreat-marsh-area-6\nsolaceon-ruins-2f\nsolaceon-ruins-1f\nsolaceon-ruins-b1f-a\nsolaceon-ruins-b1f-b\nsolaceon-ruins-b1f-c\nsolaceon-ruins-b2f-a\nsolaceon-ruins-b2f-b\nsolaceon-ruins-b2f-c\nsolaceon-ruins-b3f-a\nsolaceon-ruins-b3f-b\nsolaceon-ruins-b3f-c\nPokedex > mapb\ncanalave-city-area\neterna-city-area\npastoria-city-area\nsunyshore-city-area\nsinnoh-pokemon-league-area\noreburgh-mine-1f\noreburgh-mine-b1f\nvalley-windworks-area\neterna-forest-area\nfuego-ironworks-area\nmt-coronet-1f-route-207\nmt-coronet-2f\nmt-coronet-3f\nmt-coronet-exterior-snowfall\nmt-coronet-exterior-blizzard\nmt-coronet-4f\nmt-coronet-4f-small-room\nmt-coronet-5f\nmt-coronet-6f\nmt-coronet-1f-from-exterior\n```\n\n**Run and submit** the CLI tests from the **root of the repo**.\n\n## Tips\n\n- [JSON lint](https://jsonlint.com/) is a useful tool for debugging JSON, it makes it easier to read.\n- [JSON to Go](https://mholt.github.io/json-to-go/) a useful tool for converting JSON to Go structs. You can use it to generate the structs you'll need to parse the PokeAPI response. Keep in mind it sometimes can't know the exact type of a field that you want, because there are multiple valid options. For nullable strings, use `*string`.\n- I recommend creating an [internal package](https://dave.cheney.net/2019/10/06/use-internal-packages-to-reduce-your-public-api-surface) that manages your PokeAPI interactions. It's not required, but it's a good organizational and architectural pattern.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"map\\nmap\\nmapb\\nexit\\n\" | go run .",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "canalave-city-area",
+                  "eterna-city-area"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "f2ba2b87-38fe-467c-abd7-14716f955169",
+    "slug": "2-caching",
+    "title": "Caching",
+    "type": "type_cli",
+    "topics": [
+      "Caching",
+      "sync.Mutex",
+      "time.Ticker",
+      "Goroutines"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "ff3bed7e-695d-42ef-abbc-1bf7970455f6",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 43,
+    "readme": "# Caching\n\nIt's time to implement [caching](<https://en.wikipedia.org/wiki/Cache_(computing)>)! This will make moving around the map feel a lot snappier. We'll be building a _flexible_ caching system to help with performance in future steps.\n\n## What Is a Cache?\n\nA cache temporarily stores data so that future requests for that data can be served faster.\n\nIn our case, we'll be caching responses from the PokeAPI so that when we need that same data again, we can grab it from memory instead of making another network request.\n\n## Assignment\n\n1. [ ] Create a new internal package called `pokecache` in your `internal` directory (if you haven't already created an `internal` directory in your project, do so now). This package will be responsible for all of our caching logic.\n\nI used a `Cache` struct to hold a `map[string]cacheEntry` and a mutex to protect the map across goroutines. A `cacheEntry` should be a struct with two fields:\n\n- `createdAt` - A [time.Time](https://pkg.go.dev/time#Time) that represents when the entry was created.\n- `val` - A `[]byte` that represents the raw data we're caching.\n\nYou'll probably want to expose a `NewCache()` function that creates a new cache with a configurable `interval` ([time.Duration](https://pkg.go.dev/time#Duration)).\n\n2. [ ] Create a `cache.Add()` method that adds a new entry to the cache. It should take a `key` (a `string`) and a `val` (a `[]byte`).\n3. [ ] Create a `cache.Get()` method that gets an entry from the cache. It should take a `key` (a `string`) and return a `[]byte` and a `bool`. The `bool` should be `true` if the entry was found and `false` if it wasn't.\n4. [ ] Create a `cache.reapLoop()` method that is called when the cache is created (by the `NewCache` function). Each time an `interval` (the `time.Duration` passed to `NewCache`) passes it should remove any entries that are older than the `interval`. This makes sure that the cache doesn't grow too large over time. For example, if the interval is 5 seconds, and an entry was added 7 seconds ago, that entry should be removed.\n\n> [!tip]\n> I used a [time.Ticker](https://pkg.go.dev/time#Ticker) to make this happen. If you want additional help, see the `Tips` section below.\n\nMaps are _not_ thread-safe in Go. You should use a [sync.Mutex](https://www.boot.dev/blog/golang/golang-mutex/) to lock access to the map when you're adding, getting entries or reaping entries. It's unlikely that you'll have issues because reaping only happens every ~5 seconds, but it's still _possible_, so you should make your cache package safe for concurrent use.\n\n5. [ ] Update your code that makes requests to the PokeAPI to use the cache. If you already have the data for a given URL (which is our cache key) in the cache, you should use that instead of making a new request. Whenever you do make a request, you should add the response to the cache.\n6. [ ] **Write at least 1 [test](https://go.dev/doc/tutorial/add-a-test) for your cache package**! The tip below should help you get started.\n7. [ ] Test your application manually to make sure that the cache works as expected. When you use the `map` command to get data for the first time there should be a noticeable waiting time. However, when you use `mapb` it should be instantaneous because the data for that page is already in the cache. Feel free to add some logging that informs you in the command line when the cache is being used.\n\n**Run and submit** the CLI tests from the **root of the repo**.\n\n## Tips\n\n### Clearing the Cache\n\nYou can use a [time.Ticker](https://pkg.go.dev/time#Ticker) inside a goroutine started by `NewCache`. In a loop like `for range ticker.C { ... }`, check the entries and remove any whose `createdAt` is older than the cache's `interval`.\n\n### Running Tests\n\nYou can run tests for all packages in a Go module by running `go test ./...` from the root of the module.\n\n```go\nfunc TestAddGet(t *testing.T) {\n\tconst interval = 5 * time.Second\n\tcases := []struct {\n\t\tkey string\n\t\tval []byte\n\t}{\n\t\t{\n\t\t\tkey: \"https://example.com\",\n\t\t\tval: []byte(\"testdata\"),\n\t\t},\n\t\t{\n\t\t\tkey: \"https://example.com/path\",\n\t\t\tval: []byte(\"moretestdata\"),\n\t\t},\n\t}\n\n\tfor i, c := range cases {\n\t\tt.Run(fmt.Sprintf(\"Test case %v\", i), func(t *testing.T) {\n\t\t\tcache := NewCache(interval)\n\t\t\tcache.Add(c.key, c.val)\n\t\t\tval, ok := cache.Get(c.key)\n\t\t\tif !ok {\n\t\t\t\tt.Errorf(\"expected to find key\")\n\t\t\t\treturn\n\t\t\t}\n\t\t\tif string(val) != string(c.val) {\n\t\t\t\tt.Errorf(\"expected to find value\")\n\t\t\t\treturn\n\t\t\t}\n\t\t})\n\t}\n}\n\nfunc TestReapLoop(t *testing.T) {\n\tconst baseTime = 5 * time.Millisecond\n\tconst waitTime = baseTime + 5*time.Millisecond\n\tcache := NewCache(baseTime)\n\tcache.Add(\"https://example.com\", []byte(\"testdata\"))\n\n\t_, ok := cache.Get(\"https://example.com\")\n\tif !ok {\n\t\tt.Errorf(\"expected to find key\")\n\t\treturn\n\t}\n\n\ttime.Sleep(waitTime)\n\n\t_, ok = cache.Get(\"https://example.com\")\n\tif ok {\n\t\tt.Errorf(\"expected to not find key\")\n\t\treturn\n\t}\n}\n```\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "go test ./...",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "ok"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 2
+  },
+  {
+    "uuid": "e53abbb4-5d8a-4feb-ba08-828f03311e51",
+    "slug": "3-explore",
+    "title": "Explore",
+    "type": "type_cli",
+    "topics": [
+      "REST API",
+      "JSON Parsing",
+      "Caching",
+      "CLI Arguments"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "ff3bed7e-695d-42ef-abbc-1bf7970455f6",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 38,
+    "readme": "# Explore\n\nAfter a user uses the `map` commands to find a location area, we want them to be able to see a **list of all the Pokémon** located there.\n\n## Assignment\n\nAdd an `explore` command. It takes the name of a location area as an argument.\n\n**Run and submit** the CLI tests.\n\n## Tips\n\n- Use the same [PokeAPI location-area endpoint](https://pokeapi.co/docs/v2#location-areas), but this time you'll need to pass the `name` of the location area being explored. By adding a `name` or `id`, the API will return _a lot_ more information about the location area.\n- Feel free to use tools like JSON lint and JSON to Go to help you parse the response.\n- Parse the Pokemon's names from the response and display them to the user.\n- Make sure to use the caching layer again! Re-exploring an area should be blazingly fast.\n- You'll need to alter the function signature of _all_ your commands to allow them to allow parameters. E.g. `explore <area_name>`\n\n**Example usage:**\n\n```bash\nPokedex > explore pastoria-city-area\nExploring pastoria-city-area...\nFound Pokemon:\n - tentacool\n - tentacruel\n - magikarp\n - gyarados\n - remoraid\n - octillery\n - wingull\n - pelipper\n - shellos\n - gastrodon\nPokedex >\n```\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"explore pastoria-city-area\\nexit\\n\" | go run .",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "tentacool",
+                  "tentacruel"
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 3
+  },
+  {
+    "uuid": "ed962683-cb2d-4989-99e9-5cfa144810b5",
+    "slug": "4-catch",
+    "title": "Catch",
+    "type": "type_cli",
+    "topics": [
+      "math/rand",
+      "Go Maps",
+      "REST API",
+      "JSON Parsing"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "ff3bed7e-695d-42ef-abbc-1bf7970455f6",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 40,
+    "readme": "# Catch\n\nIt's time to catch some pokemon! Catching Pokemon adds them to the user's Pokedex.\n\n## Assignment\n\n- [ ] **Add a `catch` command**. It takes the name of a Pokemon as an argument. _Example usage_:\n\n```bash\nPokedex > catch pikachu\nThrowing a Pokeball at pikachu...\npikachu escaped!\nPokedex > catch pikachu\nThrowing a Pokeball at pikachu...\npikachu was caught!\n```\n\n- [ ] Be sure to print the `Throwing a Pokeball at <pokemon>...` message before determining if the Pokemon was caught or not.\n- [ ] Use the [Pokemon endpoint](https://pokeapi.co/docs/v2#pokemon) to get information about a Pokemon by name.\n- [ ] Give the user a _chance_ to catch the Pokemon using the [math/rand package](https://pkg.go.dev/math/rand#Rand.Intn).\n- [ ] You can use the pokemon's \"base experience\" to determine the chance of catching it. The higher the base experience, the harder it should be to catch.\n- [ ] Once the Pokemon is caught, add it to the user's Pokedex. I used a `map[string]Pokemon` to keep track of caught Pokemon.\n- [ ] Test the `catch` command manually - make sure you can actually catch a Pokemon within a reasonable number of tries.\n\n**Run and submit** the CLI tests.\n",
+    "language": "",
+    "cliData": {
+      "ContainsCompleteDir": true,
+      "BaseURLDefault": null,
+      "Steps": [
+        {
+          "CLICommand": {
+            "Command": "printf \"catch squirtle\\nexit\\n\" | go run .",
+            "Tests": [
+              {
+                "ExitCode": 0,
+                "StdoutContainsAll": null,
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              },
+              {
+                "ExitCode": null,
+                "StdoutContainsAll": [
+                  "Throwing a Pokeball at squirtle..."
+                ],
+                "StdoutContainsNone": null,
+                "StdoutLinesGt": null,
+                "StdoutJq": null
+              }
+            ],
+            "SleepAfterMs": null,
+            "StdoutFilterTmdl": null
+          },
+          "HTTPRequest": null,
+          "NoPenaltyOnFail": false
+        }
+      ],
+      "AllowedOperatingSystems": [
+        "linux",
+        "darwin"
+      ]
+    },
+    "orderInChapter": 4
+  },
+  {
+    "uuid": "0911b406-0b43-4bfe-b60c-177d859093e1",
+    "slug": "5-inspect",
+    "title": "Inspect",
+    "type": "type_choice",
+    "topics": [
+      "Go Maps",
+      "String Formatting"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "ff3bed7e-695d-42ef-abbc-1bf7970455f6",
+    "chapterTitle": "Cache",
+    "isFree": true,
+    "difficulty": 37,
+    "readme": "# Inspect\n\nJust like in the Pokemon _game_, our Pokedex will only allow players to see details about a Pokemon if they have seen it before (or in our case, caught it)\n\n## Assignment\n\nAdd an `inspect` command. It takes the name of a Pokemon and prints the name, height, weight, stats and type(s) of the Pokemon. **Example usage**:\n\n```bash\nPokedex > inspect pidgey\nyou have not caught that pokemon\nPokedex > catch pidgey\nThrowing a Pokeball at pidgey...\npidgey was caught!\nPokedex > inspect pidgey\nName: pidgey\nHeight: 3\nWeight: 18\nStats:\n  -hp: 40\n  -attack: 45\n  -defense: 40\n  -special-attack: 35\n  -special-defense: 35\n  -speed: 56\nTypes:\n  - normal\n  - flying\n```\n\nYou should _not_ need to make an API call to get this information, since you should have already stored it when the user caught the Pokemon.\n\nIf the user has not caught the Pokemon, just print a message saying so.\n\n_Test this one manually! Move on when you're satisfied with your implementation._\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this lesson?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 5
+  },
+  {
+    "uuid": "104a68ca-cea7-42ef-9321-fb8270000db2",
+    "slug": "1-pokedex",
+    "title": "Pokedex",
+    "type": "type_choice",
+    "topics": [
+      "Go Maps",
+      "for range Loop"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "98eabaf2-743f-4797-86d1-07a45bb53ffc",
+    "chapterTitle": "Pokedex",
+    "isFree": true,
+    "difficulty": 36,
+    "readme": "# Pokedex\n\nThe _main purpose_ of a Pokedex is to keep track of all the Pokemon you've caught. _Gotta catch 'em all_!\n\n## Assignment\n\nAdd a `pokedex` command. It takes no arguments but prints a list of all the names of the Pokemon the user has caught. _Example usage_:\n\n```bash\nPokedex > catch pidgey\nThrowing a Pokeball at pidgey...\npidgey was caught!\nYou may now inspect it with the inspect command.\nPokedex > catch caterpie\nThrowing a Pokeball at caterpie...\ncaterpie was caught!\nYou may now inspect it with the inspect command.\nPokedex > pokedex\nYour Pokedex:\n - pidgey\n - caterpie\n```\n\n_Test your implementation manually! Move on when you're satisfied that it's working._\n",
+    "language": "",
+    "question": {
+      "question": "Have you completed this lesson?",
+      "answers": [
+        "Yes"
+      ],
+      "correctAnswer": "Yes"
+    },
+    "orderInChapter": 1
+  },
+  {
+    "uuid": "df9ba9c7-5a4c-4641-b707-24324a0f9d6d",
+    "slug": "2-submit",
+    "title": "Submit Your Repo",
+    "type": "type_github_checks",
+    "topics": [
+      "GitHub",
+      "Project Submission"
+    ],
+    "courseUUID": "b6ac3462-d76f-453b-bd5d-5d7fe07cdadb",
+    "courseSlug": "build-pokedex-cli-golang",
+    "courseTitle": "Build a Pokedex in Go",
+    "chapterUUID": "98eabaf2-743f-4797-86d1-07a45bb53ffc",
+    "chapterTitle": "Pokedex",
+    "isFree": true,
+    "difficulty": 18,
+    "readme": "# Submit Your Repo\n\n_Great work_! You've built a fully functional REPL and caching system for the PokeAPI. Now it's time to submit your work.\n\nYour link should look something like `https://github.com/github-username/repo-name`.\n\n## Ideas for Extending the Project\n\nYou don't have to extend this project, but if you're planning to make this something you add to your personal portfolio, you should consider making it your own by adding to it. Here are just a few ideas.\n\n- Update the CLI to support the \"up\" arrow to cycle through previous commands\n- Simulate battles between pokemon\n- Add more unit tests\n- Refactor your code to organize it better and make it more testable\n- Keep pokemon in a \"party\" and allow them to level up\n- Allow for pokemon that are caught to evolve after a set amount of time\n- Persist a user's Pokedex to disk so they can save progress between sessions\n- Use the PokeAPI to make exploration more interesting. For example, rather than typing the names of areas, maybe you are given choices of areas and just type \"left\" or \"right\"\n- Random encounters with wild pokemon\n- Adding support for different types of balls (Pokeballs, Great Balls, Ultra Balls, etc), which have different chances of catching pokemon\n",
+    "language": "",
+    "githubChecksData": {
+      "ContainsCompleteDir": false,
+      "Steps": [
+        {
+          "StepType": "submit_repo_for_course",
+          "BranchExistsData": null,
+          "PRExistsData": null,
+          "WorkflowStatusData": null,
+          "WorkflowLogsContainsData": null,
+          "FileContainsData": null
+        }
+      ],
+      "ShowcaseRepo": true
+    },
+    "orderInChapter": 2
+  }
+]
