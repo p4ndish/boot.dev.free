@@ -27,6 +27,12 @@ cd boot.dev.free
 docker compose up -d
 ```
 
+> If you see `container name already in use`, clean up any leftover containers:
+> ```bash
+> docker rm -f bootdev-clone-db bootdev-clone-api 2>/dev/null
+> docker compose up -d
+> ```
+
 This starts:
 - **PostgreSQL** on port `5433` (container: `bootdev-clone-db`)
 - **Go API** on port `8080` (container: `bootdev-clone-api`)
